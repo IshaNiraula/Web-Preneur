@@ -10,6 +10,7 @@ use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\PartnerController;
+use App\Http\Controllers\BlogCatController;
 
 
 /*
@@ -24,18 +25,10 @@ use App\Http\Controllers\PartnerController;
 */
 
 Route::get('/',[PageController::class,'homePage'])->name('home');
-Route::get('/about',[PageController::class,'aboutPage'])->name('about');
-Route::get('/news',[PageController::class,'newsPage'])->name('news');
-Route::get('/testimonials',[PageController::class,'testimonialPage'])->name('testimonials');
-Route::get('/blogs',[PageController::class,'blogPage'])->name('blogs');
-Route::get('/blog/{slug}',[PageController::class,'blogDetails'])->name('blogDetails');
-Route::get('/post/{slug}',[PageController::class,'postDetails'])->name('postDetails');
+Route::get('/post/{slug}',[PageController::class,'postDetail'])->name('post.show');
 Route::get('/galleries',[PageController::class,'galleryPage'])->name('galleries');
-Route::get('/contact',[PageController::class,'contactPage'])->name('contact');
-Route::post('contact',[ContactController::class,'contactMail'])->name('contact.mail');
-Auth::routes();
-Route::get('/services',[PageController::class,'servicePage'])->name('services');
-Route::get('/service/{slug}',[PageController::class,'serviceDetails'])->name('serviceDetails');
+Route::get('/blog/category/{slug}',[PageController::class,'blogCategory'])->name('blog.category');
+
 Route::get('/thank-you',[PageController::class,'thankYouPage']);
 Route::middleware('auth')->name('admin.')->group(function() {
     Route::get('/admin/dashboard',[PageController::class,'dashboard']);
@@ -84,6 +77,17 @@ Route::middleware('auth')->name('admin.')->group(function() {
     Route::post('/admin/team/update/{id}',[TeamController::class,'update'])->name('team.update');
     Route::post('/admin/team/delete/{id}',[TeamController::class,'destroy'])->name('team.delete');
 
+     //category controller
+     Route::get('/admin/category/list',[BlogCatController::class,'index'])->name('category.list');
+     Route::get('/admin/category/add',[BlogCatController::class,'create'])->name('category.add');
+     Route::post('/admin/category/add',[BlogCatController::class,'store'])->name('category.store');
+     Route::get('/admin/category/edit/{slug}',[BlogCatController::class,'edit'])->name('category.edit');
+     Route::post('/admin/category/update/{id}',[BlogCatController::class,'update'])->name('category.update');
+     Route::post('/admin/category/delete/{id}',[BlogCatController::class,'destroy'])->name('category.delete');
+
  });
 
+
+
+Auth::routes();
 

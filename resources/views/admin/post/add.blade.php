@@ -33,11 +33,11 @@
                         </div>
                         <div class="form-group">
                             <label for="category">Category</label>
-                            <select name="category" id="" class="form-control">
+                            <select name="category_slug" id="" class="form-control">
                                 <option value="" selected>choose category</option>
-                                <option value="service">Service</option>
-                                <option value="blogs">Blogs</option>
-                                <option value="about">About-us</option>
+                                @foreach($categories as $category)
+                                    <option value="{{$category->slug}}">{{$category->name}}</option>
+                                @endforeach
                             </select>
                             <span class="text-danger">
                                 @error('category')
@@ -55,15 +55,6 @@
                             </span>
                         </div>
 
-                        <div class="form-group">
-                            <label for="homepage_desc">Home Page Description</label>
-                            <textarea class="form-control" id="homepage_desc" placeholder="Enter the Home Page Description" name="homepage_desc"></textarea>
-                            <span class="text-danger">
-                                @error('homepage_desc')
-                                    {{ $message }}
-                                @enderror
-                            </span>
-                        </div>
 
                         <div class="form-group">
                             <label for="exampleInputFile">File input</label>
@@ -89,8 +80,8 @@
 
                         <div class="form-group">
                             {{-- <label for="title">Position</label> --}}
-                            <input type="hidden" class="form-control" id="title" placeholder="Enter title"
-                                name="position" value="0">
+                            <input type="number" class="form-control" id="position" placeholder="Enter title"
+                                name="position">
                             <span class="text-danger">
                                 @error('position')
                                     {{ $position }}

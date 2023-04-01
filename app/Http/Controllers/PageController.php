@@ -9,19 +9,16 @@ use App\Models\Slider;
 use App\Models\Gallery;
 use App\Models\Team;
 use App\Models\Testimonial;
+use App\Models\PostCategory;
 
 
 class PageController extends Controller
 {
     public function homePage () {
-        $blogs = Post::where('category','blogs')->get();
-        $sliders = Slider::all();
-        $services = Post::where('status','=','active')->where('category','=','service')->get();
-        $about = Post::where('category','about')->first();
-        $galleries = Gallery::all();
-        $teams = Team::take(4)->get();
-        $testimonials = Testimonial::all();
-        return view('client.index')->with(['services' => $services,'about' => $about,'sliders' => $sliders,'galleries' => $galleries,'blogs'=>$blogs,'teams'=>$teams,'testimonials'=>$testimonials]);
+        $top_posts = Post::offset(0)->limit(4)->get();
+        $sidebarPosts = Post::offset(4)->limit(3)->get();
+        $sl_posts = Post::offset(7)->limit(6)->get();
+        return view('client.index',compact('top_posts','sidebarPosts','sl_posts'));
     }
 
     public function dashboard() {
@@ -37,45 +34,21 @@ class PageController extends Controller
     return view('client.gallery',compact('galleries'));
     }
 
-    public function blogDetails($slug){
-        // $blogs = Post::where('category','blogs')->get();
-        // $blog = Post::where('slug',$slug)->first();
-        // if($blog) {
-            return view('client.blog-detail');
-        // }else{
-        //     abort(404);
-        // }
-    }
-
-    public function newsPage() {
-        $news = Post::where('category','news')->get();
-        return view('client.news',compact('news'));
-    } 
-
-    public function servicePage() {
-         $services = Post::where('category','service')->get();
-         return view('client.service')->with(['services'=>$services]);
-    }
-
-    public function serviceDetails($slug){
-        $services = Post::where('category','service')->get();
-        $service = Post::where('slug',$slug)->first();
-        if($service) {
-            return view('client.service-details',compact('services','service'));
+    public function postDetail($slug){
+        $posts = Post::take(5)->get();
+        $post = Post::where('slug',$slug)->first();
+        $categories = PostCategory::all();
+        if($post) {
+            return view('client.post-detail',compact('post','posts','categories'));
         }else{
             abort(404);
         }
     }
 
-    public function aboutPage () {
-        return view('client.about');
-    }
-
-    public function contactPage() {
-        return view('client.contact');
-    }
-    public function thankYouPage() {
-        return view('client.thank_you');
+    public function blogCategory($slug) {
+        $posts = Post::where('category_slug',$slug)->paginate(6);
+        $categories = PostCategory::all();
+        return view('client.blog-category',compact('posts','categories'));
     }
 
 }

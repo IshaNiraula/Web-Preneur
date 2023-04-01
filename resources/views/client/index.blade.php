@@ -1,7 +1,7 @@
    @extends('client.layouts.master')
    @section('content')
        <!-- Start Linka Top News Area -->
-       <section class="linka-top-news-area pt-100 pb-70">
+       {{-- <section class="linka-top-news-area pt-100 pb-70">
            <div class="container">
                <div class="row">
                    <div class="col-lg-3">
@@ -167,222 +167,78 @@
                    </div>
                </div>
            </div>
-       </section>
+       </section> --}}
        <!-- End Linka Top News Area -->
 
        <!-- Start Latest Project Area -->
        <section class="latest-project-area pt-100 pb-70">
            <div class="container">
                <div class="section-title">
-                   <h2>Recent News</h2>
+                   <h2>Digital Marketing</h2>
                </div>
-
                <div class="row">
                    <div class="col-lg-8">
                        <div class="row">
-                           <div class="col-lg-6 col-md-6">
-                               <div class="single-featured">
-                                   <a href="post-style-one.html" class="blog-img">
-                                       <img src="assets/img/home-four/recent-news/1.jpg" alt="Image">
-                                       <span>News</span>
-                                   </a>
-
-                                   <div class="featured-content">
-                                       <ul>
-                                           <li>
-                                               <a href="#" class="admin">
-                                                   <i class="bx bx-user"></i>
-                                                   Admin By Jhona Walker
-                                               </a>
-                                           </li>
-                                           <li>
-                                               <i class="bx bx-calendar"></i>
-                                               25 Jun 2020
-                                           </li>
-                                       </ul>
-
-                                       <a href="post-style-one.html">
-                                           <h3>Relationships Aren’t Easy, But They’re Worth It</h3>
+                           @foreach ($top_posts as $post)
+                               <div class="col-lg-6 col-md-6">
+                                   <div class="single-featured">
+                                       <a href="{{ route('post.show', ['slug' => $post->slug]) }}" class="blog-img">
+                                           <img src="{{ env('APP_URL') . 'uploads/post/' . $post->filename }}"
+                                               alt="{{ $post->title }}" class="w-100" />
+                                           <span>{{ $post->category_slug }}</span>
                                        </a>
 
-                                       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere laboriosam eveniet
-                                           debitis tenetur, eaque aliquid recusandae expedita. Porro dicta delectus</p>
+                                       <div class="featured-content">
+                                           <ul>
+                                               <li>
+                                                   <a href="#" class="admin">
+                                                       <i class="bx bx-user"></i>
+                                                       Admin By Chandan Thakur
+                                                   </a>
+                                               </li>
+                                               <li>
+                                                   <i class="bx bx-calendar"></i>
+                                                   {{ $post->created_at->toDateString() }}
+                                               </li>
+                                           </ul>
 
-                                       <a href="post-style-one.html" class="read-more">Read More</a>
+                                           <a href="{{ route('post.show', ['slug' => $post->slug]) }}">
+                                               <h3>{{ $post->title }}</h3>
+                                           </a>
+
+                                           <p> {!! Str::words($post->description, 15, ' ...') !!}</p>
+
+                                           <a href="{{ route('post.show', ['slug' => $post->slug]) }}"
+                                               class="read-more">Read More</a>
+                                       </div>
                                    </div>
                                </div>
-                           </div>
-
-                           <div class="col-lg-6 col-md-6">
-                               <div class="single-featured">
-                                   <a href="post-style-one.html" class="blog-img">
-                                       <img src="assets/img/home-four/recent-news/2.jpg" alt="Image">
-                                       <span>News</span>
-                                   </a>
-
-                                   <div class="featured-content">
-                                       <ul>
-                                           <li>
-                                               <a href="#" class="admin">
-                                                   <i class="bx bx-user"></i>
-                                                   Admin By Kilva Walker
-                                               </a>
-                                           </li>
-                                           <li>
-                                               <i class="bx bx-calendar"></i>
-                                               26 Jun 2020
-                                           </li>
-                                       </ul>
-
-                                       <a href="post-style-one.html">
-                                           <h3>Want to Strengthen Your Relationship? Embrace the Little Things</h3>
-                                       </a>
-
-                                       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere laboriosam eveniet
-                                           debitis tenetur, eaque aliquid recusandae expedita. Porro dicta delectus</p>
-
-                                       <a href="post-style-one.html" class="read-more">Read More</a>
-                                   </div>
-                               </div>
-                           </div>
-
-                           <div class="col-lg-6 col-md-6">
-                               <div class="single-featured">
-                                   <a href="post-style-one.html" class="blog-img">
-                                       <img src="assets/img/home-four/recent-news/3.jpg" alt="Image">
-                                       <span>News</span>
-                                   </a>
-
-                                   <div class="featured-content">
-                                       <ul>
-                                           <li>
-                                               <a href="#" class="admin">
-                                                   <i class="bx bx-user"></i>
-                                                   Admin By Jexk Walker
-                                               </a>
-                                           </li>
-                                           <li>
-                                               <i class="bx bx-calendar"></i>
-                                               27 Jun 2020
-                                           </li>
-                                       </ul>
-
-                                       <a href="post-style-one.html">
-                                           <h3>Slice of Tokyo: How Japan Became a Pizza Hotshot</h3>
-                                       </a>
-
-                                       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere laboriosam eveniet
-                                           debitis tenetur, eaque aliquid recusandae expedita. Porro dicta delectus</p>
-
-                                       <a href="post-style-one.html" class="read-more">Read More</a>
-                                   </div>
-                               </div>
-                           </div>
-
-                           <div class="col-lg-6 col-md-6">
-                               <div class="single-featured">
-                                   <a href="post-style-one.html" class="blog-img">
-                                       <img src="assets/img/home-four/recent-news/4.jpg" alt="Image">
-                                       <span>News</span>
-                                   </a>
-
-                                   <div class="featured-content">
-                                       <ul>
-                                           <li>
-                                               <a href="#" class="admin">
-                                                   <i class="bx bx-user"></i>
-                                                   Admin By Anna Dew
-                                               </a>
-                                           </li>
-                                           <li>
-                                               <i class="bx bx-calendar"></i>
-                                               28 Jun 2020
-                                           </li>
-                                       </ul>
-
-                                       <a href="post-style-one.html">
-                                           <h3>I Thought My Glasses Made Me Unattractiveness</h3>
-                                       </a>
-
-                                       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere laboriosam eveniet
-                                           debitis tenetur, eaque aliquid recusandae expedita. Porro dicta delectus</p>
-
-                                       <a href="post-style-one.html" class="read-more">Read More</a>
-                                   </div>
-                               </div>
-                           </div>
+                           @endforeach
                        </div>
                    </div>
 
                    <div class="col-lg-4">
                        <div class="latest-project-right-sidebar">
-                           <div class="right-blog-editor media align-items-center">
-                               <a href="post-style-one.html">
-                                   <img src="assets/img/home-four/recent-news/5.jpg" alt="Image">
-                               </a>
 
-                               <div class="right-blog-content">
-                                   <a href="blog-detauls.html">
-                                       <h3>Advantage & Disadvantages of having Matchbook</h3>
+                           @foreach ($sidebarPosts as $post)
+                               <div class="right-blog-editor media align-items-center">
+                                   <a href="{{ route('post.show', ['slug' => $post->slug]) }}">
+                                       <img src="{{ env('APP_URL') . 'uploads/post/' . $post->filename }}"
+                                           alt="{{ $post->title }}" class="sidebar-img" />
                                    </a>
 
-                                   <span>
-                                       <i class="bx bx-calendar"></i>
-                                       25 Jun 2020
-                                   </span>
+                                   <div class="right-blog-content">
+                                       <a href="{{ route('post.show', ['slug' => $post->slug]) }}">
+                                           <h3>{{ $post->title }}</h3>
+                                       </a>
+
+                                       <span>
+                                           <i class="bx bx-calendar"></i>
+                                           {{ $post->created_at->toDateString() }}
+                                       </span>
+                                   </div>
                                </div>
-                           </div>
-
-                           <div class="right-blog-editor media align-items-center">
-                               <a href="post-style-one.html">
-                                   <img src="assets/img/home-four/recent-news/6.jpg" alt="Image">
-                               </a>
-
-                               <div class="right-blog-content">
-                                   <a href="blog-detauls.html">
-                                       <h3>The Scariest Moment is Always Just Before You</h3>
-                                   </a>
-
-                                   <span>
-                                       <i class="bx bx-calendar"></i>
-                                       26 Jun 2020
-                                   </span>
-                               </div>
-                           </div>
-
-                           <div class="right-blog-editor media align-items-center">
-                               <a href="post-style-one.html">
-                                   <img src="assets/img/home-four/recent-news/7.jpg" alt="Image">
-                               </a>
-
-                               <div class="right-blog-content">
-                                   <a href="blog-detauls.html">
-                                       <h3>The Expert's Guide To Surviving long Haul Flights</h3>
-                                   </a>
-
-                                   <span>
-                                       <i class="bx bx-calendar"></i>
-                                       27 Jun 2020
-                                   </span>
-                               </div>
-                           </div>
-
-                           <div class="right-blog-editor media align-items-center">
-                               <a href="post-style-one.html">
-                                   <img src="assets/img/home-four/recent-news/6.jpg" alt="Image">
-                               </a>
-
-                               <div class="right-blog-content">
-                                   <a href="blog-detauls.html">
-                                       <h3>The Scariest Moment is Always Just Before You</h3>
-                                   </a>
-
-                                   <span>
-                                       <i class="bx bx-calendar"></i>
-                                       27 Jun 2020
-                                   </span>
-                               </div>
-                           </div>
+                           @endforeach
 
                            <div class="light-news mb-30">
                                <img src="assets/img/home-four/recent-news/8.jpg" alt="Image">
@@ -422,79 +278,182 @@
            </div>
        </div>
        <!-- End Adds Area -->
-
-       <!-- Start Live News Stream Area -->
-       <section class="live-news-stream-area pt-100 pb-70">
+       <section class="main-inspiration-area pb-100">
            <div class="container">
-               <div class="video-stream text-center pb-100">
-                   <a href="https://www.youtube.com/watch?v=mLVJr1au7uY" class="popup-youtube video-btn">
-                       <i class="bx bxs-video"></i>
-                   </a>
-                   <h3 class="live-start">Live News Stream</h3>
+               <div class="section-title text-center">
+                   <h2>Inspiration</h2>
                </div>
-
                <div class="row">
-                   <div class="col-lg-4 col-sm-6">
-                       <div class="right-blog-editor pt-0 pb-0">
-                           <a href="post-style-one.html">
-                               <img src="assets/img/home-two/blog-list/1.jpg" alt="Image">
-                           </a>
+                   <div class="col-lg-4 col-md-6 plr-5">
+                       <div class="single-main-blog-item mb-8">
+                           <img alt="Image" src="assets/img/home-two/inspiration/1.jpg">
+                           <span class="blog-link">
+                               Technology
+                           </span>
 
-                           <div class="right-blog-content">
-                               <a href="blog-detauls.html">
-                                   <h3>Advantage & Disadvantages of having Matchbook</h3>
+                           <div class="main-blog-content">
+                               <a href="post-style-one.html">
+                                   <h3>The Two Most Important Tools to Reconnect With Your Partner</h3>
                                </a>
 
-                               <span>
-                                   <i class="bx bx-calendar"></i>
-                                   25 Jun 2020
-                               </span>
+                               <ul>
+                                   <li>
+                                       <a class="admin" href="#">
+                                           <i class="bx bx-user"></i>
+                                           By Jhona Walker
+                                       </a>
+                                   </li>
+                                   <li>
+                                       <i class="bx bx-calendar"></i>
+                                       25 Jun 2020
+                                   </li>
+                               </ul>
                            </div>
                        </div>
                    </div>
 
-                   <div class="col-lg-4 col-sm-6">
-                       <div class="right-blog-editor pt-0 pb-0">
-                           <a href="post-style-one.html">
-                               <img src="assets/img/home-two/blog-list/2.jpg" alt="Image">
-                           </a>
+                   <div class="col-lg-4 col-md-6 plr-5">
+                       <div class="single-main-blog-item mb-8">
+                           <img alt="Image" src="assets/img/home-two/inspiration/2.jpg">
+                           <span class="blog-link">
+                               Technology
+                           </span>
 
-                           <div class="right-blog-content">
-                               <a href="blog-detauls.html">
-                                   <h3>The Scariest Moment is Always Just Before You</h3>
+                           <div class="main-blog-content">
+                               <a href="post-style-one.html">
+                                   <h3>What Would It Take To Shut-down the Internet</h3>
                                </a>
 
-                               <span>
-                                   <i class="bx bx-calendar"></i>
-                                   26 Jun 2020
-                               </span>
+                               <ul>
+                                   <li>
+                                       <a class="admin" href="#">
+                                           <i class="bx bx-user"></i>
+                                           By Jhona Walker
+                                       </a>
+                                   </li>
+                                   <li>
+                                       <i class="bx bx-calendar"></i>
+                                       26 Jun 2020
+                                   </li>
+                               </ul>
                            </div>
                        </div>
                    </div>
 
-                   <div class="col-lg-4 col-sm-6 offset-sm-3 offset-lg-0">
-                       <div class="right-blog-editor pt-0 pb-0">
-                           <a href="post-style-one.html">
-                               <img src="assets/img/home-two/blog-list/3.jpg" alt="Image">
-                           </a>
+                   <div class="col-lg-4 col-md-6 plr-5">
+                       <div class="single-main-blog-item mb-8">
+                           <img alt="Image" src="assets/img/home-two/inspiration/6.jpg">
+                           <span class="blog-link">
+                               Technology
+                           </span>
 
-                           <div class="right-blog-content">
-                               <a href="blog-detauls.html">
-                                   <h3>The Expert's Guide To Surviving long Haul Flights</h3>
+                           <div class="main-blog-content">
+                               <a href="post-style-one.html">
+                                   <h3>Genderless Kei – Japan’s Hot New Fashion Trend</h3>
                                </a>
 
-                               <span>
-                                   <i class="bx bx-calendar"></i>
-                                   27 Jun 2020
-                               </span>
+                               <ul>
+                                   <li>
+                                       <a class="admin" href="#">
+                                           <i class="bx bx-user"></i>
+                                           By Jhona Walker
+                                       </a>
+                                   </li>
+                                   <li>
+                                       <i class="bx bx-calendar"></i>
+                                       30 Jun 2020
+                                   </li>
+                               </ul>
+                           </div>
+                       </div>
+                   </div>
+
+                   <div class="col-lg-4 col-md-6 plr-5">
+                       <div class="single-main-blog-item mb-8">
+                           <img alt="Image" src="assets/img/home-two/inspiration/4.jpg">
+                           <span class="blog-link">
+                               Technology
+                           </span>
+
+                           <div class="main-blog-content">
+                               <a href="post-style-one.html">
+                                   <h3>Extreme Athleticism Is the New Midlife Crisis</h3>
+                               </a>
+
+                               <ul>
+                                   <li>
+                                       <a class="admin" href="#">
+                                           <i class="bx bx-user"></i>
+                                           By Jhona Walker
+                                       </a>
+                                   </li>
+                                   <li>
+                                       <i class="bx bx-calendar"></i>
+                                       30 Jun 2020
+                                   </li>
+                               </ul>
+                           </div>
+                       </div>
+                   </div>
+
+                   <div class="col-lg-4 col-md-6 plr-5">
+                       <div class="single-main-blog-item mb-8">
+                           <img alt="Image" src="assets/img/home-two/inspiration/5.jpg">
+                           <span class="blog-link">
+                               Technology
+                           </span>
+
+                           <div class="main-blog-content">
+                               <a href="post-style-one.html">
+                                   <h3>The 4 convolution's Neural Network Models That Can Classify</h3>
+                               </a>
+
+                               <ul>
+                                   <li>
+                                       <a class="admin" href="#">
+                                           <i class="bx bx-user"></i>
+                                           By Jhona Walker
+                                       </a>
+                                   </li>
+                                   <li>
+                                       <i class="bx bx-calendar"></i>
+                                       30 Jun 2020
+                                   </li>
+                               </ul>
+                           </div>
+                       </div>
+                   </div>
+
+                   <div class="col-lg-4 col-md-6 plr-5">
+                       <div class="single-main-blog-item mb-8">
+                           <img alt="Image" src="assets/img/home-two/inspiration/6.jpg">
+                           <span class="blog-link">
+                               Technology
+                           </span>
+
+                           <div class="main-blog-content">
+                               <a href="post-style-one.html">
+                                   <h3>Do You Want Stronger Friendships, a More Balanced Mindset?</h3>
+                               </a>
+
+                               <ul>
+                                   <li>
+                                       <a class="admin" href="#">
+                                           <i class="bx bx-user"></i>
+                                           By Jhona Walker
+                                       </a>
+                                   </li>
+                                   <li>
+                                       <i class="bx bx-calendar"></i>
+                                       30 Jun 2020
+                                   </li>
+                               </ul>
                            </div>
                        </div>
                    </div>
                </div>
            </div>
        </section>
-       <!-- End Live News Stream Area -->
-
        <!-- Start Latest Project Area -->
        <section class="latest-project-area four pt-100 pb-70">
            <div class="container">
@@ -503,186 +462,38 @@
                </div>
 
                <div class="row">
-                   <div class="col-lg-4 col-md-6">
-                       <div class="single-featured">
-                           <a href="post-style-one.html" class="blog-img">
-                               <img src="assets/img/home-four/politics/1.jpg" alt="Image">
-                               <span>Cases</span>
-                           </a>
-
-                           <div class="featured-content">
-                               <ul>
-                                   <li>
-                                       <a href="#" class="admin">
-                                           <i class="bx bx-user"></i>
-                                           Admin By Jhona Walker
-                                       </a>
-                                   </li>
-                                   <li>
-                                       <i class="bx bx-calendar"></i>
-                                       25 Jun 2020
-                                   </li>
-                               </ul>
-
-                               <a href="post-style-one.html">
-                                   <h3>Understanding your dog for dummies cheatsheet</h3>
+                   @foreach ($sl_posts as $post)
+                       <div class="col-lg-4 col-md-6">
+                           <div class="single-featured">
+                               <a href="{{ route('post.show', ['slug' => $post->slug]) }}" class="blog-img">
+                                   <img src="{{ env('APP_URL') . 'uploads/post/' . $post->filename }}"
+                                       alt="{{ $post->title }}" class="w-100" />
+                                   <span>{{ $post->category_slug }}</span>
                                </a>
+                               <div class="featured-content">
+                                   <ul>
+                                       <li>
+                                           <a href="#" class="admin">
+                                               <i class="bx bx-user"></i>
+                                               Admin By Chandan Thakur
+                                           </a>
+                                       </li>
+                                       <li>
+                                           <i class="bx bx-calendar"></i>
+                                           {{ $post->created_at->toDateString() }}
+                                       </li>
+                                   </ul>
 
-                               <a href="post-style-one.html" class="read-more">Read More</a>
+                                   <a href="{{ route('post.show', ['slug' => $post->slug]) }}">
+                                       <h3>{{ $post->title }}</h3>
+                                   </a>
+
+                                   <a href="{{ route('post.show', ['slug' => $post->slug]) }}" class="read-more">Read
+                                       More</a>
+                               </div>
                            </div>
                        </div>
-                   </div>
-
-                   <div class="col-lg-4 col-md-6">
-                       <div class="single-featured">
-                           <a href="post-style-one.html" class="blog-img">
-                               <img src="assets/img/home-four/politics/2.jpg" alt="Image">
-                               <span>Protestor</span>
-                           </a>
-
-                           <div class="featured-content">
-                               <ul>
-                                   <li>
-                                       <a href="#" class="admin">
-                                           <i class="bx bx-user"></i>
-                                           Admin By Kilva Walker
-                                       </a>
-                                   </li>
-                                   <li>
-                                       <i class="bx bx-calendar"></i>
-                                       26 Jun 2020
-                                   </li>
-                               </ul>
-
-                               <a href="post-style-one.html">
-                                   <h3>The End of the Bonus Culture Come to Street</h3>
-                               </a>
-
-                               <a href="post-style-one.html" class="read-more">Read More</a>
-                           </div>
-                       </div>
-                   </div>
-
-                   <div class="col-lg-4 col-md-6">
-                       <div class="single-featured">
-                           <a href="post-style-one.html" class="blog-img">
-                               <img src="assets/img/home-four/politics/3.jpg" alt="Image">
-                               <span>Televison</span>
-                           </a>
-
-                           <div class="featured-content">
-                               <ul>
-                                   <li>
-                                       <a href="#" class="admin">
-                                           <i class="bx bx-user"></i>
-                                           Admin By Jexk Walker
-                                       </a>
-                                   </li>
-                                   <li>
-                                       <i class="bx bx-calendar"></i>
-                                       27 Jun 2020
-                                   </li>
-                               </ul>
-
-                               <a href="post-style-one.html">
-                                   <h3>Joy is a Net of Love by Which You Can Catch Souls</h3>
-                               </a>
-
-                               <a href="post-style-one.html" class="read-more">Read More</a>
-                           </div>
-                       </div>
-                   </div>
-
-                   <div class="col-lg-4 col-md-6">
-                       <div class="single-featured">
-                           <a href="post-style-one.html" class="blog-img">
-                               <img src="assets/img/home-four/politics/4.jpg" alt="Image">
-                               <span>Television</span>
-                           </a>
-
-                           <div class="featured-content">
-                               <ul>
-                                   <li>
-                                       <a href="#" class="admin">
-                                           <i class="bx bx-user"></i>
-                                           Admin By Jexk Walker
-                                       </a>
-                                   </li>
-                                   <li>
-                                       <i class="bx bx-calendar"></i>
-                                       27 Jun 2020
-                                   </li>
-                               </ul>
-
-                               <a href="post-style-one.html">
-                                   <h3>Family-owned Florist Business Looks to Bloom in Chesterton</h3>
-                               </a>
-
-                               <a href="post-style-one.html" class="read-more">Read More</a>
-                           </div>
-                       </div>
-                   </div>
-
-                   <div class="col-lg-4 col-md-6">
-                       <div class="single-featured">
-                           <a href="post-style-one.html" class="blog-img">
-                               <img src="assets/img/home-four/politics/5.jpg" alt="Image">
-                               <span>news</span>
-                           </a>
-
-                           <div class="featured-content">
-                               <ul>
-                                   <li>
-                                       <a href="#" class="admin">
-                                           <i class="bx bx-user"></i>
-                                           Admin By Jexk Walker
-                                       </a>
-                                   </li>
-                                   <li>
-                                       <i class="bx bx-calendar"></i>
-                                       27 Jun 2020
-                                   </li>
-                               </ul>
-
-
-                               <a href="post-style-one.html">
-                                   <h3>The Scariest Moment is Always Just Before You Start</h3>
-                               </a>
-
-                               <a href="post-style-one.html" class="read-more">Read More</a>
-                           </div>
-                       </div>
-                   </div>
-
-                   <div class="col-lg-4 col-md-6">
-                       <div class="single-featured">
-                           <a href="post-style-one.html" class="blog-img">
-                               <img src="assets/img/home-four/politics/6.jpg" alt="Image">
-                               <span>news</span>
-                           </a>
-
-                           <div class="featured-content">
-                               <ul>
-                                   <li>
-                                       <a href="#" class="admin">
-                                           <i class="bx bx-user"></i>
-                                           Admin By Jexk Walker
-                                       </a>
-                                   </li>
-                                   <li>
-                                       <i class="bx bx-calendar"></i>
-                                       27 Jun 2020
-                                   </li>
-                               </ul>
-
-                               <a href="post-style-one.html">
-                                   <h3>Going Bald Taught Me Not to Care About Stupid Shit</h3>
-                               </a>
-
-                               <a href="post-style-one.html" class="read-more">Read More</a>
-                           </div>
-                       </div>
-                   </div>
+                   @endforeach
                </div>
            </div>
        </section>

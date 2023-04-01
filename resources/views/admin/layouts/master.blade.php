@@ -44,7 +44,8 @@
                 <!-- Sidebar user panel (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img src="{{ asset('logo.png') }}" class="img-circle elevation-2 w-100 p-2" alt="User Image">
+                        {{-- <img src="{{ asset('logo.png') }}" class="img-circle elevation-2 w-100 p-2" alt="User Image"> --}}
+                        <p>Blog-Post</p>
                     </div>
 
                 </div>
@@ -71,6 +72,30 @@
                                     <a href="{{ route('admin.slider.add') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Add slider</p>
+                                    </a>
+                                </li>
+                            </ul>
+
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-copy"></i>
+                                <p>
+                                    Category
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{ route('admin.category.list') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>View Category</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('admin.category.add') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Add Category</p>
                                     </a>
                                 </li>
                             </ul>

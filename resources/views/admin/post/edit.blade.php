@@ -36,12 +36,13 @@
                         </div>
                         <div class="form-group">
                             <label for="category">Category</label>
-                            <select name="category" id="" class="form-control">
-                                <option {{ $post->category === 'service' ? 'selected' : null }} value="service">Service
+                            <select name="category_slug" id="" class="form-control">
+                                <option value="">select category
                                 </option>
-                                <option {{ $post->category === 'blog' ? 'selected' : null }} value="blog">Blogs</option>
-                                <option {{ $post->category === 'about' ? 'selected' : null }} value="about">About-us
-                                </option>
+                                @foreach ($categories as $category)
+                                    <option {{ $post->category_slug === $category->slug ? 'selected' : null }}
+                                        value="{{ $category->slug }}">{{ $category->name }}</option>
+                                @endforeach
                             </select>
                             <span class="text-danger">
                                 @error('category')
@@ -58,15 +59,7 @@
                                 @enderror
                             </span>
                         </div>
-                        <div class="form-group">
-                            <label for="homepage_desc">Home Page Description</label>
-                            <textarea class="form-control" id="homepage_desc" placeholder="Enter the Home Page Description" name="homepage_desc">{{ $post->homepage_desc }}</textarea>
-                            <span class="text-danger">
-                                @error('homepage_desc')
-                                    {{ $message }}
-                                @enderror
-                            </span>
-                        </div>
+
                         <div class="form-group">
                             <label for="exampleInputFile">File input</label>
                             <div class="input-group">
@@ -93,8 +86,8 @@
 
                         <div class="form-group">
                             {{-- <label for="title">Position</label> --}}
-                            <input type="hidden" class="form-control" id="title" placeholder="Enter title"
-                                name="position" value="0">
+                            <input type="number" class="form-control" id="position" placeholder="Enter position"
+                                name="position" value="{{ $post->position }}">
                             <span class="text-danger">
                                 @error('position')
                                     {{ $position }}

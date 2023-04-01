@@ -1,25 +1,24 @@
 @extends('client.layouts.master')
 @section('content')
     <!-- Start Page Title Area -->
-    <div class="page-title-area bg-12">
+    {{-- <div class="page-title-area bg-12">
         <div class="container">
             <div class="page-title-content">
-                <h2>Post Style One</h2>
                 <ul>
                     <li>
                         <a href="index.html">
                             Home
                         </a>
                     </li>
-                    <li>Pages</li>
+                    <li>Post</li>
 
-                    <li>Post With Sidebar</li>
+                    <li>{{ $post->title }}</li>
 
-                    <li>Post Style One</li>
+
                 </ul>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- End Page Title Area -->
 
     <!-- Start Blog Details Area -->
@@ -31,56 +30,22 @@
                         <div class="article-content">
                             <div class="entry-meta">
                                 <ul>
-                                    <li><span>Posted On:</span> <a href="#">May 19, 2020</a></li>
-                                    <li><span>Posted By:</span> <a href="#">John Anderson</a></li>
+                                    <li><span>Posted On:</span> <a href="#">
+                                            {{ $post->created_at->toDateString() }}</a></li>
+                                    <li><span>Posted By:</span> <a href="#">Chandan Thakur</a></li>
                                 </ul>
                             </div>
-                            <h3>DHS Issues Emergency Directive To Prevent Hacking Attack</h3>
+                            <h3>{{ $post->title }}</h3>
 
                             <div class="article-image">
-                                <img src="assets/img/blog-details/1.jpg" alt="image">
+                                <img src="{{ env('APP_URL') . 'uploads/post/' . $post->filename }}"
+                                    alt="{{ $post->title }}" class="w-100" />
                             </div>
-
-                            <p>Quuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quia non numquam
-                                eius modi tempora incidunt ut labore et dolore magnam dolor sit, consectetur qui ratione
-                                voluptatem sequi.</p>
-
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                                labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                                laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                                sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat
-                                labore et dolore magna aliqua.</p>
-
-                            <blockquote class="flaticon-quote">
-                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellendus aliquid praesentium
-                                    eveniet illum asperiores, quidem, ipsum voluptatum numquam ducimus nisi exercitationem
-                                    dolorum facilis Repellendus aliquid praesentium eveniet illum asperiores.</p>
-                            </blockquote>
-
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                                labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                                laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                                sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat.
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
-                                ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                                laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                                sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat
-                                consectetur adipisicing Lorem ipsum dolor sit amet numquam.</p>
-
-                            <h3>DHS Issues Emergency Directive To Prevent Hacking Attack</h3>
-
-                            <div class="article-image">
-                                <img src="assets/img/blog-details/2.jpg" alt="image">
+                            <div>
+                                {!! $post->description !!}
                             </div>
-
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                                labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                                laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                                sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat
-                                ullamco laboris nisi ut aliquip ex ea.</p>
-
                             <h3 class="related-posts">Related Post</h3>
-                            <div class="row">
+                            {{-- <div class="row">
                                 <div class="col-lg-6 col-sm-6">
                                     <div class="b-d-s-item">
                                         <a href="post-style-one.html">
@@ -113,7 +78,7 @@
                                         <a href="post-style-one.html">Read More</a>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
 
                         <div class="article-footer">
@@ -297,69 +262,24 @@
                         <section class="widget widget-peru-posts-thumb">
                             <h3 class="widget-title">Popular Posts</h3>
                             <div class="post-wrap">
-                                <article class="item">
-                                    <a href="post-style-one.html" class="thumb">
-                                        <span class="fullimage cover bg1" role="img"></span>
-                                    </a>
-                                    <div class="info">
-                                        <time datetime="2020-06-30">April 20, 2020</time>
-                                        <h4 class="title usmall">
-                                            <a href="post-style-one.html">
-                                                The Two Most Important Tools To Reconnect With Your
-                                            </a>
-                                        </h4>
-                                    </div>
+                                @foreach ($posts as $post)
+                                    <article class="item">
+                                        <a href="{{ route('post.show', ['slug' => $post->slug]) }}" class="thumb">
+                                            <img src="{{ env('APP_URL') . 'uploads/post/' . $post->filename }}"
+                                                alt="{{ $post->title }}" class="w-100" />
+                                        </a>
+                                        <div class="info">
+                                            <time datetime="2020-06-30">{{ $post->created_at->toDateString() }}</time>
+                                            <h4 class="title usmall">
+                                                <a href="{{ route('post.show', ['slug' => $post->slug]) }}">
+                                                    {{ $post->title }}
+                                                </a>
+                                            </h4>
+                                        </div>
 
-                                    <div class="clear"></div>
-                                </article>
-
-                                <article class="item">
-                                    <a href="post-style-one.html" class="thumb">
-                                        <span class="fullimage cover bg2" role="img"></span>
-                                    </a>
-                                    <div class="info">
-                                        <time datetime="2020-06-30">Jun 21, 2020</time>
-                                        <h4 class="title usmall">
-                                            <a href="post-style-one.html">
-                                                Genderless Kei – Japan’s Hot New Fashion Trend
-                                            </a>
-                                        </h4>
-                                    </div>
-
-                                    <div class="clear"></div>
-                                </article>
-
-                                <article class="item">
-                                    <a href="post-style-one.html" class="thumb">
-                                        <span class="fullimage cover bg3" role="img"></span>
-                                    </a>
-                                    <div class="info">
-                                        <time datetime="2020-06-30">Jun 22, 2020</time>
-                                        <h4 class="title usmall">
-                                            <a href="post-style-one.html">
-                                                Security In A Fragment World Of Workload
-                                            </a>
-                                        </h4>
-                                    </div>
-
-                                    <div class="clear"></div>
-                                </article>
-
-                                <article class="item">
-                                    <a href="post-style-one.html" class="thumb">
-                                        <span class="fullimage cover bg4" role="img"></span>
-                                    </a>
-                                    <div class="info">
-                                        <time datetime="2020-06-30">Jun 23, 2020</time>
-                                        <h4 class="title usmall">
-                                            <a href="post-style-one.html">
-                                                The Next Big Thing In Fashion? Not Washing Your
-                                            </a>
-                                        </h4>
-                                    </div>
-
-                                    <div class="clear"></div>
-                                </article>
+                                        <div class="clear"></div>
+                                    </article>
+                                @endforeach
                             </div>
                         </section>
 
@@ -393,52 +313,26 @@
                             <h3 class="widget-title">Categories</h3>
                             <div class="post-wrap">
                                 <ul>
-                                    <li>
-                                        <a href="#">World News <span>(10)</span></a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Politics News <span>(20)</span></a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Family News <span>(10)</span></a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Global news <span>(12)</span></a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Business <span>(16)</span></a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Fashion <span>(17)</span></a>
-                                    </li>
+                                    @foreach ($categories as $category)
+                                        <li>
+                                            <a href="#">{{ $category->name }} <span>(10)</span></a>
+                                        </li>
+                                    @endforeach
                                 </ul>
                             </div>
                         </section>
 
-                        <section class="widget widget_meta">
-                            <h3 class="widget-title">Meta</h3>
-                            <div class="post-wrap">
-                                <ul>
-                                    <li><a href="log-in.html">Log in</a></li>
-                                    <li><a href="#">Entries <abbr title="Really Simple Syndication">RSS</abbr></a>
-                                    </li>
-                                    <li><a href="#">Comments <abbr title="Really Simple Syndication">RSS</abbr></a>
-                                    </li>
-                                    <li><a href="#">WordPress.org</a></li>
-                                </ul>
-                            </div>
-                        </section>
 
                         <section class="widget widget_tag_cloud">
                             <h3 class="widget-title">Tags</h3>
                             <div class="post-wrap">
                                 <div class="tagcloud">
-                                    <a href="#">World News (3)</a>
-                                    <a href="#">Politics News (3)</a>
-                                    <a href="#">Family News (2)</a>
-                                    <a href="#">Global news (2)</a>
-                                    <a href="#">Global news (1)</a>
-                                    <a href="#">Fashion (2) </a>
+                                    <a href="#">Digital Marketing</a>
+                                    <a href="#">Web Development</a>
+                                    <a href="#">Artificial Intelligence</a>
+                                    <a href="#">Robotics</a>
+                                    <a href="#">Electric vechile</a>
+                                    <a href="#">Crypto</a>
                                 </div>
                             </div>
                         </section>

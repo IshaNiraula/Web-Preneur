@@ -35,7 +35,7 @@
                                             <tr>
                                                 <td>{{ $post->id }}</td>
                                                 <td>{{ $post->title }}</td>
-                                                <td>{{ $post->category }}</td>
+                                                <td>{{ $post->category_slug }}</td>
                                                 <td>{{ $post->status }}</td>
 
                                                 <td><img src="{{ env('APP_URL') . 'uploads/post/' . $post->filename }}"

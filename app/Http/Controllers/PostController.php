@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Models\PostCategory;
 use File;
 use Illuminate\Support\Str;
 
@@ -28,7 +29,8 @@ class PostController extends Controller
     public function create()
     {
         $posts = Post::orderBy('created_at', 'desc')->get();
-        return  view('admin.post.add',compact('posts'));
+        $categories = PostCategory::all();
+        return  view('admin.post.add',compact('posts','categories'));
     }
 
     /**
@@ -42,7 +44,7 @@ class PostController extends Controller
         $request->validate([
             'title'=> 'required',
             'description'=> 'required',
-            'category'=> 'required',
+            'category_slug'=> 'required',
             'status'=>'required',
         ]);
 
@@ -54,11 +56,11 @@ class PostController extends Controller
             $post = new Post();
             $post->title = $request->title;
             $post->slug = $slug;
-            $post->category = $request->category;
+            $post->category_slug = $request->category_slug;
             $post->description = $request->description;
-            $post->homepage_desc = $request->homepage_desc;
             $post->status = $request->status;
             $post->filename = $name;
+            $post->position = $request->position;
             $save_post = $post->save();
             if($save_post){
                 return redirect()->route('admin.post.list')->with('success','post has been added successfully.');
@@ -93,8 +95,8 @@ class PostController extends Controller
     {
         // $post = Post::where("id",$id)->first();
         $post = Post::find($id);
-        $posts = Post::orderBy('created_at', 'desc')->get();
-        return view('admin.post.edit',compact('post','posts'));
+        $categories = PostCategory::all();
+        return view('admin.post.edit',compact('post','categories'));
     }
 
     /**
@@ -109,7 +111,7 @@ class PostController extends Controller
         $request->validate([
             'title'=> 'required',
             'description'=> 'required',
-            'category'=> 'required',
+            'category_slug'=> 'required',
             'status'=>'required',
         ]);
 
@@ -124,11 +126,10 @@ class PostController extends Controller
                }
             $post->title = $request->title;
             $post->slug = $slug;
-            $post->category = $request->category;
+            $post->category_slug = $request->category_slug;
             $post->description = $request->description;
-            $post->homepage_desc= $request->homepage_desc;
             $post->status = $request->status;
-         
+            $post->position = $request->position;
             $post->filename = $name;
             $save_post = $post->save();
             if($save_post){
@@ -141,12 +142,11 @@ class PostController extends Controller
             $filename = $post->filename;
             $post->title = $request->title;
             $post->slug = $slug;
-            $post->category = $request->category;
+            $post->category_slug = $request->category_slug;
             $post->description = $request->description;
-            $post->homepage_desc = $request->homepage_desc;
             $post->filename = $filename;
             $post->status = $request->status;
-         
+            $post->position = $request->position;
             $save_post = $post->save();
             if($save_post){
                 return redirect()->route('admin.post.list')->with('success','post has been updated successfully.');
