@@ -264,14 +264,14 @@
                             <div class="post-wrap">
                                 @foreach ($posts as $post)
                                     <article class="item">
-                                        <a href="{{ route('post.show', ['slug' => $post->slug]) }}" class="thumb">
+                                        <a href="{{ route('post.show', ['category_slug' => $post->category_slug, 'post_slug' => $post->slug]) }}" class="thumb">
                                             <img src="{{ env('APP_URL') . 'uploads/post/' . $post->filename }}"
                                                 alt="{{ $post->title }}" class="w-100" />
                                         </a>
                                         <div class="info">
                                             <time datetime="2020-06-30">{{ $post->created_at->toDateString() }}</time>
                                             <h4 class="title usmall">
-                                                <a href="{{ route('post.show', ['slug' => $post->slug]) }}">
+                                                <a href="{{ route('post.show', ['category_slug' => $post->category_slug, 'post_slug' => $post->slug]) }}">
                                                     {{ $post->title }}
                                                 </a>
                                             </h4>

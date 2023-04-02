@@ -18,7 +18,8 @@ class PageController extends Controller
         $top_posts = Post::offset(0)->limit(4)->get();
         $sidebarPosts = Post::offset(4)->limit(3)->get();
         $sl_posts = Post::offset(7)->limit(6)->get();
-        return view('client.index',compact('top_posts','sidebarPosts','sl_posts'));
+        $web_posts = Post::where('category_slug', 'web-development')->take(6)->get();
+        return view('client.index',compact('top_posts','sidebarPosts','sl_posts','web_posts'));
     }
 
     public function dashboard() {
@@ -34,9 +35,9 @@ class PageController extends Controller
     return view('client.gallery',compact('galleries'));
     }
 
-    public function postDetail($slug){
-        $posts = Post::take(5)->get();
-        $post = Post::where('slug',$slug)->first();
+    public function postDetail($category_slug,$post_slug){
+        $posts = Post::where('category_slug',$category_slug)->take(5)->get();
+        $post = Post::where('slug',$post_slug)->first();
         $categories = PostCategory::all();
         if($post) {
             return view('client.post-detail',compact('post','posts','categories'));

@@ -182,7 +182,7 @@
                            @foreach ($top_posts as $post)
                                <div class="col-lg-6 col-md-6">
                                    <div class="single-featured">
-                                       <a href="{{ route('post.show', ['slug' => $post->slug]) }}" class="blog-img">
+                                       <a href="{{ route('post.show', ['category_slug' => $post->category_slug, 'post_slug' => $post->slug]) }}" class="blog-img">
                                            <img src="{{ env('APP_URL') . 'uploads/post/' . $post->filename }}"
                                                alt="{{ $post->title }}" class="w-100" />
                                            <span>{{ $post->category_slug }}</span>
@@ -202,13 +202,13 @@
                                                </li>
                                            </ul>
 
-                                           <a href="{{ route('post.show', ['slug' => $post->slug]) }}">
+                                           <a href="{{ route('post.show', ['category_slug' => $post->category_slug, 'post_slug' => $post->slug]) }}">
                                                <h3>{{ $post->title }}</h3>
                                            </a>
 
                                            <p> {!! Str::words($post->description, 15, ' ...') !!}</p>
 
-                                           <a href="{{ route('post.show', ['slug' => $post->slug]) }}"
+                                           <a href="{{ route('post.show', ['category_slug' => $post->category_slug, 'post_slug' => $post->slug]) }}"
                                                class="read-more">Read More</a>
                                        </div>
                                    </div>
@@ -222,13 +222,13 @@
 
                            @foreach ($sidebarPosts as $post)
                                <div class="right-blog-editor media align-items-center">
-                                   <a href="{{ route('post.show', ['slug' => $post->slug]) }}">
+                                   <a href="{{ route('post.show', ['category_slug' => $post->category_slug, 'post_slug' => $post->slug]) }}">
                                        <img src="{{ env('APP_URL') . 'uploads/post/' . $post->filename }}"
                                            alt="{{ $post->title }}" class="sidebar-img" />
                                    </a>
 
                                    <div class="right-blog-content">
-                                       <a href="{{ route('post.show', ['slug' => $post->slug]) }}">
+                                       <a href="{{ route('post.show', ['category_slug' => $post->category_slug, 'post_slug' => $post->slug]) }}">
                                            <h3>{{ $post->title }}</h3>
                                        </a>
 
@@ -281,176 +281,39 @@
        <section class="main-inspiration-area pb-100">
            <div class="container">
                <div class="section-title text-center">
-                   <h2>Inspiration</h2>
+                   <h2>Web Development</h2>
                </div>
                <div class="row">
-                   <div class="col-lg-4 col-md-6 plr-5">
-                       <div class="single-main-blog-item mb-8">
-                           <img alt="Image" src="assets/img/home-two/inspiration/1.jpg">
-                           <span class="blog-link">
-                               Technology
-                           </span>
+                   @foreach ($web_posts as $post)
+                       <div class="col-lg-4 col-md-6 plr-5">
+                           <div class="single-main-blog-item mb-8">
+                               <img src="{{ env('APP_URL') . 'uploads/post/' . $post->filename }}"
+                                   alt="{{ $post->title }}" class="sidebar-img" />
+                               <span class="blog-link">
+                                   {{ $post->category_slug }}
+                               </span>
 
-                           <div class="main-blog-content">
-                               <a href="post-style-one.html">
-                                   <h3>The Two Most Important Tools to Reconnect With Your Partner</h3>
-                               </a>
+                               <div class="main-blog-content">
+                                   <a href="{{route('post.show',['category_slug' => $post->category_slug, 'post_slug' => $post->slug])}}">
+                                       <h3>{{ $post->title }}</h3>
+                                   </a>
 
-                               <ul>
-                                   <li>
-                                       <a class="admin" href="#">
-                                           <i class="bx bx-user"></i>
-                                           By Jhona Walker
-                                       </a>
-                                   </li>
-                                   <li>
-                                       <i class="bx bx-calendar"></i>
-                                       25 Jun 2020
-                                   </li>
-                               </ul>
+                                   <ul>
+                                       <li>
+                                           <a class="admin" href="#">
+                                               <i class="bx bx-user"></i>
+                                               By Admin
+                                           </a>
+                                       </li>
+                                       <li>
+                                           <i class="bx bx-calendar"></i>
+                                           {{ $post->created_at->toDateString() }}
+                                       </li>
+                                   </ul>
+                               </div>
                            </div>
                        </div>
-                   </div>
-
-                   <div class="col-lg-4 col-md-6 plr-5">
-                       <div class="single-main-blog-item mb-8">
-                           <img alt="Image" src="assets/img/home-two/inspiration/2.jpg">
-                           <span class="blog-link">
-                               Technology
-                           </span>
-
-                           <div class="main-blog-content">
-                               <a href="post-style-one.html">
-                                   <h3>What Would It Take To Shut-down the Internet</h3>
-                               </a>
-
-                               <ul>
-                                   <li>
-                                       <a class="admin" href="#">
-                                           <i class="bx bx-user"></i>
-                                           By Jhona Walker
-                                       </a>
-                                   </li>
-                                   <li>
-                                       <i class="bx bx-calendar"></i>
-                                       26 Jun 2020
-                                   </li>
-                               </ul>
-                           </div>
-                       </div>
-                   </div>
-
-                   <div class="col-lg-4 col-md-6 plr-5">
-                       <div class="single-main-blog-item mb-8">
-                           <img alt="Image" src="assets/img/home-two/inspiration/6.jpg">
-                           <span class="blog-link">
-                               Technology
-                           </span>
-
-                           <div class="main-blog-content">
-                               <a href="post-style-one.html">
-                                   <h3>Genderless Kei – Japan’s Hot New Fashion Trend</h3>
-                               </a>
-
-                               <ul>
-                                   <li>
-                                       <a class="admin" href="#">
-                                           <i class="bx bx-user"></i>
-                                           By Jhona Walker
-                                       </a>
-                                   </li>
-                                   <li>
-                                       <i class="bx bx-calendar"></i>
-                                       30 Jun 2020
-                                   </li>
-                               </ul>
-                           </div>
-                       </div>
-                   </div>
-
-                   <div class="col-lg-4 col-md-6 plr-5">
-                       <div class="single-main-blog-item mb-8">
-                           <img alt="Image" src="assets/img/home-two/inspiration/4.jpg">
-                           <span class="blog-link">
-                               Technology
-                           </span>
-
-                           <div class="main-blog-content">
-                               <a href="post-style-one.html">
-                                   <h3>Extreme Athleticism Is the New Midlife Crisis</h3>
-                               </a>
-
-                               <ul>
-                                   <li>
-                                       <a class="admin" href="#">
-                                           <i class="bx bx-user"></i>
-                                           By Jhona Walker
-                                       </a>
-                                   </li>
-                                   <li>
-                                       <i class="bx bx-calendar"></i>
-                                       30 Jun 2020
-                                   </li>
-                               </ul>
-                           </div>
-                       </div>
-                   </div>
-
-                   <div class="col-lg-4 col-md-6 plr-5">
-                       <div class="single-main-blog-item mb-8">
-                           <img alt="Image" src="assets/img/home-two/inspiration/5.jpg">
-                           <span class="blog-link">
-                               Technology
-                           </span>
-
-                           <div class="main-blog-content">
-                               <a href="post-style-one.html">
-                                   <h3>The 4 convolution's Neural Network Models That Can Classify</h3>
-                               </a>
-
-                               <ul>
-                                   <li>
-                                       <a class="admin" href="#">
-                                           <i class="bx bx-user"></i>
-                                           By Jhona Walker
-                                       </a>
-                                   </li>
-                                   <li>
-                                       <i class="bx bx-calendar"></i>
-                                       30 Jun 2020
-                                   </li>
-                               </ul>
-                           </div>
-                       </div>
-                   </div>
-
-                   <div class="col-lg-4 col-md-6 plr-5">
-                       <div class="single-main-blog-item mb-8">
-                           <img alt="Image" src="assets/img/home-two/inspiration/6.jpg">
-                           <span class="blog-link">
-                               Technology
-                           </span>
-
-                           <div class="main-blog-content">
-                               <a href="post-style-one.html">
-                                   <h3>Do You Want Stronger Friendships, a More Balanced Mindset?</h3>
-                               </a>
-
-                               <ul>
-                                   <li>
-                                       <a class="admin" href="#">
-                                           <i class="bx bx-user"></i>
-                                           By Jhona Walker
-                                       </a>
-                                   </li>
-                                   <li>
-                                       <i class="bx bx-calendar"></i>
-                                       30 Jun 2020
-                                   </li>
-                               </ul>
-                           </div>
-                       </div>
-                   </div>
+                   @endforeach
                </div>
            </div>
        </section>
@@ -465,7 +328,7 @@
                    @foreach ($sl_posts as $post)
                        <div class="col-lg-4 col-md-6">
                            <div class="single-featured">
-                               <a href="{{ route('post.show', ['slug' => $post->slug]) }}" class="blog-img">
+                               <a href="{{ route('post.show', ['category_slug' => $post->category_slug, 'post_slug' => $post->slug]) }}" class="blog-img">
                                    <img src="{{ env('APP_URL') . 'uploads/post/' . $post->filename }}"
                                        alt="{{ $post->title }}" class="w-100" />
                                    <span>{{ $post->category_slug }}</span>
@@ -484,11 +347,11 @@
                                        </li>
                                    </ul>
 
-                                   <a href="{{ route('post.show', ['slug' => $post->slug]) }}">
+                                   <a href="{{ route('post.show',['category_slug' => $post->category_slug, 'post_slug' => $post->slug]) }}">
                                        <h3>{{ $post->title }}</h3>
                                    </a>
 
-                                   <a href="{{ route('post.show', ['slug' => $post->slug]) }}" class="read-more">Read
+                                   <a href="{{ route('post.show',['category_slug' => $post->category_slug, 'post_slug' => $post->slug]) }}" class="read-more">Read
                                        More</a>
                                </div>
                            </div>
