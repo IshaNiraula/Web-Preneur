@@ -35,12 +35,18 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7626929454424760"
         crossorigin="anonymous"></script>
 
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
     @stack('styles')
 </head>
 
 <body>
     <div>
         @include('client.layouts.header')
+        <!-- top ads -->
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7626929454424760"
+            data-ad-slot="1491958685" data-ad-format="auto" data-full-width-responsive="true"></ins>
         <div class="">
             @yield('content')
         </div>
@@ -52,14 +58,7 @@
         </div>
         <!-- End Go Top Area -->
     </div>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7626929454424760"
-        crossorigin="anonymous"></script>
-    <!-- top ads -->
-    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7626929454424760" data-ad-slot="1491958685"
-        data-ad-format="auto" data-full-width-responsive="true"></ins>
-    <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
+
     <!-- Jquery Min JS -->
     <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
     <!-- Bootstrap Bundle Min JS -->
