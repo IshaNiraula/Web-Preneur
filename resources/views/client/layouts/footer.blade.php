@@ -5,7 +5,8 @@
              <div class="col-lg-3 col-md-6">
                  <div class="single-widget">
                      <a href="index.html">
-                         <img src="assets/img/black-logo.png" alt="Image">
+                         {{-- <img src="assets/img/black-logo.png" alt="Image"> --}}
+                         <h3>Web Wondors</h3>
                      </a>
 
                      <p>Lorem ipsum dolor, sit amet earum consectetur adipisicing elit sit. Cupiditate rerum quidem
