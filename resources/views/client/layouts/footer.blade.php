@@ -138,17 +138,15 @@
                          <li>
                              <i class="bx bx-envelope"></i>
                              <span>Email:</span>
-                             <a
-                                 href="https://templates.envytheme.com/cdn-cgi/l/email-protection#573f323b3b38171b3e393c367934383a">
-                                 <span class="__cf_email__"
-                                     data-cfemail="a5cdc0c9c9cae5e9cccbcec48bc6cac8">[email&#160;protected]</span>
+                             <a href="">
+                                 <span class="">chandant225@gmail.com</span>
                              </a>
                          </li>
 
                          <li>
                              <i class="bx bx-location-plus"></i>
                              <span>Address:</span>
-                             123, Western Road, Melbourne Australia
+                             Bhaktapur, sallahgahri
                          </li>
                      </ul>
                  </div>
@@ -162,8 +160,8 @@
  <footer class="footer-bottom-area">
      <div class="container">
          <div class="copy-right">
-             <p>Copyright <i class="bx bx-copyright"></i>2021 Linka. Designed By<a href="https://envytheme.com/"
-                     target="blank"> EnvyTheme</a></p>
+             <p>Copyright <i class="bx bx-copyright"></i>2022 web wondors. Designed By<a href=""
+                     target="blank"> Web Wondors</a></p>
          </div>
      </div>
  </footer>
