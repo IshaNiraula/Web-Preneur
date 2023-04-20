@@ -71,7 +71,18 @@
                                                 </div>
                                                 <div class="modal-body">
                                                     <section> {!! $post->description !!}</section>
-
+                                                    <div class="p-2 shadow rounded mt-2">
+                                                        <p>meta_title</p>
+                                                        {{ $post->meta_title }}
+                                                    </div>
+                                                    <div class="p-2 shadow rounded mt-2">
+                                                        <p>meta_description</p>
+                                                        {{ $post->meta_description }}
+                                                    </div>
+                                                    <div class="p-2 shadow rounded mt-2">
+                                                        <p>meta_keywords</p>
+                                                        {{ $post->meta_keywords }}
+                                                    </div>
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary"

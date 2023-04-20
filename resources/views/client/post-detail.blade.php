@@ -1,4 +1,21 @@
 @extends('client.layouts.master')
+@section('metadata')
+    <title>{{ $post->meta_title }}</title>
+    <meta name="description" content="{{ $post->meta_description }}">
+    <meta name="keywords" content="{{ $post->meta_keywords }}">
+    <meta image="{{ env('APP_URL') . 'uploads/post/' . $post->filename }}" <link rel="canonical"
+        href="{{ env('APP_URL') . '/post/' . $post->slug }}" />
+    <link rel="image_src" href="https://www.devchandant.com/assets/logo.png" />
+    <meta property="og:type" content="website">
+    <meta property="og:determiner" content="An" />
+    <meta property="og:site_name" content="web wondors" />
+    <meta property="og:url" content="{{ env('APP_URL') . '/post' . '/' . $post->slug }}" />
+    <meta property="og:title" content="{{ $post->meta_title }}" />
+    <meta property="og:image" content="{{ env('APP_URL') . 'uploads/post/' . $post->filename }}" />
+    <meta property="og:image:width" content="960" />
+    <meta property="og:image:height" content="400" />
+    <meta property="og:locale" content="en_GB" />
+@endsection
 @section('content')
     <!-- Start Page Title Area -->
     {{-- <div class="page-title-area bg-12">
@@ -91,26 +108,50 @@
                             <div class="article-share">
                                 <ul class="social">
                                     <li>
-                                        <a href="#" target="_blank">
+                                        <a href="https://www.facebook.com/sharer.php?u={{ env('APP_URL') . 'post' . '/' . $post->category_slug . '/' . $post->slug }}"
+                                            target="_blank" rel="noopener noreferrer" target="_blank">
                                             <i class='bx bxl-facebook'></i>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#" target="_blank">
+                                        <a href="https://api.whatsapp.com/send?text={{ urlencode($post->title) }}%0A{{ urlencode(env('APP_URL') . 'post' . '/' . $post->category_slug . '/' . $post->slug) }}"
+                                            target="_blank" rel="noopener noreferrer">
+                                            <i style="" class="bx bxl-whatsapp"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://twitter.com/intent/tweet?text={{ urlencode($post->title) }}&url={{ urlencode(env('APP_URL') . 'post' . '/' . $post->category_slug . '/' . $post->slug) }}"
+                                            target="_blank" rel="noopener noreferrer" target="_blank">
                                             <i class='bx bxl-twitter'></i>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#" target="_blank">
+                                        <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ urlencode(env('APP_URL') . '/post' . '/' . $post->category_slug . '/' . $post->slug) }}"
+                                            target="_blank" rel="noopener noreferrer" target="_blank">
                                             <i class='bx bxl-linkedin'></i>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#" target="_blank">
+                                        <a href="https://www.pinterest.com/pin/create/button/?url={{ urlencode(env('APP_URL') . '/post' . '/' . $post->category_slug . '/' . $post->slug) }}&media={{ urlencode(env('APP_URL') . 'uploads/post/' . $post->filename) }}&description={{ urlencode($post->description) }}"
+                                            target="_blank" rel="noopener noreferrer" target="_blank">
                                             <i class='bx bxl-pinterest-alt'></i>
                                         </a>
                                     </li>
+                                    <li>
+                                        <a 
+                                            href="fb-messenger://share/?link={{ urlencode(env('APP_URL') . 'post' . '/' . $post->category_slug . '/' . $post->slug) }}"
+                                            target="_blank" rel="noopener noreferrer">
+                                            <i class="bx bxl-facebook-messenger"></i>
+                                        </a>
 
+                                    </li>
+                                    <li>
+                                        <a  style="color:purple"
+                                            href="viber://forward?text={{ urlencode(env('APP_URL') . 'post' . '/' . $post->slug) }}%0A{{ urlencode(env('APP_URL') . 'post' . '/' . $post->category_slug . '/' . $post->slug) }}"
+                                            target="_blank" rel="noopener noreferrer">
+                                            <i class="bx bxl-viber"></i>
+                                        </a>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -164,8 +205,8 @@
                                             <div class="comment-body">
                                                 <footer class="comment-meta">
                                                     <div class="comment-author vcard">
-                                                        <img src="assets/img/blog-details/comment-img-2.jpg" class="avatar"
-                                                            alt="image">
+                                                        <img src="assets/img/blog-details/comment-img-2.jpg"
+                                                            class="avatar" alt="image">
                                                         <b class="fn">Karl Mekar</b>
                                                         <span class="says">says:</span>
                                                     </div>
@@ -264,14 +305,16 @@
                             <div class="post-wrap">
                                 @foreach ($posts as $post)
                                     <article class="item">
-                                        <a href="{{ route('post.show', ['category_slug' => $post->category_slug, 'post_slug' => $post->slug]) }}" class="thumb">
+                                        <a href="{{ route('post.show', ['category_slug' => $post->category_slug, 'post_slug' => $post->slug]) }}"
+                                            class="thumb">
                                             <img src="{{ env('APP_URL') . 'uploads/post/' . $post->filename }}"
                                                 alt="{{ $post->title }}" class="w-100" />
                                         </a>
                                         <div class="info">
                                             <time datetime="2020-06-30">{{ $post->created_at->toDateString() }}</time>
                                             <h4 class="title usmall">
-                                                <a href="{{ route('post.show', ['category_slug' => $post->category_slug, 'post_slug' => $post->slug]) }}">
+                                                <a
+                                                    href="{{ route('post.show', ['category_slug' => $post->category_slug, 'post_slug' => $post->slug]) }}">
                                                     {{ $post->title }}
                                                 </a>
                                             </h4>

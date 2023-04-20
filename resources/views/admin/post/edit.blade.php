@@ -96,7 +96,34 @@
                         </div>
                     </div>
                     <!-- /.card-body -->
-
+                    <div class="form-group">
+                        <label for="meta_title">meta_title</label>
+                        <input type="text" class="form-control" id="meta_title" placeholder="Enter meta_title"
+                            name="meta_title" value="{{ $post->meta_title }}">
+                        <span class="text-danger">
+                            @error('meta_title')
+                                {{ $message }}
+                            @enderror
+                        </span>
+                    </div>
+                    <div class="form-group">
+                        <label for="meta_description">meta_description</label>
+                        <textarea class="form-control" id="meta_description" placeholder="Enter the meta_description" name="meta_description">{{ $post->meta_description }}</textarea>
+                        <span class="text-danger">
+                            @error('meta_description')
+                                {{ $message }}
+                            @enderror
+                        </span>
+                    </div>
+                    <div class="form-group">
+                        <label for="meta_keywords">meta_keywords</label>
+                        <textarea class="form-control" id="meta_keywords" placeholder="Enter the meta_keywords" name="meta_keywords">{{ $post->meta_keywords }}</textarea>
+                        <span class="text-danger">
+                            @error('meta_keywords')
+                                {{ $message }}
+                            @enderror
+                        </span>
+                    </div>
                     <div class="card-footer">
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </div>

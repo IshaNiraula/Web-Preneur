@@ -61,6 +61,9 @@ class PostController extends Controller
             $post->status = $request->status;
             $post->filename = $name;
             $post->position = $request->position;
+            $post->meta_title = $request->meta_title;
+            $post->meta_description = $request->meta_description;
+            $post->meta_keywords = $request->meta_keywords;
             $save_post = $post->save();
             if($save_post){
                 return redirect()->route('admin.post.list')->with('success','post has been added successfully.');
@@ -131,6 +134,9 @@ class PostController extends Controller
             $post->status = $request->status;
             $post->position = $request->position;
             $post->filename = $name;
+            $post->meta_title = $request->meta_title;
+            $post->meta_description = $request->meta_description;
+            $post->meta_keywords = $request->meta_keywords;
             $save_post = $post->save();
             if($save_post){
                 return redirect()->route('admin.post.list')->with('success','post has been updated successfully.');
@@ -147,6 +153,9 @@ class PostController extends Controller
             $post->filename = $filename;
             $post->status = $request->status;
             $post->position = $request->position;
+            $post->meta_title = $request->meta_title;
+            $post->meta_description = $request->meta_description;
+            $post->meta_keywords = $request->meta_keywords;
             $save_post = $post->save();
             if($save_post){
                 return redirect()->route('admin.post.list')->with('success','post has been updated successfully.');
