@@ -1,6 +1,4 @@
 @extends('client.layouts.master')
-
-
 @section('content')
     <!-- Start Blog Details Area -->
     <div class="blog-details-area ptb-100">
