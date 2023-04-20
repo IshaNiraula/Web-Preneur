@@ -94,7 +94,7 @@
      <div class="mobile-nav">
          <a href="{{route('home')}}" class="logo">
              {{-- <img src="assets/img/logo.png" alt="Logo"> --}}
-             <p>Web Wondors</p>
+             {{-- <p>Web Wondors</p> --}}
          </a>
      </div>
 
@@ -106,8 +106,8 @@
                      <i class='bx bx-menu'></i>
                  </div>
                  <a class="navbar-brand" href="{{route('home')}}">
-                     {{-- <img src="assets/img/black-logo.png" alt="Logo"> --}}
-                     <p>Web Wondors</p>
+                     {{-- <img src="webwondors-01.png" alt="Logo" style="width:15%"> --}}
+                     {{-- <p>Web Wondors</p> --}}
                  </a>
 
                  <div class="collapse navbar-collapse mean-menu">

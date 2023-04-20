@@ -38,9 +38,13 @@
     padding: 8px 15px;
     font-size: 14px;
   }
+  /* .section-title {
+    margin-top: 35px;
+  } */
   .section-title {
-    margin-bottom: 30px;
-  }
+    margin: 35px 0 10px 0;
+    position: relative;
+}
   .section-title h2 {
     font-size: 25px;
   }
