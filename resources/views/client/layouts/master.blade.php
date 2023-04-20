@@ -3,10 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>News Portal</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta content="Free HTML Templates" name="keywords">
-    <meta content="Free HTML Templates" name="description">
     <link rel="icon" type="image/png" href="assets/img/favicon.png" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
