@@ -129,12 +129,9 @@
 @push('scripts')
     <script>
         CKEDITOR.replace('description', {
-            filebrowserUploadUrl: "{{ route('admin.post.editor.upload', ['_token' => csrf_token()]) }}",
+            filebrowserUploadUrl: "{{ 'https://devchandant.com/upload_post_editor_image?_token=' . csrf_token() }}",
             filebrowserUploadMethod: 'form'
         })
-        CKEDITOR.replace('homepage_desc', {
-            filebrowserUploadUrl: "{{ route('admin.post.editor.upload', ['_token' => csrf_token()]) }}",
-            filebrowserUploadMethod: 'form'
-        })
+  
     </script>
 @endpush
