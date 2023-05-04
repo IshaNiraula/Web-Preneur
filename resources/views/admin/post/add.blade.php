@@ -80,7 +80,7 @@
 
                         <div class="form-group">
                             {{-- <label for="title">Position</label> --}}
-                            <input type="number" class="form-control" id="position" placeholder="Enter title"
+                            <input type="number" class="form-control" id="position" placeholder="Enter position"
                                 name="position">
                             <span class="text-danger">
                                 @error('position')
