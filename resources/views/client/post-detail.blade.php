@@ -105,41 +105,46 @@
 
                                 <a href="#">Share</a>
                             </div>
-
                             <div class="article-share">
                                 <ul class="social">
+                                    <!-- Facebook share -->
                                     <li>
-                                        <a href="https://www.facebook.com/sharer.php?u={{ env('APP_URL') . 'post' . '/' . $post->category_slug . '/' . $post->slug }}"
-                                            target="_blank" rel="noopener noreferrer" target="_blank">
+                                        <a href="https://www.facebook.com/sharer.php?u={{ urlencode(env('APP_URL') . 'post/' . $post->category_slug . '/' . $post->slug) }}"
+                                            target="_blank" rel="noopener noreferrer">
                                             <i class='bx bxl-facebook'></i>
                                         </a>
                                     </li>
+                                    <!-- WhatsApp share -->
                                     <li>
-                                        <a href="https://api.whatsapp.com/send?text={{ urlencode($post->title) }}%0A{{ urlencode(env('APP_URL') . 'post' . '/' . $post->category_slug . '/' . $post->slug) }}"
+                                        <a href="https://api.whatsapp.com/send?text={{ urlencode($post->title) }}%0A{{ urlencode(env('APP_URL') . 'post/' . $post->category_slug . '/' . $post->slug) }}"
                                             target="_blank" rel="noopener noreferrer">
-                                            <i style="" class="bx bxl-whatsapp"></i>
+                                            <i class="bx bxl-whatsapp"></i>
                                         </a>
                                     </li>
+                                    <!-- Twitter share -->
                                     <li>
-                                        <a href="https://twitter.com/intent/tweet?text={{ urlencode($post->title) }}&url={{ urlencode(env('APP_URL') . 'post' . '/' . $post->category_slug . '/' . $post->slug) }}"
-                                            target="_blank" rel="noopener noreferrer" target="_blank">
+                                        <a href="https://twitter.com/intent/tweet?text={{ urlencode($post->title) }}&url={{ urlencode(env('APP_URL') . 'post/' . $post->category_slug . '/' . $post->slug) }}"
+                                            target="_blank" rel="noopener noreferrer">
                                             <i class='bx bxl-twitter'></i>
                                         </a>
                                     </li>
+                                    <!-- LinkedIn share -->
                                     <li>
-                                        <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ urlencode(env('APP_URL') . '/post' . '/' . $post->category_slug . '/' . $post->slug) }}"
-                                            target="_blank" rel="noopener noreferrer" target="_blank">
+                                        <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ urlencode(env('APP_URL') . '/post/' . $post->category_slug . '/' . $post->slug) }}"
+                                            target="_blank" rel="noopener noreferrer">
                                             <i class='bx bxl-linkedin'></i>
                                         </a>
                                     </li>
+                                    <!-- Pinterest share -->
                                     <li>
-                                        <a href="https://www.pinterest.com/pin/create/button/?url={{ urlencode(env('APP_URL') . '/post' . '/' . $post->category_slug . '/' . $post->slug) }}&media={{ urlencode(env('APP_URL') . 'uploads/post/' . $post->filename) }}&description={{ urlencode($post->description) }}"
-                                            target="_blank" rel="noopener noreferrer" target="_blank">
+                                        <a href="https://www.pinterest.com/pin/create/button/?url={{ urlencode(env('APP_URL') . '/post/' . $post->category_slug . '/' . $post->slug) }}&media={{ urlencode(env('APP_URL') . 'uploads/post/' . $post->filename) }}&description={{ urlencode($post->description) }}"
+                                            target="_blank" rel="noopener noreferrer">
                                             <i class='bx bxl-pinterest-alt'></i>
                                         </a>
                                     </li>
                                 </ul>
                             </div>
+
                         </div>
 
                         {{-- <div class="post-navigation">
