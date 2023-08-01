@@ -283,7 +283,7 @@
                {{-- <div class="section-title text-center">
                    <h2>Web Development</h2>
                </div> --}}
-               <div class="row">
+               <div class="row py-4">
                    @foreach ($web_posts as $post)
                        <div class="col-lg-4 col-md-6 plr-5">
                            <div class="single-main-blog-item mb-8">
