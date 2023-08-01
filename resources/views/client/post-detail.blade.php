@@ -3,14 +3,13 @@
     <title>{{ $post->meta_title }}</title>
     <meta name="description" content="{{ $post->meta_description }}">
     <meta name="keywords" content="{{ $post->meta_keywords }}">
-    <meta image="{{ env('APP_URL') . 'uploads/post/' . $post->filename }}" >
-    <link rel="canonical"
-        href="{{ env('APP_URL') . '/post/' . $post->slug }}" />
+    <meta image="{{ env('APP_URL') . 'uploads/post/' . $post->filename }}">
+    <link rel="canonical" href="{{ env('APP_URL') . '/post/' . $post->slug }}" />
     <link rel="image_src" href="https://www.devchandant.com/assets/logo.png" />
     <meta property="og:type" content="website">
     <meta property="og:determiner" content="An" />
     <meta property="og:site_name" content="web wondors" />
-    <meta property="og:url" content="{{ env('APP_URL') . 'post' .'/'. $post->category_slug .'/'. $post->slug }}" />
+    <meta property="og:url" content="{{ env('APP_URL') . 'post' . '/' . $post->category_slug . '/' . $post->slug }}" />
     <meta property="og:title" content="{{ $post->meta_title }}" />
     <meta property="og:image" content="{{ env('APP_URL') . 'uploads/post/' . $post->filename }}" />
     <meta property="og:image:width" content="960" />
@@ -62,7 +61,7 @@
                             <div>
                                 {!! $post->description !!}
                             </div>
-                            <h3 class="related-posts">Related Post</h3>
+
                             {{-- <div class="row">
                                 <div class="col-lg-6 col-sm-6">
                                     <div class="b-d-s-item">
@@ -136,21 +135,6 @@
                                         <a href="https://www.pinterest.com/pin/create/button/?url={{ urlencode(env('APP_URL') . '/post' . '/' . $post->category_slug . '/' . $post->slug) }}&media={{ urlencode(env('APP_URL') . 'uploads/post/' . $post->filename) }}&description={{ urlencode($post->description) }}"
                                             target="_blank" rel="noopener noreferrer" target="_blank">
                                             <i class='bx bxl-pinterest-alt'></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a 
-                                            href="fb-messenger://share/?link={{ urlencode(env('APP_URL') . 'post' . '/' . $post->category_slug . '/' . $post->slug) }}"
-                                            target="_blank" rel="noopener noreferrer">
-                                            <i class="bx bxl-facebook-messenger"></i>
-                                        </a>
-
-                                    </li>
-                                    <li>
-                                        <a  style="color:purple"
-                                            href="viber://forward?text={{ urlencode(env('APP_URL') . 'post' . '/' . $post->slug) }}%0A{{ urlencode(env('APP_URL') . 'post' . '/' . $post->category_slug . '/' . $post->slug) }}"
-                                            target="_blank" rel="noopener noreferrer">
-                                            <i class="bx bxl-viber"></i>
                                         </a>
                                     </li>
                                 </ul>
