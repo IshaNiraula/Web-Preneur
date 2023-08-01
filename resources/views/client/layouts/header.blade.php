@@ -102,12 +102,12 @@
      <div class="main-nav">
          <nav class="navbar navbar-expand-md">
              <div class="container-fluid">
-                 <div class="burger-menu">
+                 {{-- <div class="burger-menu">
                      <i class='bx bx-menu'></i>
-                 </div>
+                 </div> --}}
                  <a class="navbar-brand" href="{{route('home')}}">
                      {{-- <img src="webwondors-01.png" alt="Logo" style="width:15%"> --}}
-                     {{-- <p>Web Wondors</p> --}}
+                     <h3>@devchandant</h3>
                  </a>
 
                  <div class="collapse navbar-collapse mean-menu">
@@ -121,7 +121,7 @@
                          @endforeach
                      </ul>
                      <!-- Start Other Option -->
-                     <div class="others-option">
+                     {{-- <div class="others-option">
                          <div class="follow">
                              <span>Follow</span>
                              <i class="bx bx-chevron-down"></i>
@@ -171,7 +171,7 @@
                                  </div>
                              </div>
                          </div>
-                     </div>
+                     </div> --}}
                      <!-- End Other Option -->
                  </div>
              </div>
@@ -181,7 +181,7 @@
  <!-- End Navbar Area -->
 
  <!-- Sidebar Modal Area -->
- <div class="sidebar-modal">
+ {{-- <div class="sidebar-modal">
      <div class="sidebar-modal-inner">
          <div class="sidebar-about-area">
              <div class="title">
@@ -286,5 +286,5 @@
              <i class="bx bx-x"></i>
          </span>
      </div>
- </div>
+ </div> --}}
  <!-- End Sidebar Modal Area -->

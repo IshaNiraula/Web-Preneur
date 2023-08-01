@@ -60,7 +60,7 @@
         <div class="">
             @yield('content')
         </div>
-        @include('client.layouts.footer')
+        {{-- @include('client.layouts.footer') --}}
         <!-- Start Go Top Area -->
         <div class="go-top">
             <i class='bx bx-chevrons-up'></i>

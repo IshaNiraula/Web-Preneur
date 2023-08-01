@@ -171,7 +171,7 @@
        <!-- End Linka Top News Area -->
 
        <!-- Start Latest Project Area -->
-       <section class="latest-project-area pt-100 pb-70">
+       {{-- <section class="latest-project-area pt-100 pb-70">
            <div class="container">
                <div class="section-title">
                    <h2>Digital Marketing</h2>
@@ -266,17 +266,17 @@
                    </div>
                </div>
            </div>
-       </section>
+       </section> --}}
        <!-- End Latest Project Area -->
 
        <!-- Start Adds Area -->
-       <div class="adds-area pb-100">
+       {{-- <div class="adds-area pb-100">
            <div class="container">
                <a href="#">
                    <img src="assets/img/home-three/adds.jpg" alt="Image">
                </a>
            </div>
-       </div>
+       </div> --}}
        <!-- End Adds Area -->
        <section class="main-inspiration-area pb-100">
            <div class="container">
@@ -318,7 +318,7 @@
            </div>
        </section>
        <!-- Start Latest Project Area -->
-       <section class="latest-project-area four pt-100 pb-70">
+       {{-- <section class="latest-project-area four pt-100 pb-70">
            <div class="container">
                <div class="section-title">
                    <h2>Politics News</h2>
@@ -359,11 +359,11 @@
                    @endforeach
                </div>
            </div>
-       </section>
+       </section> --}}
        <!-- End Latest Project Area -->
 
        <!-- Start Economics News Area -->
-       <section class="economics-area pb-70">
+       {{-- <section class="economics-area pb-70">
            <div class="container">
                <div class="section-title">
                    <h2>Current Events</h2>
@@ -473,11 +473,11 @@
                    </div>
                </div>
            </div>
-       </section>
+       </section> --}}
        <!-- End Economics News Area -->
 
        <!-- Start Latest Article Area -->
-       <section class="latest-article-area pb-70">
+       {{-- <section class="latest-article-area pb-70">
            <div class="container">
                <div class="section-title">
                    <h2>Latest Article</h2>
@@ -844,6 +844,6 @@
                    </div>
                </div>
            </div>
-       </section>
+       </section> --}}
        <!-- End Latest Article Area -->
    @endsection
