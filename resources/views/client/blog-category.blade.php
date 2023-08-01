@@ -19,7 +19,7 @@
                                 </ul>
                             </div>
                         </section>
-                        <div class="follows-area widget">
+                        {{-- <div class="follows-area widget">
                             <ul>
                                 <li>
                                     <a href="#" target="_blank">
@@ -50,7 +50,7 @@
                                     </a>
                                 </li>
                             </ul>
-                        </div>
+                        </div> --}}
                     </aside>
                 </div>
 

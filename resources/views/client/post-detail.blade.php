@@ -3,12 +3,13 @@
     <title>{{ $post->meta_title }}</title>
     <meta name="description" content="{{ $post->meta_description }}">
     <meta name="keywords" content="{{ $post->meta_keywords }}">
+    <meta name="Devchandant" content="tech blogs">
     <meta image="{{ env('APP_URL') . 'uploads/post/' . $post->filename }}">
     <link rel="canonical" href="{{ env('APP_URL') . '/post/' . $post->slug }}" />
     <link rel="image_src" href="https://www.devchandant.com/assets/logo.png" />
     <meta property="og:type" content="website">
     <meta property="og:determiner" content="An" />
-    <meta property="og:site_name" content="web wondors" />
+    <meta property="og:site_name" content="devchandant" />
     <meta property="og:url" content="{{ env('APP_URL') . 'post' . '/' . $post->category_slug . '/' . $post->slug }}" />
     <meta property="og:title" content="{{ $post->meta_title }}" />
     <meta property="og:image" content="{{ env('APP_URL') . 'uploads/post/' . $post->filename }}" />
