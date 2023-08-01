@@ -4,6 +4,50 @@
     <div class="blog-details-area ptb-100">
         <div class="container">
             <div class="row">
+            
+
+                <div class="col-lg-8 col-md-12">
+                    <div class="blog-details-desc left-sidebar-blog">
+                        <div class="article-content">
+                            <h3 class="related-posts">Related Post</h3>
+                            <div class="row">
+                                @foreach ($posts as $post)
+                                    <div class="col-lg-6 col-sm-6">
+                                        <div class="b-d-s-item mb-30">
+                                            <a href="{{ route('post.show', ['category_slug' => $post->category_slug, 'post_slug' => $post->slug]) }}">
+                                                <img src="{{ env('APP_URL') . 'uploads/post/' . $post->filename }}"
+                                                    alt="{{ $post->title }}" class="w-100" />
+                                                <span class="s-date">
+                                                    {{ $post->created_at->toDateString() }}
+                                                </span>
+                                                <ul>
+                                                    <li>
+                                                        <a href="#" class="admin">
+                                                            <i class="bx bx-user"></i>
+                                                            Admin By Chandan Thakur
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                                <a
+                                                    href="{{ route('post.show', ['category_slug' => $post->category_slug, 'post_slug' => $post->slug]) }}">
+                                                    <h3>{{ $post->title }}</h3>
+                                                </a>
+                                            </a>
+
+                                            <p> {!! Str::words($post->description, 15, '....') !!}</p>
+
+                                            <a href="{{ route('post.show', ['category_slug' => $post->category_slug, 'post_slug' => $post->slug]) }}">Read More</a>
+                                        </div>
+                                    </div>
+                                @endforeach
+
+                                <center>
+                                    {{ $posts->links() }}
+                                </center>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="col-lg-4 col-md-12">
                     <aside class="widget-area mt-0" id="secondary">
                         <section class="widget widget_categories">
@@ -52,49 +96,6 @@
                             </ul>
                         </div> --}}
                     </aside>
-                </div>
-
-                <div class="col-lg-8 col-md-12">
-                    <div class="blog-details-desc left-sidebar-blog">
-                        <div class="article-content">
-                            <h3 class="related-posts">Related Post</h3>
-                            <div class="row">
-                                @foreach ($posts as $post)
-                                    <div class="col-lg-6 col-sm-6">
-                                        <div class="b-d-s-item mb-30">
-                                            <a href="{{ route('post.show', ['category_slug' => $post->category_slug, 'post_slug' => $post->slug]) }}">
-                                                <img src="{{ env('APP_URL') . 'uploads/post/' . $post->filename }}"
-                                                    alt="{{ $post->title }}" class="w-100" />
-                                                <span class="s-date">
-                                                    {{ $post->created_at->toDateString() }}
-                                                </span>
-                                                <ul>
-                                                    <li>
-                                                        <a href="#" class="admin">
-                                                            <i class="bx bx-user"></i>
-                                                            Admin By Chandan Thakur
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                                <a
-                                                    href="{{ route('post.show', ['category_slug' => $post->category_slug, 'post_slug' => $post->slug]) }}">
-                                                    <h3>{{ $post->title }}</h3>
-                                                </a>
-                                            </a>
-
-                                            <p> {!! Str::words($post->description, 15, '....') !!}</p>
-
-                                            <a href="{{ route('post.show', ['category_slug' => $post->category_slug, 'post_slug' => $post->slug]) }}">Read More</a>
-                                        </div>
-                                    </div>
-                                @endforeach
-
-                                <center>
-                                    {{ $posts->links() }}
-                                </center>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
