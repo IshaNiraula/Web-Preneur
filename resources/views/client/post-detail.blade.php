@@ -157,7 +157,7 @@
                             </div>
                         </div>
 
-                        <div class="post-navigation">
+                        {{-- <div class="post-navigation">
                             <div class="navigation-links">
                                 <div class="nav-previous">
                                     <a href="#"><i class='bx bx-left-arrow-alt'></i> Prev Post</a>
@@ -167,9 +167,9 @@
                                     <a href="#">Next Post <i class='bx bx-right-arrow-alt'></i></a>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
 
-                        <div class="comments-area">
+                        {{-- <div class="comments-area">
                             <h3 class="comments-title">3 Comments:</h3>
 
                             <ol class="comment-list">
@@ -295,7 +295,7 @@
                                     </p>
                                 </form>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
 
@@ -327,7 +327,7 @@
                             </div>
                         </section>
 
-                        <section class="widget widget_categories">
+                        {{-- <section class="widget widget_categories">
                             <h3 class="widget-title">Archives</h3>
                             <div class="post-wrap">
                                 <ul>
@@ -351,7 +351,7 @@
                                     </li>
                                 </ul>
                             </div>
-                        </section>
+                        </section> --}}
 
                         <section class="widget widget_categories">
                             <h3 class="widget-title">Categories</h3>
@@ -367,7 +367,7 @@
                         </section>
 
 
-                        <section class="widget widget_tag_cloud">
+                        {{-- <section class="widget widget_tag_cloud">
                             <h3 class="widget-title">Tags</h3>
                             <div class="post-wrap">
                                 <div class="tagcloud">
@@ -379,9 +379,9 @@
                                     <a href="#">Crypto</a>
                                 </div>
                             </div>
-                        </section>
+                        </section> --}}
 
-                        <div class="follows-area widget">
+                        {{-- <div class="follows-area widget">
                             <ul>
                                 <li>
                                     <a href="#" target="_blank">
@@ -412,7 +412,7 @@
                                     </a>
                                 </li>
                             </ul>
-                        </div>
+                        </div> --}}
                     </aside>
                 </div>
             </div>
