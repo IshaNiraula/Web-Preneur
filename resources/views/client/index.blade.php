@@ -280,9 +280,9 @@
        <!-- End Adds Area -->
        <section class="main-inspiration-area pb-100">
            <div class="container">
-               <div class="section-title text-center">
+               {{-- <div class="section-title text-center">
                    <h2>Web Development</h2>
-               </div>
+               </div> --}}
                <div class="row">
                    @foreach ($web_posts as $post)
                        <div class="col-lg-4 col-md-6 plr-5">
