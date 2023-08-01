@@ -92,9 +92,9 @@
  <div class="navbar-area navbar-area-two">
      <!-- Menu For Mobile Device -->
      <div class="mobile-nav">
-         <a href="{{route('home')}}" class="logo">
+         <a href="{{ route('home') }}" class="logo">
              {{-- <img src="assets/img/logo.png" alt="Logo"> --}}
-             <h3 style="color: #fff">@devchandant</h3>
+             <h3 style="color: #fff;margin-top: 10px;">@devchandant</h3>
          </a>
      </div>
 
@@ -105,7 +105,7 @@
                  {{-- <div class="burger-menu">
                      <i class='bx bx-menu'></i>
                  </div> --}}
-                 <a class="navbar-brand" href="{{route('home')}}">
+                 <a class="navbar-brand" href="{{ route('home') }}">
                      {{-- <img src="webwondors-01.png" alt="Logo" style="width:15%"> --}}
                      <h3>@devchandant</h3>
                  </a>
@@ -114,7 +114,7 @@
                      <ul class="navbar-nav m-auto">
                          @foreach ($categories as $category)
                              <li class="nav-item">
-                                 <a href="{{route('blog.category',['slug' => $category->slug])}}" class="nav-link">
+                                 <a href="{{ route('blog.category', ['slug' => $category->slug]) }}" class="nav-link">
                                      {{ $category->name }}
                                  </a>
                              </li>
