@@ -130,7 +130,9 @@
     <script>
         CKEDITOR.replace('description', {
             filebrowserUploadUrl: "{{ 'https://devchandant.com/upload_post_editor_image?_token=' . csrf_token() }}",
-            filebrowserUploadMethod: 'form'
+            filebrowserUploadMethod: 'form',
+            toolbar: 'Basic',
+             height: 200,
         })
   
     </script>
