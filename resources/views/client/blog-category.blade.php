@@ -4,8 +4,6 @@
     <div class="blog-details-area ptb-100">
         <div class="container">
             <div class="row">
-            
-
                 <div class="col-lg-8 col-md-12">
                     <div class="blog-details-desc left-sidebar-blog">
                         <div class="article-content">
@@ -14,7 +12,8 @@
                                 @foreach ($posts as $post)
                                     <div class="col-lg-6 col-sm-6">
                                         <div class="b-d-s-item mb-30">
-                                            <a href="{{ route('post.show', ['category_slug' => $post->category_slug, 'post_slug' => $post->slug]) }}">
+                                            <a
+                                                href="{{ route('post.show', ['category_slug' => $post->category_slug, 'post_slug' => $post->slug]) }}">
                                                 <img src="{{ env('APP_URL') . 'uploads/post/' . $post->filename }}"
                                                     alt="{{ $post->title }}" class="w-100" />
                                                 <span class="s-date">
@@ -36,7 +35,9 @@
 
                                             <p> {!! Str::words($post->description, 15, '....') !!}</p>
 
-                                            <a href="{{ route('post.show', ['category_slug' => $post->category_slug, 'post_slug' => $post->slug]) }}">Read More</a>
+                                            <a
+                                                href="{{ route('post.show', ['category_slug' => $post->category_slug, 'post_slug' => $post->slug]) }}">Read
+                                                More</a>
                                         </div>
                                     </div>
                                 @endforeach
@@ -57,7 +58,7 @@
                                     @foreach ($categories as $category)
                                         <li>
                                             <a href="{{ route('blog.category', ['slug' => $category->slug]) }}">{{ $category->name }}
-                                                </a>
+                                            </a>
                                         </li>
                                     @endforeach
                                 </ul>

@@ -344,7 +344,7 @@
                                 <ul>
                                     @foreach ($categories as $category)
                                         <li>
-                                            <a href="#">{{ $category->name }} <span>(10)</span></a>
+                                            <a href="#">{{ $category->name }}</a>
                                         </li>
                                     @endforeach
                                 </ul>
