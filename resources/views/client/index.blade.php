@@ -278,12 +278,12 @@
            </div>
        </div> --}}
        <!-- End Adds Area -->
-       <section class="main-inspiration-area pb-100">
+       <section class="main-inspiration-area pb-100 pt-100">
            <div class="container">
                {{-- <div class="section-title text-center">
                    <h2>Web Development</h2>
                </div> --}}
-               <div class="row py-4">
+               <div class="row">
                    @foreach ($web_posts as $post)
                        <div class="col-lg-4 col-md-6 plr-5">
                            <div class="single-main-blog-item mb-8">

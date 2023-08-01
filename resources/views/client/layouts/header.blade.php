@@ -94,7 +94,7 @@
      <div class="mobile-nav">
          <a href="{{route('home')}}" class="logo">
              {{-- <img src="assets/img/logo.png" alt="Logo"> --}}
-             {{-- <p>Web Wondors</p> --}}
+             <h3>@devchandant</h3>
          </a>
      </div>
 
