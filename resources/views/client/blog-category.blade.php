@@ -57,7 +57,7 @@
                                     @foreach ($categories as $category)
                                         <li>
                                             <a href="{{ route('blog.category', ['slug' => $category->slug]) }}">{{ $category->name }}
-                                                <span>(10)</span></a>
+                                                </a>
                                         </li>
                                     @endforeach
                                 </ul>
