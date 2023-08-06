@@ -191,7 +191,7 @@
                        <div class="col-lg-4 col-md-6 plr-5">
                            <div class="single-main-blog-item mb-8">
                                <img src="{{ env('APP_URL') . 'uploads/post/' . $post->filename }}" alt="{{ $post->title }}"
-                                   class="sidebar-img" />
+                                   class="w-100 h-100" />
                                <span class="blog-link">
                                    {{ $post->category_slug }}
                                </span>
@@ -223,11 +223,11 @@
        </section>
        <!-- Start Latest Project Area -->
        <!-- Start Latest Project Area -->
-       <section class="latest-project-area pt-100 pb-70">
+       {{-- <section class="latest-project-area pt-100 pb-70">
            <div class="container">
-               {{-- <div class="section-title">
+               <div class="section-title">
                    <h2>Digital Marketing</h2>
-               </div> --}}
+               </div>
                <div class="row">
                    <div class="col-lg-8">
                        <div class="row">
@@ -298,7 +298,7 @@
                    </div>
                </div>
            </div>
-       </section>
+       </section> --}}
        <!-- End Latest Project Area -->
        {{-- <section class="latest-project-area four pt-100 pb-70">
            <div class="container">

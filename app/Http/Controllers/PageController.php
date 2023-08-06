@@ -15,7 +15,7 @@ use App\Models\PostCategory;
 class PageController extends Controller
 {
     public function homePage () {
-        $top_posts = Post::orderBy('created_at', 'desc')->offset(0)->limit(4)->get();
+        $top_posts = Post::where('category_slug', 'web-development')->orderBy('created_at', 'desc')->offset(0)->limit(4)->get();
         $sidebarPosts = Post::orderBy('created_at', 'desc')->offset(4)->limit(3)->get();
         $sl_posts = Post::orderBy('created_at', 'desc')->offset(7)->limit(6)->get();
         $web_posts = Post::where('category_slug', 'web-development')->orderBy('created_at', 'desc')->take(6)->get();
