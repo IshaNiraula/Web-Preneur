@@ -170,104 +170,7 @@
        </section> --}}
        <!-- End Linka Top News Area -->
 
-       <!-- Start Latest Project Area -->
-       {{-- <section class="latest-project-area pt-100 pb-70">
-           <div class="container">
-               <div class="section-title">
-                   <h2>Digital Marketing</h2>
-               </div>
-               <div class="row">
-                   <div class="col-lg-8">
-                       <div class="row">
-                           @foreach ($top_posts as $post)
-                               <div class="col-lg-6 col-md-6">
-                                   <div class="single-featured">
-                                       <a href="{{ route('post.show', ['category_slug' => $post->category_slug, 'post_slug' => $post->slug]) }}" class="blog-img">
-                                           <img src="{{ env('APP_URL') . 'uploads/post/' . $post->filename }}"
-                                               alt="{{ $post->title }}" class="w-100" />
-                                           <span>{{ $post->category_slug }}</span>
-                                       </a>
 
-                                       <div class="featured-content">
-                                           <ul>
-                                               <li>
-                                                   <a href="#" class="admin">
-                                                       <i class="bx bx-user"></i>
-                                                       Admin By Chandan Thakur
-                                                   </a>
-                                               </li>
-                                               <li>
-                                                   <i class="bx bx-calendar"></i>
-                                                   {{ $post->created_at->toDateString() }}
-                                               </li>
-                                           </ul>
-
-                                           <a href="{{ route('post.show', ['category_slug' => $post->category_slug, 'post_slug' => $post->slug]) }}">
-                                               <h3>{{ $post->title }}</h3>
-                                           </a>
-
-                                           <p> {!! Str::words($post->description, 15, ' ...') !!}</p>
-
-                                           <a href="{{ route('post.show', ['category_slug' => $post->category_slug, 'post_slug' => $post->slug]) }}"
-                                               class="read-more">Read More</a>
-                                       </div>
-                                   </div>
-                               </div>
-                           @endforeach
-                       </div>
-                   </div>
-
-                   <div class="col-lg-4">
-                       <div class="latest-project-right-sidebar">
-
-                           @foreach ($sidebarPosts as $post)
-                               <div class="right-blog-editor media align-items-center">
-                                   <a href="{{ route('post.show', ['category_slug' => $post->category_slug, 'post_slug' => $post->slug]) }}">
-                                       <img src="{{ env('APP_URL') . 'uploads/post/' . $post->filename }}"
-                                           alt="{{ $post->title }}" class="sidebar-img" />
-                                   </a>
-
-                                   <div class="right-blog-content">
-                                       <a href="{{ route('post.show', ['category_slug' => $post->category_slug, 'post_slug' => $post->slug]) }}">
-                                           <h3>{{ $post->title }}</h3>
-                                       </a>
-
-                                       <span>
-                                           <i class="bx bx-calendar"></i>
-                                           {{ $post->created_at->toDateString() }}
-                                       </span>
-                                   </div>
-                               </div>
-                           @endforeach
-
-                           <div class="light-news mb-30">
-                               <img src="assets/img/home-four/recent-news/8.jpg" alt="Image">
-
-                               <div class="light-news-content">
-                                   <a href="post-style-one.html">
-                                       <h3>What Would It Take To Shut-down the Internet</h3>
-                                   </a>
-
-                                   <ul>
-                                       <li>
-                                           <a href="#" class="admin">
-                                               <i class="bx bx-user"></i>
-                                               By Admon Altk Walker
-                                           </a>
-                                       </li>
-                                       <li>
-                                           <i class="bx bx-calendar"></i>
-                                           30 Jun 2020
-                                       </li>
-                                   </ul>
-                               </div>
-                           </div>
-                       </div>
-                   </div>
-               </div>
-           </div>
-       </section> --}}
-       <!-- End Latest Project Area -->
 
        <!-- Start Adds Area -->
        {{-- <div class="adds-area pb-100">
@@ -287,14 +190,15 @@
                    @foreach ($web_posts as $post)
                        <div class="col-lg-4 col-md-6 plr-5">
                            <div class="single-main-blog-item mb-8">
-                               <img src="{{ env('APP_URL') . 'uploads/post/' . $post->filename }}"
-                                   alt="{{ $post->title }}" class="sidebar-img" />
+                               <img src="{{ env('APP_URL') . 'uploads/post/' . $post->filename }}" alt="{{ $post->title }}"
+                                   class="sidebar-img" />
                                <span class="blog-link">
                                    {{ $post->category_slug }}
                                </span>
 
                                <div class="main-blog-content">
-                                   <a href="{{route('post.show',['category_slug' => $post->category_slug, 'post_slug' => $post->slug])}}">
+                                   <a
+                                       href="{{ route('post.show', ['category_slug' => $post->category_slug, 'post_slug' => $post->slug]) }}">
                                        <h3>{{ $post->title }}</h3>
                                    </a>
 
@@ -318,6 +222,84 @@
            </div>
        </section>
        <!-- Start Latest Project Area -->
+       <!-- Start Latest Project Area -->
+       <section class="latest-project-area pt-100 pb-70">
+           <div class="container">
+               {{-- <div class="section-title">
+                   <h2>Digital Marketing</h2>
+               </div> --}}
+               <div class="row">
+                   <div class="col-lg-8">
+                       <div class="row">
+                           @foreach ($top_posts as $post)
+                               <div class="col-lg-6 col-md-6">
+                                   <div class="single-featured">
+                                       <a href="{{ route('post.show', ['category_slug' => $post->category_slug, 'post_slug' => $post->slug]) }}"
+                                           class="blog-img">
+                                           <img src="{{ env('APP_URL') . 'uploads/post/' . $post->filename }}"
+                                               alt="{{ $post->title }}" class="w-100" />
+                                           <span>{{ $post->category_slug }}</span>
+                                       </a>
+
+                                       <div class="featured-content">
+                                           <ul>
+                                               <li>
+                                                   <a href="#" class="admin">
+                                                       <i class="bx bx-user"></i>
+                                                       Admin By Chandan Thakur
+                                                   </a>
+                                               </li>
+                                               <li>
+                                                   <i class="bx bx-calendar"></i>
+                                                   {{ $post->created_at->toDateString() }}
+                                               </li>
+                                           </ul>
+
+                                           <a
+                                               href="{{ route('post.show', ['category_slug' => $post->category_slug, 'post_slug' => $post->slug]) }}">
+                                               <h3>{{ $post->title }}</h3>
+                                           </a>
+
+                                           <p> {!! Str::words($post->description, 15, ' ...') !!}</p>
+
+                                           <a href="{{ route('post.show', ['category_slug' => $post->category_slug, 'post_slug' => $post->slug]) }}"
+                                               class="read-more">Read More</a>
+                                       </div>
+                                   </div>
+                               </div>
+                           @endforeach
+                       </div>
+                   </div>
+
+                   <div class="col-lg-4">
+                       <div class="latest-project-right-sidebar">
+                           @foreach ($sidebarPosts as $post)
+                               <div class="right-blog-editor media align-items-center">
+                                   <a
+                                       href="{{ route('post.show', ['category_slug' => $post->category_slug, 'post_slug' => $post->slug]) }}">
+                                       <img src="{{ env('APP_URL') . 'uploads/post/' . $post->filename }}"
+                                           alt="{{ $post->title }}" class="sidebar-img" />
+                                   </a>
+
+                                   <div class="right-blog-content">
+                                       <a
+                                           href="{{ route('post.show', ['category_slug' => $post->category_slug, 'post_slug' => $post->slug]) }}">
+                                           <h3>{{ $post->title }}</h3>
+                                       </a>
+
+                                       <span>
+                                           <i class="bx bx-calendar"></i>
+                                           {{ $post->created_at->toDateString() }}
+                                       </span>
+                                   </div>
+                               </div>
+                           @endforeach
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </section>
+       <!-- End Latest Project Area -->
        {{-- <section class="latest-project-area four pt-100 pb-70">
            <div class="container">
                <div class="section-title">
