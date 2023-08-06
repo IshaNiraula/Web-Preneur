@@ -18,7 +18,7 @@ class PageController extends Controller
         $top_posts = Post::where('category_slug', 'web-development')->orderBy('created_at', 'desc')->offset(0)->limit(4)->get();
         $sidebarPosts = Post::orderBy('created_at', 'desc')->offset(4)->limit(3)->get();
         $sl_posts = Post::orderBy('created_at', 'desc')->offset(7)->limit(6)->get();
-        $web_posts = Post::where('category_slug', 'web-development')->orderBy('created_at', 'desc')->take(6)->get();
+        $web_posts = Post::where('category_slug', 'web-development')->orderBy('created_at', 'desc')->get();
         return view('client.index',compact('top_posts','sidebarPosts','sl_posts','web_posts'));
     }
 
