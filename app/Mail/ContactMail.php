@@ -10,7 +10,7 @@ use Illuminate\Queue\SerializesModels;
 class ContactMail extends Mailable
 {
     use Queueable, SerializesModels;
-    public $mailData;
+      public $mailData;
     /**
      * Create a new message instance.
      *
@@ -18,7 +18,7 @@ class ContactMail extends Mailable
      */
     public function __construct($mailData)
     {
-        $this->mailData = $mailData;
+    return $this->mailData = $mailData;
     }
 
     /**
@@ -28,6 +28,6 @@ class ContactMail extends Mailable
      */
     public function build()
     {
-        return $this->subject($this->mailData['subject'])->view('email.contact');
+        return $this->subject('A contact form has been submitted')->view('email.contact');
     }
 }

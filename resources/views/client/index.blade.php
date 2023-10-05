@@ -1,7 +1,38 @@
    @extends('client.layouts.master')
    @section('content')
-       <!-- Start Linka Top News Area -->
-       {{-- <section class="linka-top-news-area pt-100 pb-70">
+       <section>
+           <div id="popupOverlay" class="overlay">
+               <div class="popup-form">
+                   <span class="close-btn" onclick="closePopup()">&times;</span>
+                   <h2>Register</h2>
+                   <form action="#" method="post">
+                       <div class="form-group">
+                           <label for="name">Name:</label>
+                           <input type="text" id="name" name="name" required>
+                       </div>
+                       <div class="form-group">
+                           <label for="game">Game To Play:</label>
+                           <input type="text" id="game" name="game" required>
+                       </div>
+                       <div class="form-group">
+                           <label for="points">Points:</label>
+                           <input type="text" id="points" name="points" required>
+                       </div>
+                       <div class="form-group">
+                           <label for="social-media">Add any one Social Media Link:</label>
+                           <select id="social-media" name="social-media">
+                               <option value="Facebook">Facebook</option>
+                               <option value="Telegram">Telegram</option>
+                               <option value="WhatsApp">WhatsApp</option>
+                           </select>
+                           <input type="text" id="social-media" name="social-media" style="margin-top:10px;" required>
+                       </div>
+                       <button type="submit" class="register">Register</button>
+                   </form>
+               </div>
+           </div>
+       </section>
+       <section class="linka-top-news-area pt-100 pb-70">
            <div class="container">
                <div class="row">
                    <div class="col-lg-3">
@@ -167,299 +198,9 @@
                    </div>
                </div>
            </div>
-       </section> --}}
-       <!-- End Linka Top News Area -->
-
-
-
-       <!-- Start Adds Area -->
-       {{-- <div class="adds-area pb-100">
-           <div class="container">
-               <a href="#">
-                   <img src="assets/img/home-three/adds.jpg" alt="Image">
-               </a>
-           </div>
-       </div> --}}
-       <!-- End Adds Area -->
-       <section class="main-inspiration-area pb-100 pt-100">
-           <div class="container">
-               {{-- <div class="section-title text-center">
-                   <h2>Web Development</h2>
-               </div> --}}
-               <div class="row">
-                   @foreach ($web_posts as $post)
-                       <div class="col-lg-4 col-md-6 plr-5">
-                           <div class="single-main-blog-item mb-8">
-                               <img src="{{ env('APP_URL') . 'uploads/post/' . $post->filename }}" alt="{{ $post->title }}"
-                                   class="w-100 h-100" />
-                               <span class="blog-link">
-                                   {{ $post->category_slug }}
-                               </span>
-
-                               <div class="main-blog-content">
-                                   <a
-                                       href="{{ route('post.show', ['category_slug' => $post->category_slug, 'post_slug' => $post->slug]) }}">
-                                       <h3>{{ $post->title }}</h3>
-                                   </a>
-
-                                   <ul>
-                                       <li>
-                                           <a class="admin" href="#">
-                                               <i class="bx bx-user"></i>
-                                               By Admin
-                                           </a>
-                                       </li>
-                                       <li>
-                                           <i class="bx bx-calendar"></i>
-                                           {{ $post->created_at->toDateString() }}
-                                       </li>
-                                   </ul>
-                               </div>
-                           </div>
-                       </div>
-                   @endforeach
-               </div>
-           </div>
        </section>
-       <!-- Start Latest Project Area -->
-       <!-- Start Latest Project Area -->
-       {{-- <section class="latest-project-area pt-100 pb-70">
-           <div class="container">
-               <div class="section-title">
-                   <h2>Digital Marketing</h2>
-               </div>
-               <div class="row">
-                   <div class="col-lg-8">
-                       <div class="row">
-                           @foreach ($top_posts as $post)
-                               <div class="col-lg-6 col-md-6">
-                                   <div class="single-featured">
-                                       <a href="{{ route('post.show', ['category_slug' => $post->category_slug, 'post_slug' => $post->slug]) }}"
-                                           class="blog-img">
-                                           <img src="{{ env('APP_URL') . 'uploads/post/' . $post->filename }}"
-                                               alt="{{ $post->title }}" class="w-100" />
-                                           <span>{{ $post->category_slug }}</span>
-                                       </a>
-
-                                       <div class="featured-content">
-                                           <ul>
-                                               <li>
-                                                   <a href="#" class="admin">
-                                                       <i class="bx bx-user"></i>
-                                                       Admin By Chandan Thakur
-                                                   </a>
-                                               </li>
-                                               <li>
-                                                   <i class="bx bx-calendar"></i>
-                                                   {{ $post->created_at->toDateString() }}
-                                               </li>
-                                           </ul>
-
-                                           <a
-                                               href="{{ route('post.show', ['category_slug' => $post->category_slug, 'post_slug' => $post->slug]) }}">
-                                               <h3>{{ $post->title }}</h3>
-                                           </a>
-
-                                           <p> {!! Str::words($post->description, 15, ' ...') !!}</p>
-
-                                           <a href="{{ route('post.show', ['category_slug' => $post->category_slug, 'post_slug' => $post->slug]) }}"
-                                               class="read-more">Read More</a>
-                                       </div>
-                                   </div>
-                               </div>
-                           @endforeach
-                       </div>
-                   </div>
-
-                   <div class="col-lg-4">
-                       <div class="latest-project-right-sidebar">
-                           @foreach ($sidebarPosts as $post)
-                               <div class="right-blog-editor media align-items-center">
-                                   <a
-                                       href="{{ route('post.show', ['category_slug' => $post->category_slug, 'post_slug' => $post->slug]) }}">
-                                       <img src="{{ env('APP_URL') . 'uploads/post/' . $post->filename }}"
-                                           alt="{{ $post->title }}" class="sidebar-img" />
-                                   </a>
-
-                                   <div class="right-blog-content">
-                                       <a
-                                           href="{{ route('post.show', ['category_slug' => $post->category_slug, 'post_slug' => $post->slug]) }}">
-                                           <h3>{{ $post->title }}</h3>
-                                       </a>
-
-                                       <span>
-                                           <i class="bx bx-calendar"></i>
-                                           {{ $post->created_at->toDateString() }}
-                                       </span>
-                                   </div>
-                               </div>
-                           @endforeach
-                       </div>
-                   </div>
-               </div>
-           </div>
-       </section> --}}
-       <!-- End Latest Project Area -->
-       {{-- <section class="latest-project-area four pt-100 pb-70">
-           <div class="container">
-               <div class="section-title">
-                   <h2>Politics News</h2>
-               </div>
-
-               <div class="row">
-                   @foreach ($sl_posts as $post)
-                       <div class="col-lg-4 col-md-6">
-                           <div class="single-featured">
-                               <a href="{{ route('post.show', ['category_slug' => $post->category_slug, 'post_slug' => $post->slug]) }}" class="blog-img">
-                                   <img src="{{ env('APP_URL') . 'uploads/post/' . $post->filename }}"
-                                       alt="{{ $post->title }}" class="w-100" />
-                                   <span>{{ $post->category_slug }}</span>
-                               </a>
-                               <div class="featured-content">
-                                   <ul>
-                                       <li>
-                                           <a href="#" class="admin">
-                                               <i class="bx bx-user"></i>
-                                               Admin By Chandan Thakur
-                                           </a>
-                                       </li>
-                                       <li>
-                                           <i class="bx bx-calendar"></i>
-                                           {{ $post->created_at->toDateString() }}
-                                       </li>
-                                   </ul>
-
-                                   <a href="{{ route('post.show',['category_slug' => $post->category_slug, 'post_slug' => $post->slug]) }}">
-                                       <h3>{{ $post->title }}</h3>
-                                   </a>
-
-                                   <a href="{{ route('post.show',['category_slug' => $post->category_slug, 'post_slug' => $post->slug]) }}" class="read-more">Read
-                                       More</a>
-                               </div>
-                           </div>
-                       </div>
-                   @endforeach
-               </div>
-           </div>
-       </section> --}}
-       <!-- End Latest Project Area -->
-
-       <!-- Start Economics News Area -->
-       {{-- <section class="economics-area pb-70">
-           <div class="container">
-               <div class="section-title">
-                   <h2>Current Events</h2>
-               </div>
-
-               <div class="row">
-                   <div class="col-lg-6">
-                       <div class="single-featured">
-                           <a href="post-style-one.html">
-                               <img src="assets/img/home-four/events/1.jpg" alt="Image">
-                           </a>
-
-                           <div class="featured-content">
-                               <a href="post-style-one.html">
-                                   <h3>And a Lonely Stranger Has Spoke To Me Ever Science of Technology</h3>
-                               </a>
-
-                               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere laboriosam eveniet debitis
-                                   tenetur consectetur adipisicing elit Lorem ipsum dolor sit.</p>
-
-                               <ul class="mb-0">
-                                   <li>
-                                       <a href="#" class="admin">
-                                           <i class="bx bx-user"></i>
-                                           Admin By Jhona Walker
-                                       </a>
-                                   </li>
-                                   <li>
-                                       <i class="bx bx-calendar"></i>
-                                       25 Jun 2020
-                                   </li>
-                               </ul>
-                           </div>
-                       </div>
-                   </div>
-
-                   <div class="col-lg-6">
-                       <div class="row">
-                           <div class="col-lg-6 col-md-6">
-                               <div class="right-blog-editor pt-0 pb-0">
-                                   <a href="post-style-one.html">
-                                       <img src="assets/img/home-four/events/2.jpg" alt="Image">
-                                   </a>
-
-                                   <a href="blog-detauls.html">
-                                       <h3>Facebook takes down white nationalist and fake anita account</h3>
-                                   </a>
-
-                                   <span>
-                                       <i class="bx bx-calendar"></i>
-                                       25 Jun 2020
-                                   </span>
-                               </div>
-                           </div>
-
-                           <div class="col-lg-6 col-md-6">
-                               <div class="right-blog-editor pt-0 pb-0">
-                                   <a href="post-style-one.html">
-                                       <img src="assets/img/home-four/events/3.jpg" alt="Image">
-                                   </a>
-
-                                   <a href="blog-detauls.html">
-                                       <h3>Understanding your dog for dummies cheatsheet</h3>
-                                   </a>
-
-                                   <span>
-                                       <i class="bx bx-calendar"></i>
-                                       26 Jun 2020
-                                   </span>
-                               </div>
-                           </div>
-
-                           <div class="col-lg-6 col-md-6">
-                               <div class="right-blog-editor pt-0 pb-0">
-                                   <a href="post-style-one.html">
-                                       <img src="assets/img/home-four/events/4.jpg" alt="Image">
-                                   </a>
-
-                                   <a href="blog-detauls.html">
-                                       <h3>Is the Natural Hair Movement Coming to an End?</h3>
-                                   </a>
-
-                                   <span>
-                                       <i class="bx bx-calendar"></i>
-                                       27 Jun 2020
-                                   </span>
-                               </div>
-                           </div>
-
-                           <div class="col-lg-6 col-md-6">
-                               <div class="right-blog-editor pt-0 pb-0">
-                                   <a href="post-style-one.html">
-                                       <img src="assets/img/home-four/events/5.jpg" alt="Image">
-                                   </a>
-
-                                   <a href="blog-detauls.html">
-                                       <h3>Genderless Kei – Japan’s Hot New Fashion Trend</h3>
-                                   </a>
-
-                                   <span>
-                                       <i class="bx bx-calendar"></i>
-                                       27 Jun 2020
-                                   </span>
-                               </div>
-                           </div>
-                       </div>
-                   </div>
-               </div>
-           </div>
-       </section> --}}
-       <!-- End Economics News Area -->
-
-       <!-- Start Latest Article Area -->
-       {{-- <section class="latest-article-area pb-70">
+     
+       <section class="latest-article-area pb-70">
            <div class="container">
                <div class="section-title">
                    <h2>Latest Article</h2>
@@ -826,6 +567,18 @@
                    </div>
                </div>
            </div>
-       </section> --}}
-       <!-- End Latest Article Area -->
+       </section>
    @endsection
+
+   @push('scripts')
+       <script>
+           window.onload = function() {
+               document.getElementById("popupOverlay").style.display = "block";
+           };
+
+           // Function to close the popup
+           function closePopup() {
+               document.getElementById("popupOverlay").style.display = "none";
+           }
+       </script>
+   @endpush

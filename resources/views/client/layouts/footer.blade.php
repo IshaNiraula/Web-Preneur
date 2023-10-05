@@ -6,7 +6,7 @@
                  <div class="single-widget">
                      <a href="index.html">
                          {{-- <img src="assets/img/black-logo.png" alt="Image"> --}}
-                         <h3>Web Wondors</h3>
+                         <h3>Game Site</h3>
                      </a>
 
                      <p>Lorem ipsum dolor, sit amet earum consectetur adipisicing elit sit. Cupiditate rerum quidem
@@ -50,31 +50,31 @@
 
                      <ul>
                          <li>
-                             <a href="author.html">
+                             <a href="{{route('home')}}">
                                  <i class="bx bx-chevrons-right"></i>
-                                 Author
+                               Home
                              </a>
                          </li>
                          <li>
-                             <a href="gallery.html">
-                                 <i class="bx bx-chevrons-right"></i>
-                                 Gallery
-                             </a>
-                         </li>
-                         <li>
-                             <a href="video.html">
-                                 <i class="bx bx-chevrons-right"></i>
-                                 Video
-                             </a>
-                         </li>
-                         <li>
-                             <a href="full-width-blog.html">
+                             <a href="{{route('blog')}}">
                                  <i class="bx bx-chevrons-right"></i>
                                  Blog
                              </a>
                          </li>
                          <li>
-                             <a href="contact.html">
+                             <a href="">
+                                 <i class="bx bx-chevrons-right"></i>
+                                 Game
+                             </a>
+                         </li>
+                         <li>
+                             <a href="full-width-blog.html">
+                                 <i class="bx bx-chevrons-right"></i>
+                                Shop
+                             </a>
+                         </li>
+                         <li>
+                             <a href="{{route('contact')}}">
                                  <i class="bx bx-chevrons-right"></i>
                                  Contact
                              </a>
@@ -84,54 +84,14 @@
              </div>
 
              <div class="col-lg-3 col-md-6">
-                 <div class="single-widget">
-                     <h3>Featured</h3>
-
-                     <ul>
-                         <li>
-                             <a href="#">
-                                 <i class="bx bx-chevrons-right"></i>
-                                 It Management
-                             </a>
-                         </li>
-                         <li>
-                             <a href="#">
-                                 <i class="bx bx-chevrons-right"></i>
-                                 Development
-                             </a>
-                         </li>
-                         <li>
-                             <a href="#">
-                                 <i class="bx bx-chevrons-right"></i>
-                                 Featured
-                             </a>
-                         </li>
-                         <li>
-                             <a href="#">
-                                 <i class="bx bx-chevrons-right"></i>
-                                 UI/UX Design
-                             </a>
-                         </li>
-                         <li>
-                             <a href="#">
-                                 <i class="bx bx-chevrons-right"></i>
-                                 Support Engineer
-                             </a>
-                         </li>
-                     </ul>
-                 </div>
-             </div>
-
-             <div class="col-lg-3 col-md-6">
                  <div class="single-widget contact">
                      <h3>Get In Touch</h3>
-
                      <ul>
                          <li>
                              <i class="bx bx-phone-call"></i>
-                             <span>Hotline:</span>
+                             <span>LandLine:</span>
                              <a href="tel:+61-821-456">
-                                 +61-821-456
+                             1234567
                              </a>
                          </li>
 
@@ -139,7 +99,7 @@
                              <i class="bx bx-envelope"></i>
                              <span>Email:</span>
                              <a href="">
-                                 <span class="">chandant225@gmail.com</span>
+                                 <span class="">isha@gmail.com</span>
                              </a>
                          </li>
 
@@ -151,6 +111,10 @@
                      </ul>
                  </div>
              </div>
+             <div class="col-lg-3">
+                <h3>Location</h3>
+                <div><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3533.3646824957286!2d85.40703257523901!3d27.675121426912483!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb1a90f3fe73bd%3A0x6717557a3e66a878!2sSallaghari%20Shopping%20Complex!5e0!3m2!1sen!2snp!4v1696502961920!5m2!1sen!2snp" width="600" height="230" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+             </div>
          </div>
      </div>
  </footer>
@@ -160,8 +124,8 @@
  <footer class="footer-bottom-area">
      <div class="container">
          <div class="copy-right">
-             <p>Copyright <i class="bx bx-copyright"></i>2022 web wondors. Designed By<a href=""
-                     target="blank"> Web Wondors</a></p>
+             <p>Copyright <i class="bx bx-copyright"></i>2023. Designed By<a href=""
+                     target="blank">Outofbox</a></p>
          </div>
      </div>
  </footer>
