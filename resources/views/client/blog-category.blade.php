@@ -23,7 +23,7 @@
                                                     <li>
                                                         <a href="#" class="admin">
                                                             <i class="bx bx-user"></i>
-                                                            Admin By Chandan Thakur
+                                                            Posted By : Admin
                                                         </a>
                                                     </li>
                                                 </ul>

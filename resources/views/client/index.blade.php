@@ -9,7 +9,7 @@
                                <a href="{{ route('post.show', ['category_slug' => $post->category_slug, 'post_slug' => $post->slug]) }}"
                                    class="blog-img">
                                    <img src="{{ env('APP_URL') . 'uploads/post/' . $post->filename }}"
-                                       alt="{{ $post->title }}" class="w-100" />
+                                       alt="{{ $post->title }}" class="" />
                                    <span>{{ $post->category_slug }}</span>
                                </a>
 
@@ -18,7 +18,7 @@
                                        <li>
                                            <a href="#" class="admin">
                                                <i class="bx bx-user"></i>
-                                               Admin By Chandan Thakur
+                                               Posted By : Admin
                                            </a>
                                        </li>
                                        <li>

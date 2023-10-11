@@ -1,25 +1,16 @@
- <!-- Start Navbar Area -->
- <div class="navbar-area navbar-area-two">
-     <!-- Menu For Mobile Device -->
+<div class="navbar-area navbar-area-two">
      <div class="mobile-nav">
          <a href="{{ route('home') }}" class="logo">
              <img src="/logo.jpg" alt="Logo">
-             <h3 style="color: #fff;margin-top: 10px;">@devchandant</h3>
          </a>
      </div>
 
-     <!-- Menu For Desktop Device -->
      <div class="main-nav">
          <nav class="navbar navbar-expand-md">
              <div class="container-fluid">
-                 {{-- <div class="burger-menu">
-                     <i class='bx bx-menu'></i>
-                 </div> --}}
                  <a class="navbar-brand" href="{{ route('home') }}">
-                     {{-- <img src="webwondors-01.png" alt="Logo" style="width:15%"> --}}
-                     <h3>@devchandant</h3>
+                    <img src="/logo.jpg" alt="Logo">
                  </a>
-
                  <div class="collapse navbar-collapse mean-menu">
                      <ul class="navbar-nav m-auto">
                          @foreach ($categories as $category)
@@ -31,7 +22,7 @@
                          @endforeach
                      </ul>
                      <!-- Start Other Option -->
-                     {{-- <div class="others-option">
+                     <div class="others-option">
                          <div class="follow">
                              <span>Follow</span>
                              <i class="bx bx-chevron-down"></i>
@@ -81,7 +72,7 @@
                                  </div>
                              </div>
                          </div>
-                     </div> --}}
+                     </div>
                      <!-- End Other Option -->
                  </div>
              </div>

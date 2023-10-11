@@ -6,7 +6,7 @@
                  <div class="single-widget">
                      <a href="index.html">
                          {{-- <img src="assets/img/black-logo.png" alt="Image"> --}}
-                         <h3>Web Wondors</h3>
+                         <h3>Himalyan Buds</h3>
                      </a>
 
                      <p>Lorem ipsum dolor, sit amet earum consectetur adipisicing elit sit. Cupiditate rerum quidem
@@ -52,19 +52,19 @@
                          <li>
                              <a href="author.html">
                                  <i class="bx bx-chevrons-right"></i>
-                                 Author
+                                 How to
                              </a>
                          </li>
                          <li>
                              <a href="gallery.html">
                                  <i class="bx bx-chevrons-right"></i>
-                                 Gallery
+                                 Lifestyles
                              </a>
                          </li>
                          <li>
                              <a href="video.html">
                                  <i class="bx bx-chevrons-right"></i>
-                                 Video
+                                 Bong
                              </a>
                          </li>
                          <li>
@@ -131,7 +131,7 @@
                              <i class="bx bx-phone-call"></i>
                              <span>Hotline:</span>
                              <a href="tel:+61-821-456">
-                                 +61-821-456
+                                 +91-821-456
                              </a>
                          </li>
 
@@ -139,7 +139,7 @@
                              <i class="bx bx-envelope"></i>
                              <span>Email:</span>
                              <a href="">
-                                 <span class="">chandant225@gmail.com</span>
+                                 <span class="">buds@himalyan.com</span>
                              </a>
                          </li>
 
@@ -160,8 +160,8 @@
  <footer class="footer-bottom-area">
      <div class="container">
          <div class="copy-right">
-             <p>Copyright <i class="bx bx-copyright"></i>2022 web wondors. Designed By<a href=""
-                     target="blank"> Web Wondors</a></p>
+             <p>Copyright <i class="bx bx-copyright"></i>2023 Himalyan Buds. Designed By<a href="https://outofboxdesign.com/"
+                     target="blank" class="ms-2">Outofbox Design</a></p>
          </div>
      </div>
  </footer>

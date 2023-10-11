@@ -9,7 +9,7 @@
     <link rel="image_src" href="https://www.devchandant.com/assets/logo.png" />
     <meta property="og:type" content="website">
     <meta property="og:determiner" content="An" />
-    <meta property="og:site_name" content="devchandant" />
+    <meta property="og:site_name" content="Himalyan Buds" />
     <meta property="og:url" content="{{ env('APP_URL') . 'post' . '/' . $post->category_slug . '/' . $post->slug }}" />
     <meta property="og:title" content="{{ $post->meta_title }}" />
     <meta property="og:image" content="{{ env('APP_URL') . 'uploads/post/' . $post->filename }}" />
@@ -19,7 +19,7 @@
 @endsection
 @section('content')
     <!-- Start Page Title Area -->
-    {{-- <div class="page-title-area bg-12">
+    <div class="page-title-area bg-12">
         <div class="container">
             <div class="page-title-content">
                 <ul>
@@ -29,14 +29,14 @@
                         </a>
                     </li>
                     <li>Post</li>
-
+                    <li>{{ $post->category_slug }}</li>
                     <li>{{ $post->title }}</li>
 
 
                 </ul>
             </div>
         </div>
-    </div> --}}
+    </div>
     <!-- End Page Title Area -->
 
     <!-- Start Blog Details Area -->
@@ -50,7 +50,7 @@
                                 <ul>
                                     <li><span>Posted On:</span> <a href="#">
                                             {{ $post->created_at->toDateString() }}</a></li>
-                                    <li><span>Posted By:</span> <a href="#">Chandan Thakur</a></li>
+                                    <li><span>Posted By:</span> <a href="#">Admin</a></li>
                                 </ul>
                             </div>
                             <h3>{{ $post->title }}</h3>
@@ -62,41 +62,6 @@
                             <div>
                                 {!! $post->description !!}
                             </div>
-
-                            {{-- <div class="row">
-                                <div class="col-lg-6 col-sm-6">
-                                    <div class="b-d-s-item">
-                                        <a href="post-style-one.html">
-                                            <img src="assets/img/blog-img/1.jpg" alt="Image">
-                                            <span class="s-date">
-                                                08 <br> jun
-                                            </span>
-                                            <h3>Why We Need For Guidelines For Brain Scan Data</h3>
-                                        </a>
-
-                                        <p>Lorem ipsum, dolor sit amet consectetur sit adipisicing Consectetur nisi pariatur
-                                            quos.</p>
-
-                                        <a href="post-style-one.html">Read More</a>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-sm-6">
-                                    <div class="b-d-s-item mb-0">
-                                        <a href="post-style-one.html">
-                                            <img src="assets/img/blog-img/2.jpg" alt="Image">
-                                            <span class="s-date">
-                                                09 <br> jun
-                                            </span>
-                                            <h3>How To Build Artificial Intelligence You Can Trust</h3>
-                                        </a>
-
-                                        <p>Lorem ipsum, dolor sit amet consectetur sit adipisicing Consectetur nisi pariatur
-                                            quos.</p>
-
-                                        <a href="post-style-one.html">Read More</a>
-                                    </div>
-                                </div>
-                            </div> --}}
                         </div>
 
                         <div class="article-footer">
@@ -146,20 +111,7 @@
                             </div>
 
                         </div>
-
-                        {{-- <div class="post-navigation">
-                            <div class="navigation-links">
-                                <div class="nav-previous">
-                                    <a href="#"><i class='bx bx-left-arrow-alt'></i> Prev Post</a>
-                                </div>
-
-                                <div class="nav-next">
-                                    <a href="#">Next Post <i class='bx bx-right-arrow-alt'></i></a>
-                                </div>
-                            </div>
-                        </div> --}}
-
-                        {{-- <div class="comments-area">
+                        <div class="comments-area">
                             <h3 class="comments-title">3 Comments:</h3>
 
                             <ol class="comment-list">
@@ -196,8 +148,8 @@
                                             <div class="comment-body">
                                                 <footer class="comment-meta">
                                                     <div class="comment-author vcard">
-                                                        <img src="assets/img/blog-details/comment-img-2.jpg"
-                                                            class="avatar" alt="image">
+                                                        <img src="assets/img/blog-details/comment-img-2.jpg" class="avatar"
+                                                            alt="image">
                                                         <b class="fn">Karl Mekar</b>
                                                         <span class="says">says:</span>
                                                     </div>
@@ -285,7 +237,7 @@
                                     </p>
                                 </form>
                             </div>
-                        </div> --}}
+                        </div>
                     </div>
                 </div>
 

@@ -7514,3 +7514,9 @@ Page-navigation Area Style*/
     height: 10rem;
     object-fit: cover;
 }
+
+.single-featured img {
+    width:100%;
+    height: 18rem;
+    object-fit: cover;
+}
