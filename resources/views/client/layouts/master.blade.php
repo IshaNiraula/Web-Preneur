@@ -30,11 +30,8 @@
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <!-- Responsive CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/responsive.css') }}">
-    <link href=" https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-V92PJHRNZ1"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
-      
     <script>
         window.dataLayer = window.dataLayer || [];
 
@@ -57,11 +54,13 @@
 <body>
     <div>
         @include('client.layouts.header')
-      
+        <!-- top ads -->
+        {{-- <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7626929454424760"
+            data-ad-slot="1491958685" data-ad-format="auto" data-full-width-responsive="true"></ins> --}}
         <div class="">
             @yield('content')
         </div>
-        @include('client.layouts.footer')
+        {{-- @include('client.layouts.footer') --}}
         <!-- Start Go Top Area -->
         <div class="go-top">
             <i class='bx bx-chevrons-up'></i>
@@ -92,138 +91,6 @@
     <script src="{{ asset('assets/js/ajaxchimp.min.js') }}"></script>
     <!-- Custom JS -->
     <script src="{{ asset('assets/js/custom.js') }}"></script>
-    <script>
-        $(document).ready(function() {
-            "use strict";
-
-            var menuActive = false;
-            var header = $('.header');
-            setHeader();
-            initCustomDropdown();
-            initPageMenu();
-
-            function setHeader() {
-
-                if (window.innerWidth > 991 && menuActive) {
-                    closeMenu();
-                }
-            }
-
-            function initCustomDropdown() {
-                if ($('.custom_dropdown_placeholder').length && $('.custom_list').length) {
-                    var placeholder = $('.custom_dropdown_placeholder');
-                    var list = $('.custom_list');
-                }
-
-                placeholder.on('click', function(ev) {
-                    if (list.hasClass('active')) {
-                        list.removeClass('active');
-                    } else {
-                        list.addClass('active');
-                    }
-
-                    $(document).one('click', function closeForm(e) {
-                        if ($(e.target).hasClass('clc')) {
-                            $(document).one('click', closeForm);
-                        } else {
-                            list.removeClass('active');
-                        }
-                    });
-
-                });
-
-                $('.custom_list a').on('click', function(ev) {
-                    ev.preventDefault();
-                    var index = $(this).parent().index();
-
-                    placeholder.text($(this).text()).css('opacity', '1');
-
-                    if (list.hasClass('active')) {
-                        list.removeClass('active');
-                    } else {
-                        list.addClass('active');
-                    }
-                });
-
-                $('select').on('change', function(e) {
-                    placeholder.text(this.value);
-
-                    $(this).animate({
-                        width: placeholder.width() + 'px'
-                    });
-                });
-            }
-
-            function initPageMenu() {
-                if ($('.page_menu').length && $('.page_menu_content').length) {
-                    var menu = $('.page_menu');
-                    var menuContent = $('.page_menu_content');
-                    var menuTrigger = $('.menu_trigger');
-
-                    //Open / close page menu
-                    menuTrigger.on('click', function() {
-                        if (!menuActive) {
-                            openMenu();
-                        } else {
-                            closeMenu();
-                        }
-                    });
-
-                    //Handle page menu
-                    if ($('.page_menu_item').length) {
-                        var items = $('.page_menu_item');
-                        items.each(function() {
-                            var item = $(this);
-                            if (item.hasClass("has-children")) {
-                                item.on('click', function(evt) {
-                                    evt.preventDefault();
-                                    evt.stopPropagation();
-                                    var subItem = item.find('> ul');
-                                    if (subItem.hasClass('active')) {
-                                        subItem.toggleClass('active');
-                                        TweenMax.to(subItem, 0.3, {
-                                            height: 0
-                                        });
-                                    } else {
-                                        subItem.toggleClass('active');
-                                        TweenMax.set(subItem, {
-                                            height: "auto"
-                                        });
-                                        TweenMax.from(subItem, 0.3, {
-                                            height: 0
-                                        });
-                                    }
-                                });
-                            }
-                        });
-                    }
-                }
-            }
-
-            function openMenu() {
-                var menu = $('.page_menu');
-                var menuContent = $('.page_menu_content');
-                TweenMax.set(menuContent, {
-                    height: "auto"
-                });
-                TweenMax.from(menuContent, 0.3, {
-                    height: 0
-                });
-                menuActive = true;
-            }
-
-            function closeMenu() {
-                var menu = $('.page_menu');
-                var menuContent = $('.page_menu_content');
-                TweenMax.to(menuContent, 0.3, {
-                    height: 0
-                });
-                menuActive = false;
-            }
-
-
-        });
-    </script>
     @stack('scripts')
 </body>
 

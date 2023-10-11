@@ -1,195 +1,200 @@
+ <!-- Start Navbar Area -->
+ <div class="navbar-area navbar-area-two">
+     <!-- Menu For Mobile Device -->
+     <div class="mobile-nav">
+         <a href="{{ route('home') }}" class="logo">
+             <img src="/logo.jpg" alt="Logo">
+             <h3 style="color: #fff;margin-top: 10px;">@devchandant</h3>
+         </a>
+     </div>
 
-    <header class="header">
+     <!-- Menu For Desktop Device -->
+     <div class="main-nav">
+         <nav class="navbar navbar-expand-md">
+             <div class="container-fluid">
+                 {{-- <div class="burger-menu">
+                     <i class='bx bx-menu'></i>
+                 </div> --}}
+                 <a class="navbar-brand" href="{{ route('home') }}">
+                     {{-- <img src="webwondors-01.png" alt="Logo" style="width:15%"> --}}
+                     <h3>@devchandant</h3>
+                 </a>
 
-        <div class="top_bar">
-            <div class="container">
-                <div class="row">
-                    <div class="col d-flex flex-row justify-content-between ">
-                        <div class="top_bar_contact_items">
-                            <div class="top_bar_icon">
-                                <i class="fas fa-phone"></i><a href="tel:1234567890">1234567890</a></div>
-                            <div class="top_bar_icon"><i class="fas fa-envelope"></i><a
-                                href="mailto:blog@gmail.com">blog@gmail.com</a></div>
-                        </div>
-                        <div class="top_bar_content ml-auto">
-                            <div class="top_bar_user">
-                                <div><a href="#"><i class="fab fa-facebook"></i></a></div>
-                                <div><a href="#"><i class="fab fa-instagram"></i></a></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+                 <div class="collapse navbar-collapse mean-menu">
+                     <ul class="navbar-nav m-auto">
+                         @foreach ($categories as $category)
+                             <li class="nav-item">
+                                 <a href="{{ route('blog.category', ['slug' => $category->slug]) }}" class="nav-link">
+                                     {{ $category->name }}
+                                 </a>
+                             </li>
+                         @endforeach
+                     </ul>
+                     <!-- Start Other Option -->
+                     {{-- <div class="others-option">
+                         <div class="follow">
+                             <span>Follow</span>
+                             <i class="bx bx-chevron-down"></i>
 
-        <div class="header_main">
-            <div class="container">
-                <div class="row">
+                             <ul>
+                                 <li>
+                                     <a href="#" target="_blank">
+                                         <i class="bx bxl-facebook"></i>
+                                     </a>
+                                 </li>
+                                 <li>
+                                     <a href="#" target="_blank">
+                                         <i class="bx bxl-twitter"></i>
+                                     </a>
+                                 </li>
+                                 <li>
+                                     <a href="#" target="_blank">
+                                         <i class="bx bxl-instagram"></i>
+                                     </a>
+                                 </li>
+                                 <li>
+                                     <a href="#" target="_blank">
+                                         <i class="bx bxl-youtube"></i>
+                                     </a>
+                                 </li>
+                                 <li>
+                                     <a href="#" target="_blank">
+                                         <i class="bx bxl-linkedin"></i>
+                                     </a>
+                                 </li>
+                             </ul>
+                         </div>
 
-                    <!-- Logo -->
-                    <div class="col-lg-2 col-sm-3 col-3 order-1">
-                        <div class="logo_container">
-                            <div class="logo"><a href="{{ route('home') }}">Blog</a></div>
-                        </div>
-                    </div>
+                         <div class="option-item">
+                             <i class="search-btn bx bx-search"></i>
+                             <i class="close-btn bx bx-x"></i>
 
-                    <!-- Search -->
-                    <div class="col-lg-6 col-12 order-lg-2 order-3 text-lg-left text-right">
-                        <div class="header_search">
-                            <div class="header_search_content">
-                                <div class="header_search_form_container">
-                                    <form action="#" class="header_search_form clearfix">
-                                        <input type="search" required="required" class="header_search_input"
-                                            placeholder="Search for products...">
-                                        <div class="custom_dropdown" style="display: none;">
-                                            <div class="custom_dropdown_list">
-                                                <span class="custom_dropdown_placeholder clc">All Categories</span>
-                                                <i class="fas fa-chevron-down"></i>
-                                                <ul class="custom_list clc">
-                                                    <li><a class="clc" href="#">All Categories</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <button type="submit" class="header_search_button trans_300"
-                                            value="Submit"><img
-                                                src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1560918770/search.png"
-                                                alt=""></button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+                             <div class="search-overlay search-popup">
+                                 <div class='search-box'>
+                                     <form class="search-form">
+                                         <input class="search-input" name="search" placeholder="Search"
+                                             type="text">
 
-        <nav class="main_nav">
-            <div class="container">
-                <div class="row">
-                    <div class="col">
-        
-                        <div class="main_nav_content d-flex flex-row justify-content-between">
-        
-                            <div class="main_nav_menu">
-                                <ul class="standard_dropdown main_nav_dropdown">
-                                    <li><a href="{{route('home')}}">Home</a></li>
-                                    <li><a href="{{route('blog')}}">Blog</a></li>
-                                    <li class="dropdown">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Game</a>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="#">Game Option 1</a></li>
-                                            <li><a href="#">Game Option 2</a></li>
-                                            <li><a href="#">Game Option 3</a></li>
-                                            <li><a href="#">Game Option 4</a></li>
-                                            <li><a href="#">Game Option 5</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="#">Shop</a></li>
-                                    <li><a href="{{route('contact')}}">Contact</a></li>
-                                </ul>
-                            </div>
-                            <div class="top_bar_content ml-auto">
-                                <div class="top_bar_user">
-                                    <div class="user_icon"><img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1560918647/user.svg" alt=""></div>
-                                    <div><a href="#">Register</a></div>
-                                    <div><a href="#">Login</a></div>
-                                </div>
-                            </div>
-        
-                            <div class="menu_trigger_container ml-auto">
-                                <div class="menu_trigger d-flex flex-row align-items-center justify-content-end">
-                                    <div class="menu_burger">
-                                        <div class="menu_trigger_text">menu</div>
-                                        <div class="cat_burger menu_burger_inner">
-                                            <span></span><span></span><span></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-        
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </nav>
-        
-        {{-- <div class="page_menu">
-            <div class="container">
-                <div class="row">
-                    <div class="col">
+                                         <button class="search-button" type="submit"><i
+                                                 class="bx bx-search"></i></button>
+                                     </form>
+                                 </div>
+                             </div>
+                         </div>
+                     </div> --}}
+                     <!-- End Other Option -->
+                 </div>
+             </div>
+         </nav>
+     </div>
+ </div>
+ <!-- End Navbar Area -->
 
-                        <div class="page_menu_content">
+ <!-- Sidebar Modal Area -->
+ {{-- <div class="sidebar-modal">
+     <div class="sidebar-modal-inner">
+         <div class="sidebar-about-area">
+             <div class="title">
+                 <h2>About Us</h2>
+                 <p>We believe brand interaction is key in communication. Real innovations and a positive customer
+                     experience are the heart of successful communication. No fake products and services. The customer
+                     is king, their lives and needs are the inspiration.</p>
+             </div>
+         </div>
 
-                            <div class="page_menu_search">
-                                <form action="#">
-                                    <input type="search" required="required" class="page_menu_search_input"
-                                        placeholder="Search for products...">
-                                </form>
-                            </div>
-                            <ul class="page_menu_nav">
-                                <li class="page_menu_item">
-                                    <a href="#">Home<i class="fa fa-angle-down"></i></a>
-                                </li>
-                                <li class="page_menu_item has-children">
-                                    <a href="#">Super Deals<i class="fa fa-angle-down"></i></a>
-                                    <ul class="page_menu_selection">
-                                        <li><a href="#">Super Deals<i class="fa fa-angle-down"></i></a></li>
-                                        <li class="page_menu_item has-children">
-                                            <a href="#">Menu Item<i class="fa fa-angle-down"></i></a>
-                                            <ul class="page_menu_selection">
-                                                <li><a href="#">Menu Item<i class="fa fa-angle-down"></i></a>
-                                                </li>
-                                                <li><a href="#">Menu Item<i class="fa fa-angle-down"></i></a>
-                                                </li>
-                                                <li><a href="#">Menu Item<i class="fa fa-angle-down"></i></a>
-                                                </li>
-                                                <li><a href="#">Menu Item<i class="fa fa-angle-down"></i></a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="#">Menu Item<i class="fa fa-angle-down"></i></a></li>
-                                        <li><a href="#">Menu Item<i class="fa fa-angle-down"></i></a></li>
-                                        <li><a href="#">Menu Item<i class="fa fa-angle-down"></i></a></li>
-                                    </ul>
-                                </li>
-                                <li class="page_menu_item has-children">
-                                    <a href="#">Featured Brands<i class="fa fa-angle-down"></i></a>
-                                    <ul class="page_menu_selection">
-                                        <li><a href="#">Featured Brands<i class="fa fa-angle-down"></i></a></li>
-                                        <li><a href="#">Menu Item<i class="fa fa-angle-down"></i></a></li>
-                                        <li><a href="#">Menu Item<i class="fa fa-angle-down"></i></a></li>
-                                        <li><a href="#">Menu Item<i class="fa fa-angle-down"></i></a></li>
-                                    </ul>
-                                </li>
-                                <li class="page_menu_item has-children">
-                                    <a href="#">Trending Styles<i class="fa fa-angle-down"></i></a>
-                                    <ul class="page_menu_selection">
-                                        <li><a href="#">Trending Styles<i class="fa fa-angle-down"></i></a></li>
-                                        <li><a href="#">Menu Item<i class="fa fa-angle-down"></i></a></li>
-                                        <li><a href="#">Menu Item<i class="fa fa-angle-down"></i></a></li>
-                                        <li><a href="#">Menu Item<i class="fa fa-angle-down"></i></a></li>
-                                    </ul>
-                                </li>
-                                <li class="page_menu_item"><a href="blog.html">blog<i
-                                            class="fa fa-angle-down"></i></a></li>
-                                <li class="page_menu_item"><a href="contact.html">contact<i
-                                            class="fa fa-angle-down"></i></a></li>
-                            </ul>
+         <div class="sidebar-instagram-feed">
+             <h2>Blog</h2>
 
-                            <div class="menu_contact">
-                                <div class="menu_contact_item">
-                                    <div class="menu_contact_icon"><img src="images/phone_white.png" alt="">
-                                    </div>+38 068 005 3570
-                                </div>
-                                <div class="menu_contact_item">
-                                    <div class="menu_contact_icon"><img src="images/mail_white.png" alt="">
-                                    </div><a href="mailto:fastsales@gmail.com">fastsales@gmail.com</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> --}}
+             <ul>
+                 <li>
+                     <a href="post-style-one.html">
+                         <img src="assets/img/home-two/sidebar-img/1.jpg" alt="image">
+                     </a>
+                 </li>
+                 <li>
+                     <a href="post-style-one.html">
+                         <img src="assets/img/home-two/sidebar-img/2.jpg" alt="image">
+                     </a>
+                 </li>
+                 <li>
+                     <a href="post-style-one.html">
+                         <img src="assets/img/home-two/sidebar-img/3.jpg" alt="image">
+                     </a>
+                 </li>
+                 <li>
+                     <a href="post-style-one.html">
+                         <img src="assets/img/home-two/sidebar-img/4.jpg" alt="image">
+                     </a>
+                 </li>
+                 <li>
+                     <a href="post-style-one.html">
+                         <img src="assets/img/home-two/sidebar-img/5.jpg" alt="image">
+                     </a>
+                 </li>
+                 <li>
+                     <a href="post-style-one.html">
+                         <img src="assets/img/home-two/sidebar-img/6.jpg" alt="image">
+                     </a>
+                 </li>
+                 <li>
+                     <a href="post-style-one.html">
+                         <img src="assets/img/home-two/sidebar-img/7.jpg" alt="image">
+                     </a>
+                 </li>
+                 <li>
+                     <a href="post-style-one.html">
+                         <img src="assets/img/home-two/sidebar-img/8.jpg" alt="image">
+                     </a>
+                 </li>
+             </ul>
+         </div>
 
-    </header>
+         <div class="sidebar-contact-area">
+             <div class="contact-info">
+                 <div class="contact-info-content">
+                     <h2>
+                         <a href="tel:+61-821-456">+61-821-456</a>
+                         <span>OR</span>
+                         <a
+                             href="https://templates.envytheme.com/cdn-cgi/l/email-protection#bcd4d9d0d0d3fcc8ced5dfd992dfd3d1"><span
+                                 class="__cf_email__"
+                                 data-cfemail="a6cec3cacac9e6d2d4cfc5c388c5c9cb">[email&#160;protected]</span></a>
+                     </h2>
+
+                     <ul class="social">
+                         <li>
+                             <a href="#" target="_blank">
+                                 <i class="bx bxl-facebook"></i>
+                             </a>
+                         </li>
+                         <li>
+                             <a href="#" target="_blank">
+                                 <i class="bx bxl-twitter"></i>
+                             </a>
+                         </li>
+                         <li>
+                             <a href="#" target="_blank">
+                                 <i class="bx bxl-linkedin"></i>
+                             </a>
+                         </li>
+                         <li>
+                             <a href="#" target="_blank">
+                                 <i class="bx bxl-youtube"></i>
+                             </a>
+                         </li>
+                         <li>
+                             <a href="#" target="_blank">
+                                 <i class="bx bxl-instagram"></i>
+                             </a>
+                         </li>
+                     </ul>
+                 </div>
+             </div>
+         </div>
+
+         <span class="close-btn sidebar-modal-close-btn">
+             <i class="bx bx-x"></i>
+         </span>
+     </div>
+ </div> --}}
+ <!-- End Sidebar Modal Area -->
