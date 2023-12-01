@@ -111,7 +111,7 @@
                             </div>
 
                         </div>
-                        <div class="comments-area">
+                        {{-- <div class="comments-area">
                             <h3 class="comments-title">3 Comments:</h3>
 
                             <ol class="comment-list">
@@ -237,7 +237,7 @@
                                     </p>
                                 </form>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
 
@@ -248,7 +248,7 @@
                             <div class="post-wrap">
                                 @foreach ($posts as $post)
                                     <article class="item">
-                                        <a href="{{ route('post.show', ['category_slug' => $post->category_slug, 'post_slug' => $post->slug]) }}"
+                                        <a href="{{ route('post.show', ['post_slug' => $post->slug]) }}"
                                             class="thumb">
                                             <img src="{{ env('APP_URL') . 'uploads/post/' . $post->filename }}"
                                                 alt="{{ $post->title }}" class="w-100" />
@@ -257,7 +257,7 @@
                                             <time datetime="2020-06-30">{{ $post->created_at->toDateString() }}</time>
                                             <h4 class="title usmall">
                                                 <a
-                                                    href="{{ route('post.show', ['category_slug' => $post->category_slug, 'post_slug' => $post->slug]) }}">
+                                                    href="{{ route('post.show', ['post_slug' => $post->slug]) }}">
                                                     {{ $post->title }}
                                                 </a>
                                             </h4>

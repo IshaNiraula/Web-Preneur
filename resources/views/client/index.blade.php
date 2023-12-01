@@ -6,7 +6,7 @@
                    @foreach ($posts as $post)
                        <div class="col-lg-4 col-md-6 plr-5">
                            <div class="single-featured">
-                               <a href="{{ route('post.show', ['category_slug' => $post->category_slug, 'post_slug' => $post->slug]) }}"
+                               <a href="{{ route('post.show', ['post_slug' => $post->slug]) }}"
                                    class="blog-img">
                                    <img src="{{ env('APP_URL') . 'uploads/post/' . $post->filename }}"
                                        alt="{{ $post->title }}" class="" />
@@ -28,13 +28,13 @@
                                    </ul>
 
                                    <a
-                                       href="{{ route('post.show', ['category_slug' => $post->category_slug, 'post_slug' => $post->slug]) }}">
+                                       href="{{ route('post.show', ['post_slug' => $post->slug]) }}">
                                        <h3>{{ $post->title }}</h3>
                                    </a>
 
                                    <p> {!! Str::words($post->description, 15, ' ...') !!}</p>
 
-                                   <a href="{{ route('post.show', ['category_slug' => $post->category_slug, 'post_slug' => $post->slug]) }}"
+                                   <a href="{{ route('post.show', ['post_slug' => $post->slug]) }}"
                                        class="read-more">Read More</a>
                                </div>
                            </div>

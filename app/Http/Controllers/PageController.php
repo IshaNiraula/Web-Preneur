@@ -32,8 +32,8 @@ class PageController extends Controller
     return view('client.gallery',compact('galleries'));
     }
 
-    public function postDetail($category_slug,$post_slug){
-        $posts = Post::where('category_slug',$category_slug)->orderBy('created_at', 'desc')->take(5)->get();
+    public function postDetail($post_slug){
+        $posts = Post::orderBy('created_at', 'desc')->take(5)->get();
         $post = Post::where('slug',$post_slug)->orderBy('created_at', 'desc')->first();
         $categories = PostCategory::all();
         if($post) {

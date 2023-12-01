@@ -13,7 +13,7 @@
                                     <div class="col-lg-6 col-sm-6">
                                         <div class="b-d-s-item mb-30">
                                             <a
-                                                href="{{ route('post.show', ['category_slug' => $post->category_slug, 'post_slug' => $post->slug]) }}">
+                                                href="{{ route('post.show', ['post_slug' => $post->slug]) }}">
                                                 <img src="{{ env('APP_URL') . 'uploads/post/' . $post->filename }}"
                                                     alt="{{ $post->title }}" class="w-100" />
                                                 <span class="s-date">
@@ -28,7 +28,7 @@
                                                     </li>
                                                 </ul>
                                                 <a
-                                                    href="{{ route('post.show', ['category_slug' => $post->category_slug, 'post_slug' => $post->slug]) }}">
+                                                    href="{{ route('post.show', ['post_slug' => $post->slug]) }}">
                                                     <h3>{{ $post->title }}</h3>
                                                 </a>
                                             </a>
@@ -36,7 +36,7 @@
                                             <p> {!! Str::words($post->description, 15, '....') !!}</p>
 
                                             <a
-                                                href="{{ route('post.show', ['category_slug' => $post->category_slug, 'post_slug' => $post->slug]) }}">Read
+                                                href="{{ route('post.show', ['post_slug' => $post->slug]) }}">Read
                                                 More</a>
                                         </div>
                                     </div>

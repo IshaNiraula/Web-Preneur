@@ -2,7 +2,7 @@
  <footer class="footer-top-area pt-100 pb-70">
      <div class="container">
          <div class="row">
-             <div class="col-lg-3 col-md-6">
+             <div class="col-lg-4 col-md-6">
                  <div class="single-widget">
                      <a href="index.html">
                          {{-- <img src="assets/img/black-logo.png" alt="Image"> --}}
@@ -44,85 +44,26 @@
                  </div>
              </div>
 
-             <div class="col-lg-3 col-md-6">
-                 <div class="single-widget">
-                     <h3>Important Links</h3>
 
-                     <ul>
-                         <li>
-                             <a href="author.html">
-                                 <i class="bx bx-chevrons-right"></i>
-                                 How to
-                             </a>
-                         </li>
-                         <li>
-                             <a href="gallery.html">
-                                 <i class="bx bx-chevrons-right"></i>
-                                 Lifestyles
-                             </a>
-                         </li>
-                         <li>
-                             <a href="video.html">
-                                 <i class="bx bx-chevrons-right"></i>
-                                 Bong
-                             </a>
-                         </li>
-                         <li>
-                             <a href="full-width-blog.html">
-                                 <i class="bx bx-chevrons-right"></i>
-                                 Blog
-                             </a>
-                         </li>
-                         <li>
-                             <a href="contact.html">
-                                 <i class="bx bx-chevrons-right"></i>
-                                 Contact
-                             </a>
-                         </li>
-                     </ul>
-                 </div>
-             </div>
 
-             <div class="col-lg-3 col-md-6">
+             <div class="col-lg-4 col-md-6">
                  <div class="single-widget">
                      <h3>Featured</h3>
 
                      <ul>
-                         <li>
-                             <a href="#">
-                                 <i class="bx bx-chevrons-right"></i>
-                                 It Management
-                             </a>
-                         </li>
-                         <li>
-                             <a href="#">
-                                 <i class="bx bx-chevrons-right"></i>
-                                 Development
-                             </a>
-                         </li>
-                         <li>
-                             <a href="#">
-                                 <i class="bx bx-chevrons-right"></i>
-                                 Featured
-                             </a>
-                         </li>
-                         <li>
-                             <a href="#">
-                                 <i class="bx bx-chevrons-right"></i>
-                                 UI/UX Design
-                             </a>
-                         </li>
-                         <li>
-                             <a href="#">
-                                 <i class="bx bx-chevrons-right"></i>
-                                 Support Engineer
-                             </a>
-                         </li>
+                         @foreach ($posts as $post)
+                             <li>
+                                 <a href="{{ route('post.show', ['post_slug' => $post->slug]) }}">
+                                     <i class="bx bx-chevrons-right"></i>
+                                     {{ $post->title }}
+                                 </a>
+                             </li>
+                         @endforeach
                      </ul>
                  </div>
              </div>
 
-             <div class="col-lg-3 col-md-6">
+             <div class="col-lg-4 col-md-6">
                  <div class="single-widget contact">
                      <h3>Get In Touch</h3>
 
@@ -160,8 +101,8 @@
  <footer class="footer-bottom-area">
      <div class="container">
          <div class="copy-right">
-             <p>Copyright <i class="bx bx-copyright"></i>2023 Himalyan Buds. Designed By<a href="https://outofboxdesign.com/"
-                     target="blank" class="ms-2">Outofbox Design</a></p>
+             <p>Copyright <i class="bx bx-copyright"></i>2023 Himalyan Buds. Designed By<a
+                     href="https://outofboxdesign.com/" target="blank" class="ms-2">Outofbox Design</a></p>
          </div>
      </div>
  </footer>

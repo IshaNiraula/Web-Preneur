@@ -25,7 +25,7 @@ use App\Http\Controllers\BlogCatController;
 */
 
 Route::get('/',[PageController::class,'homePage'])->name('home');
-Route::get('/post/{category_slug}/{post_slug}',[PageController::class,'postDetail'])->name('post.show');
+Route::get('/{post_slug}',[PageController::class,'postDetail'])->name('post.show');
 Route::get('/galleries',[PageController::class,'galleryPage'])->name('galleries');
 Route::get('/blog/category/{slug}',[PageController::class,'blogCategory'])->name('blog.category');
 
