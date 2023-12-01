@@ -49,15 +49,16 @@
              <div class="col-lg-4 col-md-6">
                  <div class="single-widget">
                      <h3>Featured</h3>
-
                      <ul>
-                         @foreach ($posts as $post)
-                             <li>
-                                 <a href="{{ route('post.show', ['post_slug' => $post->slug]) }}">
-                                     <i class="bx bx-chevrons-right"></i>
-                                     {{ $post->title }}
-                                 </a>
-                             </li>
+                         @foreach ($posts as $index => $post)
+                             @if ($index < 4)
+                                 <li>
+                                     <a href="{{ route('post.show', ['post_slug' => $post->slug]) }}">
+                                         <i class="bx bx-chevrons-right"></i>
+                                         {{ $post->title }}
+                                     </a>
+                                 </li>
+                             @endif
                          @endforeach
                      </ul>
                  </div>
