@@ -246,25 +246,25 @@
                         <section class="widget widget-peru-posts-thumb">
                             <h3 class="widget-title">Popular Posts</h3>
                             <div class="post-wrap">
-                                @foreach ($posts as $post)
-                                    <article class="item">
-                                        <a href="{{ route('post.show', ['post_slug' => $post->slug]) }}"
-                                            class="thumb">
-                                            <img src="{{ env('APP_URL') . 'uploads/post/' . $post->filename }}"
-                                                alt="{{ $post->title }}" class="w-100" />
-                                        </a>
-                                        <div class="info">
-                                            <time datetime="2020-06-30">{{ $post->created_at->toDateString() }}</time>
-                                            <h4 class="title usmall">
-                                                <a
-                                                    href="{{ route('post.show', ['post_slug' => $post->slug]) }}">
-                                                    {{ $post->title }}
-                                                </a>
-                                            </h4>
-                                        </div>
-
-                                        <div class="clear"></div>
-                                    </article>
+                                @foreach ($posts as $index => $post)
+                                    @if ($index < 4)
+                                        <article class="item">
+                                            <a href="{{ route('post.show', ['post_slug' => $post->slug]) }}"
+                                                class="thumb">
+                                                <img src="{{ env('APP_URL') . 'uploads/post/' . $post->filename }}"
+                                                    alt="{{ $post->title }}" class="w-100" />
+                                            </a>
+                                            <div class="info">
+                                                <time datetime="2020-06-30">{{ $post->created_at->toDateString() }}</time>
+                                                <h4 class="title usmall">
+                                                    <a href="{{ route('post.show', ['post_slug' => $post->slug]) }}">
+                                                        {{ $post->title }}
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            <div class="clear"></div>
+                                        </article>
+                                    @endif
                                 @endforeach
                             </div>
                         </section>
