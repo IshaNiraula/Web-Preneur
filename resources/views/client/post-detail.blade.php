@@ -1,5 +1,5 @@
 @extends('client.layouts.master')
-@section('metadata')
+{{-- @section('metadata')
     <title>{{ $post->meta_title }}</title>
     <meta name="description" content="{{ $post->meta_description }}">
     <meta name="keywords" content="{{ $post->meta_keywords }}">
@@ -16,349 +16,174 @@
     <meta property="og:image:width" content="960" />
     <meta property="og:image:height" content="400" />
     <meta property="og:locale" content="en_GB" />
-@endsection
+@endsection --}}
 @section('content')
-    <!-- Start Page Title Area -->
-    <div class="page-title-area bg-12">
-        <div class="container">
-            <div class="page-title-content">
-                <ul>
-                    <li>
-                        <a href="index.html">
-                            Home
-                        </a>
-                    </li>
-                    <li>Post</li>
-                    <li>{{ $post->category_slug }}</li>
-                    <li>{{ $post->title }}</li>
+    <!-- main-area -->
 
 
-                </ul>
-            </div>
-        </div>
-    </div>
-    <!-- End Page Title Area -->
-
-    <!-- Start Blog Details Area -->
-    <section class="blog-details-area ptb-100">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-md-12">
-                    <div class="blog-details-desc">
-                        <div class="article-content">
-                            <div class="entry-meta">
-                                <ul>
-                                    <li><span>Posted On:</span> <a href="#">
-                                            {{ $post->created_at->toDateString() }}</a></li>
-                                    <li><span>Posted By:</span> <a href="#">Admin</a></li>
-                                </ul>
-                            </div>
-                            <h3>{{ $post->title }}</h3>
-
-                            <div class="article-image">
-                                <img src="{{ env('APP_URL') . 'uploads/post/' . $post->filename }}"
-                                    alt="{{ $post->title }}" class="w-100" />
-                            </div>
-                            <div>
-                                {!! $post->description !!}
-                            </div>
+    <main>
+        <!-- breadcrumb-area -->
+        <div class="breadcrumb-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="breadcrumb-content">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
+                                    <li class="breadcrumb-item" aria-current="page"><a href="blog.html">Post</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">{{ $post->title }}</li>
+                                </ol>
+                            </nav>
                         </div>
-
-                        <div class="article-footer">
-                            <div class="article-tags">
-                                <span><i class='bx bx-share-alt'></i></span>
-
-                                <a href="#">Share</a>
-                            </div>
-                            <div class="article-share">
-                                <ul class="social">
-                                    <!-- Facebook share -->
-                                    <li>
-                                        <a href="https://www.facebook.com/sharer.php?u={{ urlencode(env('APP_URL') . 'post/' . $post->category_slug . '/' . $post->slug) }}"
-                                            target="_blank" rel="noopener noreferrer">
-                                            <i class='bx bxl-facebook'></i>
-                                        </a>
-                                    </li>
-                                    <!-- WhatsApp share -->
-                                    <li>
-                                        <a href="https://api.whatsapp.com/send?text={{ urlencode($post->title) }}%0A{{ urlencode(env('APP_URL') . 'post/' . $post->category_slug . '/' . $post->slug) }}"
-                                            target="_blank" rel="noopener noreferrer">
-                                            <i class="bx bxl-whatsapp"></i>
-                                        </a>
-                                    </li>
-                                    <!-- Twitter share -->
-                                    <li>
-                                        <a href="https://twitter.com/intent/tweet?text={{ urlencode($post->title) }}&url={{ urlencode(env('APP_URL') . 'post/' . $post->category_slug . '/' . $post->slug) }}"
-                                            target="_blank" rel="noopener noreferrer">
-                                            <i class='bx bxl-twitter'></i>
-                                        </a>
-                                    </li>
-                                    <!-- LinkedIn share -->
-                                    <li>
-                                        <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ urlencode(env('APP_URL') . '/post/' . $post->category_slug . '/' . $post->slug) }}"
-                                            target="_blank" rel="noopener noreferrer">
-                                            <i class='bx bxl-linkedin'></i>
-                                        </a>
-                                    </li>
-                                    <!-- Pinterest share -->
-                                    <li>
-                                        <a href="https://www.pinterest.com/pin/create/button/?url={{ urlencode(env('APP_URL') . '/post/' . $post->category_slug . '/' . $post->slug) }}&media={{ urlencode(env('APP_URL') . 'uploads/post/' . $post->filename) }}&description={{ urlencode($post->description) }}"
-                                            target="_blank" rel="noopener noreferrer">
-                                            <i class='bx bxl-pinterest-alt'></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-
-                        </div>
-                        {{-- <div class="comments-area">
-                            <h3 class="comments-title">3 Comments:</h3>
-
-                            <ol class="comment-list">
-                                <li class="comment">
-                                    <div class="comment-body">
-                                        <footer class="comment-meta">
-                                            <div class="comment-author vcard">
-                                                <img src="assets/img/blog-details/comment-img-1.jpg" class="avatar"
-                                                    alt="image">
-                                                <b class="fn">Jimy Pearson</b>
-                                                <span class="says">says:</span>
-                                            </div>
-
-                                            <div class="comment-metadata">
-                                                <a href="#">
-                                                    <span>Jun 24, 2020 at 10:59 am</span>
-                                                </a>
-                                            </div>
-                                        </footer>
-
-                                        <div class="comment-content">
-                                            <p>Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s,
-                                                when an unknown printer took a galley of type and scrambled it to make a
-                                                type.</p>
-                                        </div>
-
-                                        <div class="reply">
-                                            <a href="#" class="comment-reply-link">Reply</a>
-                                        </div>
-                                    </div>
-
-                                    <ol class="children">
-                                        <li class="comment">
-                                            <div class="comment-body">
-                                                <footer class="comment-meta">
-                                                    <div class="comment-author vcard">
-                                                        <img src="assets/img/blog-details/comment-img-2.jpg" class="avatar"
-                                                            alt="image">
-                                                        <b class="fn">Karl Mekar</b>
-                                                        <span class="says">says:</span>
-                                                    </div>
-
-                                                    <div class="comment-metadata">
-                                                        <a href="#">
-                                                            <span>Jun 24, 2020 at 10:59 am</span>
-                                                        </a>
-                                                    </div>
-                                                </footer>
-
-                                                <div class="comment-content">
-                                                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                                                        accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-                                                        quae ab illo inventore veritatis et quasi architecto beatae vitae
-                                                        dicta sunt explicabo. Nemo enim</p>
-                                                </div>
-
-                                                <div class="reply">
-                                                    <a href="#" class="comment-reply-link">Reply</a>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ol>
-                                </li>
-
-                                <li class="comment">
-                                    <div class="comment-body border-none">
-                                        <footer class="comment-meta">
-                                            <div class="comment-author vcard">
-                                                <img src="assets/img/blog-details/comment-img-3.jpg" class="avatar"
-                                                    alt="image">
-                                                <b class="fn">Tesa Jack</b>
-                                                <span class="says">says:</span>
-                                            </div>
-
-                                            <div class="comment-metadata">
-                                                <a href="#">
-                                                    <span>Jun 24, 2020 at 10:59 am</span>
-                                                </a>
-                                            </div>
-                                        </footer>
-
-                                        <div class="comment-content">
-                                            <p>Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s,
-                                                when an unknown printer took a galley of type and scrambled it to make a
-                                                type.</p>
-                                        </div>
-
-                                        <div class="reply">
-                                            <a href="#" class="comment-reply-link">Reply</a>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ol>
-
-                            <div class="comment-respond">
-                                <h3 class="comment-reply-title">Leave a Reply</h3>
-
-                                <form class="comment-form">
-                                    <p class="comment-notes">
-                                        <span id="email-notes">Your email address will not be published.</span>
-                                        Required fields are marked
-                                        <span class="required">*</span>
-                                    </p>
-                                    <p class="comment-form-author">
-                                        <label>Name <span class="required">*</span></label>
-                                        <input type="text" id="author" name="author" required="required">
-                                    </p>
-                                    <p class="comment-form-email">
-                                        <label>Email <span class="required">*</span></label>
-                                        <input type="email" id="email" name="email" required="required">
-                                    </p>
-                                    <p class="comment-form-url">
-                                        <label>Website</label>
-                                        <input type="url" id="url" name="url">
-                                    </p>
-                                    <p class="comment-form-comment">
-                                        <label>Comment</label>
-                                        <textarea name="comment" id="comment" cols="45" rows="5" maxlength="65525" required="required"></textarea>
-                                    </p>
-                                    <p class="form-submit">
-                                        <input type="submit" name="submit" id="submit" class="submit"
-                                            value="Post A Comment">
-                                    </p>
-                                </form>
-                            </div>
-                        </div> --}}
                     </div>
                 </div>
-
-                <div class="col-lg-4 col-md-12">
-                    <aside class="widget-area" id="secondary">
-                        <section class="widget widget-peru-posts-thumb">
-                            <h3 class="widget-title">Popular Posts</h3>
-                            <div class="post-wrap">
-                                @foreach ($posts as $post)
-                                    <article class="item">
-                                        <a href="{{ route('post.show', ['post_slug' => $post->slug]) }}"
-                                            class="thumb">
-                                            <img src="{{ env('APP_URL') . 'uploads/post/' . $post->filename }}"
-                                                alt="{{ $post->title }}" class="w-100" />
-                                        </a>
-                                        <div class="info">
-                                            <time datetime="2020-06-30">{{ $post->created_at->toDateString() }}</time>
-                                            <h4 class="title usmall">
-                                                <a
-                                                    href="{{ route('post.show', ['post_slug' => $post->slug]) }}">
-                                                    {{ $post->title }}
-                                                </a>
-                                            </h4>
-                                        </div>
-
-                                        <div class="clear"></div>
-                                    </article>
-                                @endforeach
-                            </div>
-                        </section>
-
-                        {{-- <section class="widget widget_categories">
-                            <h3 class="widget-title">Archives</h3>
-                            <div class="post-wrap">
-                                <ul>
-                                    <li>
-                                        <a href="#">January <span>2020</span></a>
-                                    </li>
-                                    <li>
-                                        <a href="#">February <span>2020</span></a>
-                                    </li>
-                                    <li>
-                                        <a href="#">March <span>2020</span></a>
-                                    </li>
-                                    <li>
-                                        <a href="#">April <span>2020</span></a>
-                                    </li>
-                                    <li>
-                                        <a href="#">May <span>2020</span></a>
-                                    </li>
-                                    <li>
-                                        <a href="#">June <span>2020</span></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </section> --}}
-
-                        <section class="widget widget_categories">
-                            <h3 class="widget-title">Categories</h3>
-                            <div class="post-wrap">
-                                <ul>
-                                    @foreach ($categories as $category)
-                                        <li>
-                                            <a href="#">{{ $category->name }}</a>
-                                        </li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        </section>
-
-
-                        {{-- <section class="widget widget_tag_cloud">
-                            <h3 class="widget-title">Tags</h3>
-                            <div class="post-wrap">
-                                <div class="tagcloud">
-                                    <a href="#">Digital Marketing</a>
-                                    <a href="#">Web Development</a>
-                                    <a href="#">Artificial Intelligence</a>
-                                    <a href="#">Robotics</a>
-                                    <a href="#">Electric vechile</a>
-                                    <a href="#">Crypto</a>
-                                </div>
-                            </div>
-                        </section> --}}
-
-                        {{-- <div class="follows-area widget">
-                            <ul>
-                                <li>
-                                    <a href="#" target="_blank">
-                                        Facebook <br>
-                                        <span>532k Like</span>
-                                        <i class="bx bxl-facebook"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" target="_blank">
-                                        Twitter <br>
-                                        <span>500k Followers</span>
-                                        <i class="bx bxl-twitter"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" target="_blank">
-                                        Instagram <br>
-                                        <span>504k Followers</span>
-                                        <i class="bx bxl-instagram"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" target="_blank">
-                                        YouTube <br>
-                                        <span>502k Subscribe</span>
-                                        <i class="bx bxl-youtube"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div> --}}
-                    </aside>
-                </div>
             </div>
         </div>
-    </section>
-    <!-- End Blog Details Area -->
+        <!-- breadcrumb-area-end -->
+
+        <!-- blog-details-area -->
+        <section class="blog-details-area pt-60 pb-60">
+            <div class="container">
+                <div class="author-inner-wrap">
+                    <div class="row justify-content-center">
+                        <div class="col-70">
+                            <div class="blog-details-wrap">
+                                <div class="blog-details-content">
+                                    <div class="blog-details-content-top">
+                                        <a href="{{ route('category', ['category_slug' => $post->category_slug]) }}" class="post-tag">{{ $post->category_slug }}</a>
+                                        <h2 class="title">{{ $post->title }}</h2>
+                                        <div class="bd-content-inner">
+                                            <div class="blog-post-meta">
+                                                <ul class="list-wrap">
+                                                    <li><i class="flaticon-user"></i>by<a href="author.html">Admin</a></li>
+                                                    <li><i
+                                                            class="flaticon-calendar"></i>{{ $post->created_at->format('d F, Y') }}
+                                                    </li>
+                                                    <li><i class="far fa-eye"></i> @livewire('post.post-view', ['postSlug' => request()->segment(1)])</li>
+                                                </ul>
+                                            </div>
+                                            <div class="blog-details-social">
+                                                <ul class="list-wrap">
+                                                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                                    <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="blog-details-thumb">
+                                        <img src="{{ env('APP_URL') . 'uploads/post/' . $post->filename }}"
+                                            alt="{{ $post->title }}" class="w-100 img-responsive" />
+                                    </div>
+                                    <p class="first-info">{!! $post->description !!}</p>
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-30">
+                            <div class="sidebar-wrap">
+
+                                <div class="sidebar-widget sidebar-widget-two">
+                                    <div class="widget-title mb-30">
+                                        <h6 class="title">Top Categories</h6>
+                                        <div class="section-title-line"></div>
+                                    </div>
+                                    <div class="sidebar-categories">
+                                        <ul class="list-wrap">
+                                            @foreach($categories as $category)
+                                            <li>
+                                                <a href="{{ route('category', ['category_slug' => $category->slug]) }}" data-background="{{ env('APP_URL') . 'uploads/project_cat/' . $category->image }}">
+                                                    <span class="post-tag post-tag-three">{{$category->name}}</span>
+                                                    <span class="right-arrow">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"
+                                                            fill="none">
+                                                            <path
+                                                                d="M1.72308 16L0 14.2769L11.8154 2.46154H1.23077V0H16V14.7692H13.5385V4.18462L1.72308 16Z"
+                                                                fill="currentcolor"></path>
+                                                            <path
+                                                                d="M1.72308 16L0 14.2769L11.8154 2.46154H1.23077V0H16V14.7692H13.5385V4.18462L1.72308 16Z"
+                                                                fill="currentcolor"></path>
+                                                        </svg>
+                                                    </span>
+                                                </a>
+                                            </li>
+                                          @endforeach
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="sidebar-widget sidebar-widget-two">
+                                    <div class="widget-title mb-30">
+                                        <h6 class="title">Recent Posts</h6>
+                                        <div class="section-title-line"></div>
+                                    </div>
+                                    <div class="hot-post-wrap">
+                                        @if (isset($recentFirstPost))
+                                        <div class="hot-post-item">
+                                            <div class="hot-post-thumb">
+                                                <a href="{{ route('post.show', ['post_slug' => $recentFirstPost->slug]) }}"><img src="{{ env('APP_URL') . 'uploads/post/' . $recentFirstPost->filename }}"
+                                                        alt=""></a>
+                                            </div>
+                                            <div class="hot-post-content">
+                                                <a href="{{ route('category', ['category_slug' => $recentFirstPost->category_slug]) }}" class="post-tag">{{ $recentFirstPost->category_slug }}</a>
+                                                <h4 class="post-title"><a href="{{ route('post.show', ['post_slug' => $recentFirstPost->slug]) }}">{{$recentFirstPost->title}}s</a></h4>
+                                                <div class="blog-post-meta">
+                                                    <ul class="list-wrap">
+                                                        <li><i class="flaticon-calendar"></i>{{ $recentFirstPost->created_at->format('d F, Y') }}</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        @endif
+                                        @if (isset($secondToForthPosts))
+                                        @foreach ($secondToForthPosts as $index => $post)
+                                            @if ($index < 2)
+                                        <div class="hot-post-item">
+                                            <div class="hot-post-content">
+                                                <a href="{{ route('category', ['category_slug' => $post->category_slug]) }}" class="post-tag">{{ $post->category_slug }}</a>
+                                                <h4 class="post-title"><a href="{{ route('post.show', ['post_slug' => $post->slug]) }}">{{ $post->title }}</a></h4>
+                                                <div class="blog-post-meta">
+                                                    <ul class="list-wrap">
+                                                        <li><i class="flaticon-calendar"></i>{{ $post->created_at->format('d F, Y') }}</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        @endif
+                                        @endforeach
+                                    @endif
+                                    </div>
+                                </div>
+                                {{-- <div class="sidebar-widget sidebar-widget-two">
+                                    <div class="sidebar-newsletter">
+                                        <div class="icon"><i class="flaticon-envelope"></i></div>
+                                        <h4 class="title">Daily Newsletter</h4>
+                                        <p>Get all the top stories from Blogs to keep track.</p>
+                                        <div class="sidebar-newsletter-form-two">
+                                            <form action="#">
+                                                <div class="form-grp">
+                                                    <input type="text" placeholder="Enter your e-mail">
+                                                    <button type="submit" class="btn">Subscribe Now</button>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input type="checkbox" class="form-check-input" id="checkbox">
+                                                    <label for="checkbox">I agree to the terms & conditions</label>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div> --}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- blog-details-area-end -->
+
+    </main>
+    <!-- main-area-end -->
 @endsection

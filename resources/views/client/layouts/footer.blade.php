@@ -1,110 +1,104 @@
- <!-- Start Footer Top Area -->
- <footer class="footer-top-area pt-100 pb-70">
-     <div class="container">
-         <div class="row">
-             <div class="col-lg-4 col-md-6">
-                 <div class="single-widget">
-                     <a href="index.html">
-                         {{-- <img src="assets/img/black-logo.png" alt="Image"> --}}
-                         <h3>Himalyan Buds</h3>
-                     </a>
-
-                     <p>Lorem ipsum dolor, sit amet earum consectetur adipisicing elit sit. Cupiditate rerum quidem
-                         fugiat sapiente! to quae perspiciatis.</p>
-
-                     <div class="social-area">
-                         <ul>
-                             <li>
-                                 <a href="#" target="_blank">
-                                     <i class="bx bxl-facebook"></i>
-                                 </a>
-                             </li>
-                             <li>
-                                 <a href="#" target="_blank">
-                                     <i class="bx bxl-twitter"></i>
-                                 </a>
-                             </li>
-                             <li>
-                                 <a href="#" target="_blank">
-                                     <i class="bx bxl-linkedin"></i>
-                                 </a>
-                             </li>
-                             <li>
-                                 <a href="#" target="_blank">
-                                     <i class="bx bxl-youtube"></i>
-                                 </a>
-                             </li>
-                             <li>
-                                 <a href="#" target="_blank">
-                                     <i class="bx bxl-instagram"></i>
-                                 </a>
-                             </li>
-                         </ul>
-                     </div>
-                 </div>
-             </div>
-
-
-
-             <div class="col-lg-4 col-md-6">
-                 <div class="single-widget">
-                     <h3>Featured</h3>
-                     <ul>
-                         @foreach ($posts as $index => $post)
-                             @if ($index < 4)
-                                 <li>
-                                     <a href="{{ route('post.show', ['post_slug' => $post->slug]) }}">
-                                         <i class="bx bx-chevrons-right"></i>
-                                         {{ $post->title }}
-                                     </a>
-                                 </li>
-                             @endif
-                         @endforeach
-                     </ul>
-                 </div>
-             </div>
-
-             <div class="col-lg-4 col-md-6">
-                 <div class="single-widget contact">
-                     <h3>Get In Touch</h3>
-
-                     <ul>
-                         <li>
-                             <i class="bx bx-phone-call"></i>
-                             <span>Hotline:</span>
-                             <a href="tel:+61-821-456">
-                                 +91-821-456
-                             </a>
-                         </li>
-
-                         <li>
-                             <i class="bx bx-envelope"></i>
-                             <span>Email:</span>
-                             <a href="">
-                                 <span class="">buds@himalyan.com</span>
-                             </a>
-                         </li>
-
-                         <li>
-                             <i class="bx bx-location-plus"></i>
-                             <span>Address:</span>
-                             Bhaktapur, sallahgahri
-                         </li>
-                     </ul>
-                 </div>
-             </div>
-         </div>
-     </div>
- </footer>
- <!-- End Footer Top Area -->
-
- <!-- Start Footer Bottom Area -->
- <footer class="footer-bottom-area">
-     <div class="container">
-         <div class="copy-right">
-             <p>Copyright <i class="bx bx-copyright"></i>2023 Himalyan Buds. Designed By<a
-                     href="https://outofboxdesign.com/" target="blank" class="ms-2">Outofbox Design</a></p>
-         </div>
-     </div>
- </footer>
- <!-- End Footer Bottom Area -->
+ <!-- footer-area -->
+ <footer>
+    <div class="footer-area">
+        <div class="footer-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-7">
+                        <div class="footer-widget">
+                            @if (isset($profile))
+                            <div class="fw-logo">
+                                <a href="{{route('home')}}">
+                                    <img src="{{ asset(env('APP_URL') . 'uploads/profile/' . $profile->image) }}"
+                                    alt="" class="img-responsive" />
+                                </a>
+                               
+                            </div>
+                            <div class="footer-content">
+                                <p>{{$profile->description}}</p>
+                            </div>
+                            @endif
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-5 col-sm-6">
+                        <div class="footer-widget">
+                            <h4 class="fw-title">Company</h4>
+                            <div class="footer-link-wrap">
+                                <ul class="list-wrap">
+                                    <li><a href="about.html">About Us</a></li>
+                                    <li><a href="contact.html">The Test Kitchen</a></li>
+                                    <li><a href="contact.html">Podcast</a></li>
+                                    <li><a href="contact.html">Events</a></li>
+                                    <li><a href="contact.html">Jobs</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <div class="footer-widget">
+                            <h4 class="fw-title">Get Help</h4>
+                            <div class="footer-link-wrap">
+                                <ul class="list-wrap">
+                                    <li><a href="contact.html">Contact & Faq</a></li>
+                                    <li><a href="contact.html">Oders & Returns</a></li>
+                                    <li><a href="contact.html">Gift Cards</a></li>
+                                    <li><a href="contact.html">Register</a></li>
+                                    <li><a href="contact.html">Catalog</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-sm-6">
+                        <div class="footer-widget">
+                            <h4 class="fw-title">Explore</h4>
+                            <div class="footer-link-wrap">
+                                <ul class="list-wrap">
+                                    <li><a href="contact.html">The Shop</a></li>
+                                    <li><a href="contact.html">Recipes</a></li>
+                                    <li><a href="contact.html">Food</a></li>
+                                    <li><a href="contact.html">Travel</a></li>
+                                    <li><a href="contact.html">Hotline</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-sm-6">
+                        <div class="footer-widget">
+                            <h4 class="fw-title">Follow us On</h4>
+                            <div class="footer-link-wrap">
+                                <ul class="list-wrap">
+                                    @if (isset($profile))
+                                    <li><a href="{{$profile->facebookLink}}"><i class="fab fa-facebook-f"></i></a></li>
+                                    <li><a href="{{$profile->twitterLink}}"><i class="fab fa-twitter"></i></a></li>
+                                    <li><a href="{{$profile->linkdinlink}}"><i class="fab fa-instagram"></i></a></li>
+                                    <li><a href="{{$profile->instalink}}"><i class="fab fa-linkedin-in"></i></a></li>
+                                    @endif
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="footer-bottom-menu">
+                            <ul class="list-wrap">
+                                <li><a href="contact.html">Privacy Policy & Terms</a></li>
+                                <li><a href="contact.html">Site Credits</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="copyright-text">
+                            <p>© 2023 All Rights Reserved</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- footer-area-end -->

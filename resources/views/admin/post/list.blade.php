@@ -22,11 +22,16 @@
                                 <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th>title</th>
-                                        <th>category</th>
-                                        <th>status</th>
-                                        <th>image</th>
-                                        <th>action</th>
+                                        <th>Title</th>
+                                        <th>Category</th>
+                                        <th>Slider</th>
+                                        <th>Top Sidebar</th>
+                                        <th>Editor's Choice</th>
+                                        <th>Trending Now</th>
+                                        <th>Weekly News</th>
+                                        <th>Image</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -36,11 +41,15 @@
                                                 <td>{{ $post->id }}</td>
                                                 <td>{{ $post->title }}</td>
                                                 <td>{{ $post->category_slug }}</td>
-                                                <td>{{ $post->status }}</td>
-
+                                                <td> {{ $post->slider ? 'Yes' : 'No' }}</td>
+                                                <td> {{ $post->topsidebar ? 'Yes' : 'No' }}</td>
+                                                <td> {{ $post->iseditor ? 'Yes' : 'No' }}</td>
+                                                <td> {{ $post->istrending ? 'Yes' : 'No' }}</td>
+                                                <td> {{ $post->weeklypost ? 'Yes' : 'No' }}</td>
                                                 <td><img src="{{ env('APP_URL') . 'uploads/post/' . $post->filename }}"
-                                                        alt="{{ $post->title }}" class="w-25 img-responsive" />
+                                                    alt="{{ $post->title }}" class="w-100 img-responsive" />
                                                 </td>
+                                                <td>{{ $post->status }}</td>
                                                 <td class="d-flex"><button class="btn btn-primary"><a class="text-white"
                                                             href="{{ route('admin.post.edit', ['id' => $post->id]) }}">Edit</a></button>
                                                     <form method="post"

@@ -178,6 +178,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Providers\CategoryServiceProvider::class,
         App\Providers\FooterServiceProvider::class,
+        App\Providers\ProfileServiceProvider::class,
       
 
     ],

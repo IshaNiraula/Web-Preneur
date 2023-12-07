@@ -1,191 +1,169 @@
-<div class="navbar-area navbar-area-two">
-     <div class="mobile-nav">
-         <a href="{{ route('home') }}" class="logo">
-             <img src="/logo.jpg" alt="Logo">
-         </a>
-     </div>
+<!-- header-area -->
+<header class="header-style-three">
+    <div id="header-fixed-height"></div>
+    <div class="header-top-wrap-two">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-4">
+                    <div class="header-top-left">
+                        <div class="offcanvas-toggle">
+                            <a href="javascript:void(0)" class="menu-tigger-two">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </a>
+                        </div>
+                        <div class="header-top-social">
+                            <ul class="list-wrap">
+                                @if (isset($profile))
+                                <li><a href="{{$profile->facebookLink}}"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="{{$profile->twitterLink}}"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="{{$profile->linkdinlink}}"><i class="fab fa-instagram"></i></a></li>
+                                <li><a href="{{$profile->instalink}}"><i class="fab fa-linkedin-in"></i></a></li>
+                                @endif
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="header-top-right">
+                        <div class="header-search-wrap header-search-wrap-two">
+                            <form action="#">
+                                <input type="text" placeholder="Search here . . .">
+                                <button type="submit"><i class="flaticon-search"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="sticky-header" class="menu-area menu-style-three">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="menu-wrap">
+                        <nav class="menu-nav">
+                            <div class="logo">
+                                @if (isset($profile))
+                                <a href="{{route('home')}}">
+                                    <img src="{{ asset(env('APP_URL') . 'uploads/profile/' . $profile->image) }}"
+                                    alt="" class="img-responsive" />
+                                </a>
+                                @endif
+                            </div>
+                            <div class="logo d-none">
+                                @if (isset($profile))
+                                <a href="{{route('home')}}">
+                                    <img src="{{ asset(env('APP_URL') . 'uploads/profile/' . $profile->image) }}"
+                                    alt="" class="img-responsive" />
+                                </a>
+                                @endif
+                            </div>
+                            <div class="navbar-wrap main-menu d-none d-lg-flex">
+                                <ul class="navigation">
+                                    <li class="active "><a href="{{route('home')}}" class="{{ Route::currentRouteName() === 'home' ? 'active' : '' }}">Home</a>
+                                    </li>
+                                    <li><a href="#" class="{{ Route::currentRouteName() === 'post' ? 'active' : '' }}">Post</a>
+                                    </li>
+                                    <li class="menu-item-has-children"><a class="{{ Route::currentRouteName() === 'category' ? 'active' : '' }}">Categories</a>
+                                        <ul class="sub-menu">
+                                            @foreach($categories as $category)
+                                            <li><a href="{{ route('category', ['category_slug' => $category->slug]) }}">{{$category->name}}</a></li>
+                                          @endforeach
+                                        </ul>
+                                    </li>
+                                    <li><a href="{{route('contact')}}" class="{{ Route::currentRouteName() === 'contact' ? 'active' : '' }}">Contact</a></li>
+                                </ul>
+                            </div>
+                           
+                            <div class="mobile-nav-toggler"><i class="fas fa-bars"></i></div>
+                        </nav>
+                    </div>
 
-     <div class="main-nav">
-         <nav class="navbar navbar-expand-md">
-             <div class="container-fluid">
-                 <a class="navbar-brand" href="{{ route('home') }}">
-                    <img src="/logo.jpg" alt="Logo">
-                 </a>
-                 <div class="collapse navbar-collapse mean-menu">
-                     <ul class="navbar-nav m-auto">
-                         @foreach ($categories as $category)
-                             <li class="nav-item">
-                                 <a href="{{ route('blog.category', ['slug' => $category->slug]) }}" class="nav-link">
-                                     {{ $category->name }}
-                                 </a>
-                             </li>
-                         @endforeach
-                     </ul>
-                     <!-- Start Other Option -->
-                     <div class="others-option">
-                         <div class="follow">
-                             <span>Follow</span>
-                             <i class="bx bx-chevron-down"></i>
+                    <!-- Mobile Menu  -->
+                    <div class="mobile-menu">
+                        <nav class="menu-box">
+                            <div class="close-btn"><i class="fas fa-times"></i></div>
+                            <div class="nav-logo">
+                                @if (isset($profile))
+                                <a href="{{route('home')}}">
+                                    <img src="{{ asset(env('APP_URL') . 'uploads/profile/' . $profile->image) }}"
+                                    alt="" class="img-responsive" />
+                                </a>
+                                @endif
+                            </div>
+                            <div class="nav-logo d-none">
+                                @if (isset($profile))
+                                <a href="{{route('home')}}">
+                                    <img src="{{ asset(env('APP_URL') . 'uploads/profile/' . $profile->image) }}"
+                                    alt="" class="img-responsive" />
+                                </a>
+                                @endif
+                            </div>
+                            <div class="mobile-search">
+                                <form action="#">
+                                    <input type="text" placeholder="Search here...">
+                                    <button><i class="flaticon-search"></i></button>
+                                </form>
+                            </div>
+                            <div class="menu-outer">
+                                <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
+                            </div>
+                            <div class="social-links">
+                                <ul class="clearfix list-wrap">
+                                    @if (isset($profile))
+                                    <li><a href="{{$profile->facebookLink}}"><i class="fab fa-facebook-f"></i></a></li>
+                                    <li><a href="{{$profile->twitterLink}}"><i class="fab fa-twitter"></i></a></li>
+                                    <li><a href="{{$profile->linkdinlink}}"><i class="fab fa-instagram"></i></a></li>
+                                    <li><a href="{{$profile->instalink}}"><i class="fab fa-linkedin-in"></i></a></li>
+                                    @endif
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+                    <div class="menu-backdrop"></div>
+                    <!-- End Mobile Menu -->
 
-                             <ul>
-                                 <li>
-                                     <a href="#" target="_blank">
-                                         <i class="bx bxl-facebook"></i>
-                                     </a>
-                                 </li>
-                                 <li>
-                                     <a href="#" target="_blank">
-                                         <i class="bx bxl-twitter"></i>
-                                     </a>
-                                 </li>
-                                 <li>
-                                     <a href="#" target="_blank">
-                                         <i class="bx bxl-instagram"></i>
-                                     </a>
-                                 </li>
-                                 <li>
-                                     <a href="#" target="_blank">
-                                         <i class="bx bxl-youtube"></i>
-                                     </a>
-                                 </li>
-                                 <li>
-                                     <a href="#" target="_blank">
-                                         <i class="bx bxl-linkedin"></i>
-                                     </a>
-                                 </li>
-                             </ul>
-                         </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-                         <div class="option-item">
-                             <i class="search-btn bx bx-search"></i>
-                             <i class="close-btn bx bx-x"></i>
-
-                             <div class="search-overlay search-popup">
-                                 <div class='search-box'>
-                                     <form class="search-form">
-                                         <input class="search-input" name="search" placeholder="Search"
-                                             type="text">
-
-                                         <button class="search-button" type="submit"><i
-                                                 class="bx bx-search"></i></button>
-                                     </form>
-                                 </div>
-                             </div>
-                         </div>
-                     </div>
-                     <!-- End Other Option -->
-                 </div>
-             </div>
-         </nav>
-     </div>
- </div>
- <!-- End Navbar Area -->
-
- <!-- Sidebar Modal Area -->
- {{-- <div class="sidebar-modal">
-     <div class="sidebar-modal-inner">
-         <div class="sidebar-about-area">
-             <div class="title">
-                 <h2>About Us</h2>
-                 <p>We believe brand interaction is key in communication. Real innovations and a positive customer
-                     experience are the heart of successful communication. No fake products and services. The customer
-                     is king, their lives and needs are the inspiration.</p>
-             </div>
-         </div>
-
-         <div class="sidebar-instagram-feed">
-             <h2>Blog</h2>
-
-             <ul>
-                 <li>
-                     <a href="post-style-one.html">
-                         <img src="assets/img/home-two/sidebar-img/1.jpg" alt="image">
-                     </a>
-                 </li>
-                 <li>
-                     <a href="post-style-one.html">
-                         <img src="assets/img/home-two/sidebar-img/2.jpg" alt="image">
-                     </a>
-                 </li>
-                 <li>
-                     <a href="post-style-one.html">
-                         <img src="assets/img/home-two/sidebar-img/3.jpg" alt="image">
-                     </a>
-                 </li>
-                 <li>
-                     <a href="post-style-one.html">
-                         <img src="assets/img/home-two/sidebar-img/4.jpg" alt="image">
-                     </a>
-                 </li>
-                 <li>
-                     <a href="post-style-one.html">
-                         <img src="assets/img/home-two/sidebar-img/5.jpg" alt="image">
-                     </a>
-                 </li>
-                 <li>
-                     <a href="post-style-one.html">
-                         <img src="assets/img/home-two/sidebar-img/6.jpg" alt="image">
-                     </a>
-                 </li>
-                 <li>
-                     <a href="post-style-one.html">
-                         <img src="assets/img/home-two/sidebar-img/7.jpg" alt="image">
-                     </a>
-                 </li>
-                 <li>
-                     <a href="post-style-one.html">
-                         <img src="assets/img/home-two/sidebar-img/8.jpg" alt="image">
-                     </a>
-                 </li>
-             </ul>
-         </div>
-
-         <div class="sidebar-contact-area">
-             <div class="contact-info">
-                 <div class="contact-info-content">
-                     <h2>
-                         <a href="tel:+61-821-456">+61-821-456</a>
-                         <span>OR</span>
-                         <a
-                             href="https://templates.envytheme.com/cdn-cgi/l/email-protection#bcd4d9d0d0d3fcc8ced5dfd992dfd3d1"><span
-                                 class="__cf_email__"
-                                 data-cfemail="a6cec3cacac9e6d2d4cfc5c388c5c9cb">[email&#160;protected]</span></a>
-                     </h2>
-
-                     <ul class="social">
-                         <li>
-                             <a href="#" target="_blank">
-                                 <i class="bx bxl-facebook"></i>
-                             </a>
-                         </li>
-                         <li>
-                             <a href="#" target="_blank">
-                                 <i class="bx bxl-twitter"></i>
-                             </a>
-                         </li>
-                         <li>
-                             <a href="#" target="_blank">
-                                 <i class="bx bxl-linkedin"></i>
-                             </a>
-                         </li>
-                         <li>
-                             <a href="#" target="_blank">
-                                 <i class="bx bxl-youtube"></i>
-                             </a>
-                         </li>
-                         <li>
-                             <a href="#" target="_blank">
-                                 <i class="bx bxl-instagram"></i>
-                             </a>
-                         </li>
-                     </ul>
-                 </div>
-             </div>
-         </div>
-
-         <span class="close-btn sidebar-modal-close-btn">
-             <i class="bx bx-x"></i>
-         </span>
-     </div>
- </div> --}}
- <!-- End Sidebar Modal Area -->
+    <!-- offCanvas-area -->
+    <div class="offCanvas-wrap">
+        <div class="offCanvas-body">
+            <div class="offCanvas-toggle">
+                <span></span>
+                <span></span>
+            </div>
+            @if(isset($profile))
+            <div class="offCanvas-content">
+                <div class="offCanvas-logo logo">
+                    <a href="{{route('home')}}" class="logo-dark"><img src="{{ asset(env('APP_URL') . 'uploads/profile/' . $profile->image) }}" alt="Logo"></a>
+                </div>
+                <p>{{$profile->description}}</p>
+            </div>
+            <div class="offCanvas-contact">
+                <h4 class="title">Get In Touch</h4>
+                <ul class="offCanvas-contact-list list-wrap">
+                    <li><i class="fas fa-envelope-open"></i><a href="mailto:{{$profile->email}}">{{$profile->email}}</a></li>
+                    <li><i class="fas fa-phone"></i>
+                        <a href="tel:{{ $profile->pri_number }}">{{ $profile->pri_number }}</a>|
+                        <a href="tel:{{ $profile->sec_number }}">{{ $profile->sec_number }}</a></li>
+                    <li><i class="fas fa-map-marker-alt"></i> {{ $profile->address }}</li>
+                </ul>
+                <ul class="offCanvas-social list-wrap">
+                    <li><a href="{{$profile->facebookLink}}"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="{{$profile->twitterLink}}"><i class="fab fa-twitter"></i></a></li>
+                    <li><a href="{{$profile->linkdinlink}}"><i class="fab fa-instagram"></i></a></li>
+                    <li><a href="{{$profile->instalink}}"><i class="fab fa-linkedin-in"></i></a></li>
+                </ul>
+            </div>
+            @endif
+        </div>
+    </div>
+    <div class="offCanvas-overlay"></div>
+    <!-- offCanvas-area-end -->
+</header>
+<!-- header-area-end -->

@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 use App\Models\Post;
+use App\Models\Profile;
 use Illuminate\Support\ServiceProvider;
 
 class FooterServiceProvider extends ServiceProvider
@@ -26,7 +27,7 @@ class FooterServiceProvider extends ServiceProvider
         view()->composer(
             'client.layouts.footer', 
             function ($view) {
-                $view->with(['posts'=> Post::all()]);
+                $view->with(['posts'=> Post::all(), 'profile' => Profile::get()->first(),]);
             }
         );
     }

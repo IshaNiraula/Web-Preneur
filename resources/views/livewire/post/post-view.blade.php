@@ -1,0 +1,3 @@
+
+ <div>Views: {{ $viewsCount }}</div>
+

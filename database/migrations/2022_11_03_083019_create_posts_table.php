@@ -17,9 +17,14 @@ class CreatePostsTable extends Migration
             $table->id();
             $table->string('title');
             $table->string('slug')->unique();
+            $table->longText('description');
             $table->string('category_slug');
             $table->string('status');
-            $table->longText('description');
+            $table->string('meta_title');
+            $table->longText('meta_description');
+            $table->longText('meta_keywords');
+            $table->boolean('slider')->nullable();
+            $table->boolean('topsidebar')->nullable();
             $table->string('filename');
             $table->integer('position');
             $table->timestamps();

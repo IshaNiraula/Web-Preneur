@@ -41,13 +41,14 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+       
         $request->validate([
             'title'=> 'required',
             'description'=> 'required',
             'category_slug'=> 'required',
             'status'=>'required',
         ]);
-
+      
         $slug = Str::slug($request->title,'-');
 
         if($request->hasfile('image')){
@@ -61,6 +62,11 @@ class PostController extends Controller
             $post->status = $request->status;
             $post->filename = $name;
             $post->position = $request->position;
+            $post->slider = $request->slider;
+            $post->topsidebar = $request->topsidebar;
+            $post->iseditor = $request->iseditor;
+            $post->istrending = $request->istrending;
+            $post->weeklypost = $request->weeklypost;
             $post->meta_title = $request->meta_title;
             $post->meta_description = $request->meta_description;
             $post->meta_keywords = $request->meta_keywords;
@@ -111,13 +117,13 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
+        
         $request->validate([
             'title'=> 'required',
             'description'=> 'required',
             'category_slug'=> 'required',
             'status'=>'required',
         ]);
-
         $slug = Str::slug($request->title,'-');
         if($request->hasfile('image')){
             $name = $request->file('image')->getClientOriginalName();
@@ -133,6 +139,11 @@ class PostController extends Controller
             $post->description = $request->description;
             $post->status = $request->status;
             $post->position = $request->position;
+            $post->slider = $request->slider;
+            $post->topsidebar = $request->topsidebar;
+            $post->iseditor = $request->iseditor;
+            $post->istrending = $request->istrending;
+            $post->weeklypost = $request->weeklypost;
             $post->filename = $name;
             $post->meta_title = $request->meta_title;
             $post->meta_description = $request->meta_description;
@@ -153,6 +164,11 @@ class PostController extends Controller
             $post->filename = $filename;
             $post->status = $request->status;
             $post->position = $request->position;
+            $post->slider = $request->slider;
+            $post->topsidebar = $request->topsidebar;
+            $post->iseditor = $request->iseditor;
+            $post->istrending = $request->istrending;
+            $post->weeklypost = $request->weeklypost;
             $post->meta_title = $request->meta_title;
             $post->meta_description = $request->meta_description;
             $post->meta_keywords = $request->meta_keywords;

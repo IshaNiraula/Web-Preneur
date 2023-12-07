@@ -59,7 +59,36 @@
                                 @enderror
                             </span>
                         </div>
-
+                        <div class="form-group">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="slider" name="slider" value="1" {{ $post->silder ? 'checked' : '' }}>
+                                <label class="custom-control-label" for="slider">Slider</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="topsidebar" name="topsidebar" value="1" {{ $post->topsidebar ? 'checked' : '' }}>
+                                <label class="custom-control-label" for="topsidebar">Top Side Bar</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="iseditor" name="iseditor" value="1" {{ $post->iseditor ? 'checked' : '' }}>
+                                <label class="custom-control-label" for="iseditor">Editor's Choice</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="istrending" name="istrending" value="1" {{ $post->istrending ? 'checked' : '' }}>
+                                <label class="custom-control-label" for="istrending">Trending Now</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="weeklypost" name="weeklypost" value="1" {{ $post->weeklypost ? 'checked' : '' }}>
+                                <label class="custom-control-label" for="weeklypost">Weekly Best News</label>
+                            </div>
+                        </div>
                         <div class="form-group">
                             <label for="exampleInputFile">File input</label>
                             <div class="input-group">
