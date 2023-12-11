@@ -4540,7 +4540,7 @@ label {
 }
 .weekly-post-item {
     display: flex;
-    gap: 4px;
+    gap: 15px;
     margin-bottom: 20px;
 }
 .weekly-post-thumb {
@@ -4616,7 +4616,6 @@ label {
 
 /* weekly-post-two */
 .weekly-post-item.weekly-post-two {
-    flex-direction: row-reverse;
     margin-bottom: 30px;
 }
 .sidebar-overlay-post {

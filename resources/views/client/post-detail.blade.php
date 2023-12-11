@@ -20,7 +20,7 @@
 @section('content')
     <!-- main-area -->
 
-
+    
     <main>
         <!-- breadcrumb-area -->
         <div class="breadcrumb-area">
