@@ -65,10 +65,10 @@
                                             </div>
                                             <div class="blog-details-social">
                                                 <ul class="list-wrap">
-                                                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                                                    <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                                                    <li><a href="https://www.facebook.com/sharer.php?u={{env('APP_URL') . 'post/' . $post->slug }}"><i class="fab fa-facebook-f"></i></a></li>
+                                                    <li><a href="https://www.twitter.com/sharer.php?u={{env('APP_URL') . 'post/' . $post->slug }}"><i class="fab fa-twitter"></i></a></li>
+                                                    <li><a href="https://www.instagram.com/sharer.php?u={{env('APP_URL') . 'post/' . $post->slug }}"><i class="fab fa-instagram"></i></a></li>
+                                                    <li><a href="https://www.linkdin.com/sharer.php?u={{env('APP_URL') . 'post/' . $post->slug }}"><i class="fab fa-linkedin-in"></i></a></li>
                                                 </ul>
                                             </div>
                                         </div>
