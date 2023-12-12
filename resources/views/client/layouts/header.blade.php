@@ -101,12 +101,7 @@
                                 </a>
                                 @endif
                             </div>
-                            <div class="mobile-search">
-                                <form action="#">
-                                    <input type="text" placeholder="Search here...">
-                                    <button><i class="flaticon-search"></i></button>
-                                </form>
-                            </div>
+                          
                             <div class="menu-outer">
                                 <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
                             </div>

@@ -449,7 +449,7 @@
                                    @if (isset($weeklypost))
                                        @foreach ($weeklypost as $index => $post)
                                            @if ($index < 4)
-                                               <div class="weekly-post-item weekly-post-two">
+                                               <div class="weekly-post-item weekly weekly-post-two">
                                                    <div class="weekly-post-thumb">
                                                        <a href="{{ route('post.show', ['post_slug' => $post->slug]) }}"><img
                                                                src="{{ env('APP_URL') . 'uploads/post/' . $post->filename }}"

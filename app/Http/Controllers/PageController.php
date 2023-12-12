@@ -25,7 +25,7 @@ class PageController extends Controller
         $posts = Post::orderBy('created_at', 'desc')->get();
         $recentFirstPost = Post::orderBy('created_at', 'asc')->first();
         $secondToForthPosts = Post::orderBy('created_at', 'asc')->skip(1)->take(4)->get();
-        $categories = PostCategory::orderBy('created_at', 'asc')->take(4)->get();
+        $categories = PostCategory::orderBy('created_at', 'asc')->take(5)->get();
         return view('client.index', compact('posts', 'slider', 'topsidebar', 'iseditor', 'istrending', 'recentFirstPost', 'secondToForthPosts', 'categories', 'sliders', 'weeklypost'));
     }
 
@@ -65,7 +65,7 @@ class PageController extends Controller
     {
         $recentFirstPost = Post::orderBy('created_at', 'asc')->first();
         $secondToForthPosts = Post::orderBy('created_at', 'asc')->skip(1)->take(4)->get();
-        $categories = PostCategory::orderBy('created_at', 'asc')->take(4)->get();
+        $categories = PostCategory::orderBy('created_at', 'asc')->take(5)->get();
         $posts = Post::orderBy("created_at", "desc")->where("category_slug", $category_slug)->paginate(4);
       
         return view('client.category-detail', compact('posts','categories','recentFirstPost','secondToForthPosts'));

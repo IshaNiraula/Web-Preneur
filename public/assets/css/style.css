@@ -4540,6 +4540,11 @@ label {
 }
 .weekly-post-item {
     display: flex;
+    gap: 4px;
+    margin-bottom: 20px;
+}
+.weekly-post-item.weekly {
+    display: flex;
     gap: 15px;
     margin-bottom: 20px;
 }
@@ -5698,7 +5703,7 @@ label {
     background: var(--tg-black);
 }
 .footer-top {
-    padding: 100px 0 60px;
+    padding: 100px 0 20px;
     position: relative;
     z-index: 1;
 }
@@ -6591,4 +6596,7 @@ label {
 }
 .contact-info-item a{
     color: #183354;
+}
+.fw-logo img {
+    width: 50%;
 }

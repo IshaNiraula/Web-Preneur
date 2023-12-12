@@ -51,12 +51,11 @@
             @yield('content')
         </div>
         @include('client.layouts.footer')
-        <!-- Start Go Top Area -->
-        <div class="go-top">
-            <i class='bx bx-chevrons-up'></i>
-            <i class='bx bx-chevrons-up'></i>
-        </div>
-        <!-- End Go Top Area -->
+       <!-- Scroll-top -->
+       <button class="scroll-top scroll-to-target" data-target="html">
+        <i class="fas fa-angle-up"></i>
+    </button>
+    <!-- Scroll-top-end-->
     </div>
 
     <!-- JS here -->
