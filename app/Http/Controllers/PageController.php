@@ -16,16 +16,16 @@ class PageController extends Controller
 {
     public function homePage()
     {
-        $slider = Post::where('slider', 1)->first();
-        $sliders = Post::where('slider', 1)->get();
-        $topsidebar = Post::where('topsidebar', 1)->get();
-        $iseditor = Post::where('iseditor', 1)->get();
-        $istrending = Post::where('istrending', 1)->get();
-        $weeklypost = Post::where('weeklypost', 1)->get();
+        $slider = Post::orderBy('created_at', 'desc')->where('slider', 1)->first();
+        $sliders = Post::orderBy('created_at', 'desc')->where('slider', 1)->get();
+        $topsidebar = Post::orderBy('created_at', 'desc')->where('topsidebar', 1)->get();
+        $iseditor = Post::orderBy('created_at', 'desc')->where('iseditor', 1)->get();
+        $istrending = Post::orderBy('created_at', 'desc')->where('istrending', 1)->get();
+        $weeklypost = Post::orderBy('created_at', 'desc')->where('weeklypost', 1)->get();
         $posts = Post::orderBy('created_at', 'desc')->get();
-        $recentFirstPost = Post::orderBy('created_at', 'asc')->first();
-        $secondToForthPosts = Post::orderBy('created_at', 'asc')->skip(1)->take(4)->get();
-        $categories = PostCategory::orderBy('created_at', 'asc')->take(5)->get();
+        $recentFirstPost = Post::orderBy('created_at', 'desc')->first();
+        $secondToForthPosts = Post::orderBy('created_at', 'desc')->skip(1)->take(4)->get();
+        $categories = PostCategory::orderBy('created_at', 'desc')->take(5)->get();
         return view('client.index', compact('posts', 'slider', 'topsidebar', 'iseditor', 'istrending', 'recentFirstPost', 'secondToForthPosts', 'categories', 'sliders', 'weeklypost'));
     }
 
